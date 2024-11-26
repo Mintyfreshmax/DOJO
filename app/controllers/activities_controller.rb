@@ -3,6 +3,9 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    if params[:query].present?
+      @activities = @activities.where("name ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    end
   end
 
   def show
