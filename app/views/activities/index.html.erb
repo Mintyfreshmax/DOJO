@@ -1,1 +1,14 @@
 <h1>Activities index 🥷</h1>
+<%= render 'shared/search_bar' %>
+<% if @activities.any? %>
+  <div class="activities-list">
+    <% @activities.each do |activity| %>
+      <div class="activity-item">
+        <h3><%= activity.name %></h3>
+        <p><%= activity.description %></p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No activities found matching your search.</p>
+<% end %>

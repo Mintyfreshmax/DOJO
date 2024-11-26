@@ -1,0 +1,6 @@
+<div class="search-bar">
+  <%= form_with url: root_path, method: :get, class: "d-flex", local: true do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for an activity..." %>
+    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
+</div>
