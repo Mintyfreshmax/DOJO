@@ -13,8 +13,8 @@
 }
 
 .activity-details {
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #fff;
+  color: #070707;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -30,13 +30,13 @@
   font-size: 1.5rem;
   font-weight: normal;
   margin-top: 10px;
-  color: #fff;
+  color: #070707;
 }
 
 .activity-address, .activity-time {
   font-size: 1rem;
   margin-top: 10px;
-  color: #fff;
+  color:#070707;
 }
 
 .rating-box {
@@ -44,7 +44,7 @@
   justify-content: space-between;
   margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #070707;
   padding: 10px;
   background-color: #f7f7f7;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -73,19 +73,19 @@
 .user-favorite {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #070707;
 }
 
 .reviews {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #34495e;
+  color: #070707;
 }
 
 .reviews-text {
   margin-top: 5px;
   font-size: 1rem;
-  color: #555;
+  color: #070707;
   text-decoration: underline;
 }
 
@@ -93,7 +93,7 @@
   margin-top: 30px;
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #070707;
 }
 
 .show-more {
@@ -123,7 +123,7 @@
   justify-content: space-between;
   margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid#070707;
   padding: 10px;
   background-color: #f7f7f7;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -146,12 +146,11 @@
   cursor: pointer;
 }
 
-body {
-  body {
+
+.body-activity {
     background-color: #fff;
     color: #333;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
   }
-}
