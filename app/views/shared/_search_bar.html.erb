@@ -1,6 +1,6 @@
-<div class="search-bar">
-  <%= form_with url: root_path, method: :get, class: "d-flex", local: true do %>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for an activity..." %>
-    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<div class="search-container">
+  <%= form_with url: root_path, method: :get, local: true do %>
+    <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "🔎      Your next activity..." %>
+    <%= submit_tag "Search", name: "", class: "search-button" %>
   <% end %>
 </div>
