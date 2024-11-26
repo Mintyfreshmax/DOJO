@@ -16,7 +16,7 @@ body.home-page {
 .badge {
   width: 375px;
   text-align: center;
-  padding-top: 175px;
+  padding-top: 63px;
   padding-bottom: 85px;
   padding-left: 40px;
   padding-right: 40px;
@@ -75,4 +75,34 @@ body.home-page {
   font-size: 0.7em;
   color: rgb(33, 31, 31);
   margin-top: 2px;
+}
+
+
+.search_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.search-input {
+  width: 90%;
+  padding: 18px 20px;
+  border-radius: 30px;
+  border: 1px solid white;
+  outline: none;
+  text-align: center;
+  margin-left: 19px;
+}
+
+.search-button {
+  margin-top: 20px;
+  padding: 6px 20px;
+  width: 110px;
+  background-color: #A7E6FF;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 35.5%;
 }
