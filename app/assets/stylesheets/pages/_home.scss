@@ -1,15 +1,38 @@
 // Specific CSS for your home-page
-body {
+body.home-page {
   background-color: rgb(0, 0, 0);
+  color: white;
 }
+
+.home-body {
+
+  text-align: center;
+  padding-top: 85px;
+  padding-bottom: 85px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.badge {
+  width: 375px;
+  text-align: center;
+  padding-top: 175px;
+  padding-bottom: 85px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+}
+
 
 .logo {
   color: white;
+  padding-left: 5px;
 }
 
 .navbuttons{
   display: flex;
   gap: 10px;
+  height: 45px;
 }
 .navbar {
   color: gray;
@@ -38,13 +61,18 @@ body {
   }
 
 .nav-item {
+  a {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
+}
 }
 
 .icon-text{
   font-size: 0.7em;
   color: rgb(33, 31, 31);
+  margin-top: 2px;
 }

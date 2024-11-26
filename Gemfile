@@ -1,8 +1,5 @@
 source "https://rubygems.org"
 
-#  Custom gems
-gem "devise"
-gem "faker"
 
 ruby "3.3.5"
 
@@ -48,11 +45,14 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+#  Custom gems
+gem "devise"
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
+gem "faker"
 
 group :development, :test do
   gem "dotenv-rails"
