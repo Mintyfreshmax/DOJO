@@ -1,17 +1,30 @@
-<div class="navtop" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
-  <div class="logo" style="display: flex; gap: 10px;">
-    <h1>DOJO</h1>
-  </div>
-  <div class="navbuttons">
-    <div class="login">
-    <%= link_to 'Login' %>
-    </div>
-    <div class="signup">
-    <%= link_to 'Sign up' %>
-    </div>
-  </div>
-</div>
+<% if user_signed_in? %>
+  <%= redirect_to activities_path %>
+<% else %>
+  <body class="home-page">
 
-<div class="home-body">
-
-</div>
+    <div class="navtop" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+      <div class="logo" style="display: flex; gap: 10px;">
+        <h1>DOJO</h1>
+      </div>
+      <div class="navbuttons">
+        <div class="login">
+          <%= link_to new_user_session_path do %>
+          <p>Login</p>
+          <% end %>
+        </div>
+        <div class="signup">
+          <%= link_to new_user_registration_path do %>
+          <p>Sign Up</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="home-body">
+    <h1>“Your Passport to Local Activities and Fitness On-the-Go.”</h1>
+    </div>
+    <div class='badge'>
+    <%= image_tag 'editors-choice-badge.png', width: 120 %>
+    </div>
+  </body>
+<% end %>
