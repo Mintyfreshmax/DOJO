@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 #  Custom gems
 gem "devise"
+gem "faker"
 
 ruby "3.3.5"
 
