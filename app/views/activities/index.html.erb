@@ -1,1 +1,14 @@
 <h1>Activities index 🥷</h1>
+<% @activities.each do |activity| %>
+  <ul>
+    <li><%= activity.title %></li>
+    <li><%= activity.description %></li>
+    <li><%= activity.category %></li>
+    <li><%= activity.address %></li>
+    <li><%= activity.teacher %></li>
+    <li><%= activity.limit %></li>
+    <li><%= activity.event_time %></li>
+    <li><%= activity.duration %></li>
+    <br>
+  </ul>
+<% end %>
