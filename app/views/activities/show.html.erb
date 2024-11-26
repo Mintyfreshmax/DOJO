@@ -1,1 +1,40 @@
 <h1>Activities show 🥷</h1>
+<div class="activity-image">
+  <%= image_tag 'man_boxing.png', alt: 'Boxing Lesson', class: 'activity-img' %>
+</div>
+
+
+<!-- Activity Details Section -->
+<div class="activity-details">
+  <h1 class="activity-title">Boxing lesson at the Glow after Pot Luck</h1>
+  <h2 class="activity-subtitle">Le Wagon Dojo</h2>
+
+  <!-- Address and Time -->
+  <p class="activity-address">Cantersteen 10, 1000 Bruxelles</p>
+  <p class="activity-time">Dec. 6, 2024 - 20:00 (duration: 1h30)</p>
+
+  <!-- Rating Section -->
+  <div class="rating-box">
+    <div class="rating-left">
+      <div class="stars">
+        <%= "*" * 4 %> <!-- This could dynamically generate 4 stars -->
+      </div>
+      <p class="rating-text">4 stars</p>
+    </div>
+    <div class="rating-middle">
+      <p class="user-favorite">User Favorite</p>
+    </div>
+    <div class="rating-right">
+      <p class="reviews">291</p>
+      <p class="reviews-text">Reviews</p>
+    </div>
+  </div>
+
+  <!-- Description Section -->
+  <p class="activity-description">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+  </p>
+
+  <!-- Show More Link -->
+  <a href="#" class="show-more">Show More</a>
+</div>
