@@ -1,12 +1,50 @@
 // Specific CSS for your home-page
-.navbottom {
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.logo {
+  color: white;
+}
+
+.navbuttons{
+  display: flex;
+  gap: 10px;
+}
+.navbar {
   color: gray;
 }
 
-.navbuttons {
-  color: rgb(33, 31, 31);
-  border: none;
+.navbuttons a {
+  text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
+  display: inline-block
+}
+
+.login {
+   a {
+    color: white
+   }
+  }
+
+  .signup {
+  background-color: #A7E6FF;
+  border-radius: 5px;
+
+   a{
+  color: black;
+   }
+  }
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-text{
+  font-size: 0.7em;
+  color: rgb(33, 31, 31);
 }
