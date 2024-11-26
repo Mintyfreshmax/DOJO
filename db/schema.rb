@@ -32,6 +32,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_26_104710) do
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.text "details"
+    t.string "address"
+    t.string "instagram_link"
+    t.string "phone_number"
+    t.string "IBAN"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
