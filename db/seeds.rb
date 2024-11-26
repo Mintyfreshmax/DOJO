@@ -2,8 +2,44 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+require 'faker'
+
+# Create 5 users
+5.times do
+  user = User.create(
+    username: Faker::Internet.username,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "123456"
+  )
+  p user
+
+  club = Club.create(
+    name: Faker::Company.name,
+    details: Faker::Lorem.paragraph(sentence_count: 3),
+    address: Faker::Address.full_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    instagram_link: Faker::Internet.url(host: 'instagram.com'),
+    IBAN: Faker::Bank.iban,
+    user: user
+  )
+
+# Each club has 5 activities
+  5.times do
+    club.activities.create!(
+      title: Faker::Hobby.activity,
+      description: Faker::Lorem.paragraph(sentence_count: 2),
+      teacher: Faker::Name.name,
+      category: %w[Workshop Class Event Seminar].sample,
+      address: Faker::Address.full_address,
+      limit: rand(10..50),
+      event_time: Faker::Time.forward(days: 30, period: :evening),
+      duration: rand(1..4)
+    )
+  end
+end
+
+puts "Seeded database with users, clubs, and activities!"
