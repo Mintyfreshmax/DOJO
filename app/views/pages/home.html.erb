@@ -1,3 +1,42 @@
+<div class="navtop" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+  <div style="display: flex; gap: 10px;">
+    <h1>DOJO</h1>
+  </div>
+  <div class="navbuttons">
+    <div>
+    <%= link_to 'Login' %>
+    </div>
+    <div>
+    <%= link_to 'Sign up' %>
+    </div>
+  </div>
+</div>
+
+
 <h1>Hello Pedro, welcome to Dojo! 💤</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= image_tag 'sleepingedro.jpg', alt: 'Photo of Pedro', width: 200; %>
+
+<div class="navbottom" style="display: flex; justify-content: space-between; gap: 10px; position: fixed; bottom: 0; width: 100%; background-color: white; padding: 10px;">
+  <div style="text-align: center">
+  <%= image_tag 'search.png', alt: 'search', width: 40 %>
+  <p>Search</p>
+  </div>
+  <div style="text-align: center">
+  <%= image_tag 'gym.png', alt: 'gym', width: 40 %>
+  <p>Gym</p>
+  </div>
+  <div style="text-align: center">
+  <%= image_tag 'community.png', alt: 'community', width: 40 %>
+  <p>Community</p>
+  </div>
+  <div style="text-align: center">
+  <%= image_tag 'message.png', alt: 'messages', width: 40 %>
+  <p>Messages</p>
+  </div>
+  <div style="text-align: center">
+  <%= image_tag 'user.png', alt: 'account', width: 40 %>
+  <p>Account</p>
+  </div>
+</div>
+</navbot>
