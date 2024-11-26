@@ -4,11 +4,17 @@
   <div class="activities-list">
     <% @activities.each do |activity| %>
       <div class="activity-item">
-        <h3><%= activity.name %></h3>
+        <h3><%= activity.title %></h3>
         <p><%= activity.description %></p>
+        <p><%= activity.category %></p>
+        <p><%= activity.address %></p>
+        <p><%= activity.teacher %></p>
+        <p><%= activity.limit %></p>
+        <p><%= activity.event_time %></p>
+        <p><%= activity.duration %></p>
+        <br>
       </div>
     <% end %>
   </div>
 <% else %>
   <p>No activities found matching your search.</p>
-<% end %>
