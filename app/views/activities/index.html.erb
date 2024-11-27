@@ -1,32 +1,45 @@
-<div class="container">
+<div class="container" data-controller="map-button">
 
-<div id="activities-index-search">
-  <%= render 'shared/search_bar' %>
-</div>
+  <div id="activities-index-search">
+    <%= render 'shared/search_bar' %>
+  </div>
 
   <% if @activities.any? %>
-    <div class="activities-list">
+    <div class="activities-list"
+         data-map-button-target="activities">
       <% @activities.each do |activity| %>
         <div class="activities-item">
           <%= link_to activity_path(activity) do %>
-              <div class="activities-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2020/05/uppercut-boxing-man.jpg?w=1180&quality=86&strip=all);">
-                <h2 class="activities-name"><strong><%= activity.title %></strong></h2>
-              </div>
-
-          <div class="activities-index-borders"></div>
-
-          <div class="activities-text">
-            <h4><strong><%= activity.club.name %></strong></h4>
-            <div class="activities-subtext">
-              <p><u><%= activity.address %></u></p>
-              <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= activity.duration %>h)</p>
+            <div class="activities-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2020/05/uppercut-boxing-man.jpg?w=1180&quality=86&strip=all);">
+              <h2 class="activities-name"><strong><%= activity.title %></strong></h2>
             </div>
-          </div>
+            <div class="activities-index-borders"></div>
+            <div class="activities-text">
+              <h4><strong><%= activity.club.name %></strong></h4>
+              <div class="activities-subtext">
+                <p><u><%= activity.address %></u></p>
+                <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= activity.duration %>h)</p>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <% end %>
       <% end %>
     </div>
   <% else %>
     <p>No activities found matching your search.</p>
   <% end %>
+
+  <button class="activities-map-button"
+          data-action="click->map-button#hide">
+    Map
+  </button>
+
+  <div class="activities-map d-none"
+       data-controller="map"
+       data-map-button-target="map"
+       data-map-target="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>

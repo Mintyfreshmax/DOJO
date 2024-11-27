@@ -6,6 +6,12 @@ class ActivitiesController < ApplicationController
     if params[:query].present?
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     end
+      @markers = @activities.geocoded.map do |activity|
+        {
+          lat: activity.latitude,
+          lng: activity.longitude
+        }
+      end
   end
 
   def show
