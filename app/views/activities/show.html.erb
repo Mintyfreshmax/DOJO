@@ -2,11 +2,14 @@
   <%= image_tag 'man_boxing.png', alt: 'Boxing Lesson', class: 'activity-img' %>
 </div>
 
-<div class= body-activity>
+<div class= "body-activity">
 <!-- Activity Details Section -->
 <div class="activity-details">
   <h1 class="activity-title">Boxing lesson at the Glow after Pot Luck</h1>
-  <h2 class="activity-subtitle">Le Wagon Dojo</h2>
+  <div class="activity-subtitle">
+    <%= link_to club_path do %>
+    <h2>Le Wagon Dojo</h2>
+    <% end %>
 
   <!-- Address and Time -->
   <p class="activity-address">Cantersteen 10, 1000 Bruxelles</p>
@@ -36,5 +39,6 @@
 
   <!-- Show More Link -->
   <a href="#" class="show-more">Show More</a>
+</div>
 </div>
 </div>
