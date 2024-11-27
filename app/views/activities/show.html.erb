@@ -17,21 +17,22 @@
 
   <!-- Rating Section -->
   <div class="rating-box">
-    <div class="rating-left">
-      <div class="stars">
-        <%= "*" * 4 %> <!-- This could dynamically generate 4 stars -->
-      </div>
-      <p class="rating-text">4 stars</p>
-    </div>
-    <div class="rating-middle">
-      <p class="user-favorite">User Favorite</p>
-    </div>
-    <div class="rating-right">
-      <p class="reviews">291</p>
-      <p class="reviews-text">Reviews</p>
+  <div class="rating-left">
+    <div class="rating-text">4.95 </div>
+    <div class="stars">
+      <%= "*" * 5 %> <!-- This could dynamically generate 4 stars -->
     </div>
   </div>
 
+  <div class="rating-middle">
+    <p class="user-favorite">User Favorite</p>
+  </div>
+
+  <div class="rating-right">
+    <p class="reviews">291</p>
+    <p class="reviews-text">Reviews</p>
+  </div>
+</div>
   <!-- Description Section -->
   <p class="activity-description">
     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -41,4 +42,18 @@
   <a href="#" class="show-more">Show More</a>
 </div>
 </div>
+
+<div class="navbottom" style="display: flex; justify-content: space-between; gap: 10px; position: fixed; bottom: 0; width: 100%; background-color: white; padding: 10px;">
+
+  <!-- Left side: Rating with stars -->
+  <div class="navleft" style="display: flex; align-items: center;">
+    <span class="star" style="color: #b3d9ff; font-size: 1.5rem;">&#9733;</span> <!-- Light Blue Star -->
+    <span class="rating-text" style="font-size: 1.2rem; margin-left: 5px;">4.95 (291)</span> <!-- Rating text -->
+  </div>
+
+  <!-- Right side: Attend button -->
+  <div class="navright">
+    <button class="attend-btn" style="background-color: #004271; border: none; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Attend</button>
+  </div>
+
 </div>

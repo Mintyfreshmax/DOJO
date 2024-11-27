@@ -10,7 +10,7 @@
 }
 
 .activity-img {
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
@@ -27,22 +27,22 @@
 }
 
 .activity-title {
-  font-size: 2.5rem;
   font-weight: bold;
-  margin-top: 20px;
+  font-size:27px
 }
 
 .activity-subtitle {
-  font-size: 1.5rem;
-  font-weight: normal;
+  font-size: 1.3rem;
+  font-weight: bold;
   margin-top: 10px;
-  color: #070707;
+  color: #444444;
 }
 
-.activity-address, .activity-time {
+.activity-address,
+.activity-time {
   font-size: 1rem;
   margin-top: 10px;
-  color:#070707;
+  color: #070707;
 }
 
 .rating-box {
@@ -50,9 +50,10 @@
   justify-content: space-between;
   margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid #070707;
+  align-items: center;
   padding: 10px;
   background-color: #f7f7f7;
+  border: 2px solid #b3d9ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -61,38 +62,62 @@
   box-shadow: 0 4px 8px rgba(73, 13, 252, 0.1);
 }
 
-.rating-left, .rating-middle, .rating-right {
-  flex: 1;
+.rating-left,
+.rating-middle,
+.rating-right {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 0 10px; /* Add horizontal padding for spacing */
+  flex: 1; /* Make each section equal width */
 }
 
 .stars {
-  color: #f39c12; /* Gold color for the stars */
-  font-size: 1.5rem;
+  color: #b3d9ff;
+  font-size: 2rem;
+  margin: -17px;
+  padding: 0;
+
 }
 
 .rating-text {
-  margin-top: 5px;
-  font-size: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: #070707;
+  margin-bottom: 10px;
 }
 
 .user-favorite {
-  font-size: 1.2rem;
+  font-size: 16px;
   font-weight: bold;
-  color: #070707;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .reviews {
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: bold;
-  color: #070707;
 }
 
 .reviews-text {
-  margin-top: 5px;
-  font-size: 1rem;
-  color: #070707;
-  text-decoration: underline;
+  font-size: 14px;
+  color: #666666;
+}
+
+.rating-middle {
+  border-right: 2px solid #b3d9ff;
+  border-left: 2px solid #b3d9ff;
+}
+
+.rating-left:last-child,
+.rating-middle:last-child {
+
+  border-right: none;
 }
 
 .activity-description {
@@ -115,48 +140,78 @@
   color: #2980b9;
 }
 
-.activity-image {
-  width: 100%;
-  height: 33vh;
-  background-color: #f0f0f0;
+.body-activity {
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.navbottom {
+  margin-top: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+}
+
+
+.navleft {
+  display: flex;
   align-items: center;
 }
 
-.rating-box {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  border-radius: 10px;
-  border: 1px solid#070707;
-  padding: 10px;
-  background-color: #f7f7f7;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.star {
+  color: #b3d9ff;
+  font-size: 1.5rem;
 }
 
-.activity-description {
-  margin-top: 30px;
-  font-size: 1rem;
-  line-height: 1.6;
+.rating-text {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  font-weight: bold;
   color: #333;
 }
 
 
-.show-more {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #3498db;
-  text-decoration: underline;
-  cursor: pointer;
+.navright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
+.attend-btn {
+  background-color: #b3d9ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
 
-.body-activity {
-    background-color: #fff;
-    color: #333;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+.attend-btn:hover {
+  background-color: #004271;
+}
