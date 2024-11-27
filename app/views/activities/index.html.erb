@@ -29,6 +29,7 @@
     <p>No activities found matching your search.</p>
   <% end %>
 
+
   <button class="activities-map-button"
           data-action="click->map-button#hide">
     Map
@@ -41,5 +42,7 @@
        data-map-markers-value="<%= @markers.to_json %>"
        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
+   <%= render "shared/navbar" %>
 
 </div>
