@@ -1,4 +1,5 @@
-<div class="container" data-controller="map-button">
+<div class="container"
+     data-controller="map-button">
 
   <div id="activities-index-search">
     <%= render 'shared/search_bar' %>
@@ -29,12 +30,6 @@
     <p>No activities found matching your search.</p>
   <% end %>
 
-
-  <button class="activities-map-button"
-          data-action="click->map-button#hide">
-    Map
-  </button>
-
   <div class="activities-map d-none"
        data-controller="map"
        data-map-button-target="map"
@@ -42,6 +37,13 @@
        data-map-markers-value="<%= @markers.to_json %>"
        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
+  <button class="map-button"
+          data-action="click->map-button#hide"
+          data-map-button-target="button">
+          Map
+  </button>
+
 
 </div>
 
