@@ -1,6 +1,7 @@
-.activity-item {
-  padding: 2vh;
-  margin-top: 2vh;
+.activities-item {
+  padding-left: 2vh;
+  padding-right: 2vh;
+  padding-bottom: 1vh;
 }
 
 .activities-image {
@@ -13,17 +14,31 @@
   align-items: flex-start
 }
 
-.activity-name {
+.activities-name {
   padding-left: 10px;
   padding-top: 10px;
   color: white;
 }
 
-.activity-text {
+.activities-text {
   padding-top: 10px;
+}
+
+.activities-subtext {
+  color: #404040;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+#activities-index-search {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.activities-index-borders {
+  margin-top: 1vh;
+  border-top: 1px solid #A7E6FF;
 }

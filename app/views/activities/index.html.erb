@@ -1,20 +1,26 @@
 <div class="container">
 
+<div id="activities-index-search">
   <%= render 'shared/search_bar' %>
+</div>
 
   <% if @activities.any? %>
     <div class="activities-list">
       <% @activities.each do |activity| %>
-        <div class="activity-item">
+        <div class="activities-item">
           <%= link_to activity_path(activity) do %>
               <div class="activities-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2020/05/uppercut-boxing-man.jpg?w=1180&quality=86&strip=all);">
-                <h2 class="activity-name"><strong><%= activity.title %></strong></h2>
+                <h2 class="activities-name"><strong><%= activity.title %></strong></h2>
               </div>
 
-          <div class="activity-text">
-            <h4><strong><%= activity.description %></strong></h4>
-            <p><u><%= activity.address %></u></p>
-            <p><%= activity.event_time %> (duration: <%= activity.duration %>h)</p>
+          <div class="activities-index-borders"></div>
+
+          <div class="activities-text">
+            <h4><strong><%= activity.club.name %></strong></h4>
+            <div class="activities-subtext">
+              <p><u><%= activity.address %></u></p>
+              <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= activity.duration %>h)</p>
+            </div>
           </div>
         </div>
         <% end %>
