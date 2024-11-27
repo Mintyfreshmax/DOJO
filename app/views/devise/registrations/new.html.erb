@@ -9,18 +9,34 @@
               <%= f.error_notification %>
 
               <div class="form-inputs">
-                <%= f.input :email,
-                            required: true,
-                            autofocus: true,
-                            input_html: { autocomplete: "email" }%>
-                <%= f.input :password,
-                            required: true,
-                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                            input_html: { autocomplete: "new-password" } %>
-                <%= f.input :password_confirmation,
-                            required: true,
-                            input_html: { autocomplete: "new-password" } %>
-              </div>
+                <%= f.input :first_name,
+                             required: true,
+                             input_html: { placeholder: "Your first name", class: "text" } %>
+
+                <%= f.input :last_name,
+                             required: true,
+                             input_html: { placeholder: "Your last name", class: "text" } %>
+
+
+                <%= f.input :username,
+                             required: true,
+                             input_html: { placeholder: "Choose a username", class: "text" } %>
+
+                 <%= f.input :email,
+                              required: true,
+                              autofocus: true,
+                              input_html: { autocomplete: "email", placeholder: "Your email address", class: "text" } %>
+
+                 <%= f.input :password,
+                              required: true,
+                              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                              input_html: { autocomplete: "new-password", placeholder: "Create a password", class: "text" } %>
+
+
+                 <%= f.input :password_confirmation,
+                              required: true,
+                              input_html: { autocomplete: "new-password", placeholder: "Confirm your password", class: "text" } %>
+             </div>
 
               <div class="form-actions">
                 <%= f.button :submit, "Sign up" %>

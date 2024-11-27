@@ -1,0 +1,21 @@
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-inputs input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-inputs label {
+  font-weight: bold;
+}
+
+
+input.text::placeholder {
+  color: rgba(155, 153, 153, 0.705);
+}
