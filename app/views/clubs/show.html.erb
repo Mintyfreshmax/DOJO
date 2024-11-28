@@ -9,15 +9,15 @@
   <div class="club-title">
     <h1>le wagon's dojo</h1>
   </div>
-    <div class="club-desc">
+    <div class="club-desc" data-controller="toggle-text">
       <p id="club-description">
         <%= truncate(@club.details, length: 100) %>
         <% if @club.details.length > 100 %>
-        <span id="more-text" style="display: none;"><%= @club.details[100..-1] %></span>
-        <button id="learn-more-btn" onclick="toggleText()">Learn More</button>
+          <span data-toggle-text-target="moreText" style="display: none;"><%= @club.details[100..-1] %></span>
+          <button data-toggle-text-target="button" data-action="click->toggle-text#toggle">Learn More</button>
         <% end %>
-        </p>
-    </div>
+      </p>
+   </div>
 
     <div class="more-info d-flex">
       <div class="social-links">

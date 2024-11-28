@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import "../functions/toggle_text";
 
 const application = Application.start()
 
