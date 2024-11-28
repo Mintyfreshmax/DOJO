@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'account/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,13 +6,11 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-  get '/account/dashboard', to: 'account#dashboard'
 
-  resource :account, only: :show do
-    resources :clubs, only: [:new, :create]
-  end
 
-  resources :clubs, only: :show do
+  get "/my_clubs", to: "clubs#my_clubs"
+
+  resources :clubs, only: [:show, :create, :new] do
     resources :activities, only: %i[new create]
   end
 

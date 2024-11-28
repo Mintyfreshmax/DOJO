@@ -11,4 +11,30 @@ class ClubsController < ApplicationController
       }
     end
   end
+
+  def new
+    @club = Club.new
+  end
+
+  def my_clubs
+    @clubs = current_user.clubs
+    @club = Club.new
+  end
+
+  def create
+    @club = current_user.clubs.build(club_params)
+    if @club.save
+      redirect_to my_clubs_path, notice: 'Club was successfully created.'
+    else
+      @user = current_user
+      @clubs = @user.clubs
+      render :show
+    end
+  end
+
+  private
+
+  def club_params
+    params.require(:club).permit(:name, :username, :image, :details, :address)
+  end
 end

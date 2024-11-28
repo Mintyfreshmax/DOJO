@@ -1,0 +1,20 @@
+<h2>Create a Club</h2>
+
+
+<%= simple_form_for @club do |f| %>
+  <div>
+    <%= f.input :name %>
+  </div>
+  <div>
+    <%= f.input :details %>
+  </div>
+  <div>
+    <%= f.input :image, as: :file %>
+  </div>
+  <div>
+    <%= f.button :submit, 'Create Club' %>
+  </div>
+<% end %>
+
+
+<%= render "shared/navbar" %>

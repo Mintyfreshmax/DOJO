@@ -1,0 +1,30 @@
+
+
+<div class='club-bodybag'>
+<h1 class='dash-title'>Dashboard</h1>
+<div class="club-info d-flex">
+  <div class='user-info'>
+    <p>Username: <%= current_user.username %> </p>
+    <p>Email: <%= current_user.email %></p>
+  </div>
+  <div class='create-club-button'>
+    <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+</div>
+
+<h2 class='dashclub-title'>Your Clubs</h2>
+<div class="club-container">
+<% @clubs.each do |club| %>
+  <div class='club-card'>
+      <% if club.image.attached? %>
+        <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
+      <% end %>
+    <h6><%= link_to club.name, club_path(club) %></h6>
+  </div>
+<% end %>
+</div>
+
+
+
+<%= render "shared/navbar" %>
