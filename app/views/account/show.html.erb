@@ -1,0 +1,24 @@
+<h1>Welcome to Your Account Dashboard</h1>
+<p>Name: <%= @user.name %> </p>
+<p>Email: <%= @user.email %></p>
+
+<h2>Your Clubs</h2>
+<% @clubs.each do |club| %>
+  <div>
+    <h3><%= link_to club.name, club_path(club) %></h3>
+    <p><%= club.details %></p>
+  </div>
+<% end %>
+
+<h2>Create a Club</h2>
+<%= simple_form_for @club, url: account_clubs_path, local: true do |f| %>
+  <div>
+    <%= f.input :name %>
+  </div>
+  <div>
+    <%= f.input :details %>
+  </div>
+  <div>
+    <%= f.button :submit, 'Create Club' %>
+  </div>
+<% end %>
