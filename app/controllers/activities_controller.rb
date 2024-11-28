@@ -3,12 +3,11 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
-
-    if params[:query].present?
-      @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
-    end
-
-    if params[:category].present?
+    if params[:activity].present?
+      @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:activity]}%", "%#{params[:activity]}%")
+    elsif params[:location].present?
+      @activities = @activities.near(params[:location], 100)
+    elsif params[:category].present?
       @activities = @activities.where("category ILIKE ?", "#{params[:category]}")
     end
 

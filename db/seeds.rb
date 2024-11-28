@@ -5,6 +5,9 @@
 # db/seeds.rb
 
 require 'faker'
+Activity.destroy_all
+Club.destroy_all
+User.destroy_all
 
 # Create 5 users
 5.times do
