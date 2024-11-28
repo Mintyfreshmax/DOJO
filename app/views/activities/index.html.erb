@@ -5,6 +5,41 @@
     <%= render 'shared/search_bar' %>
   </div>
 
+  <div id="index-categories">
+    <div class="category-item">
+      <%= image_tag "boxing.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Boxing</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "football.png", height: 50, width: 50, alt: "Boxing logo" %>
+     <strong><p>Football</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "yoga.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Yoga</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "tennis.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Racket</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "cardio.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Cardio</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "weight.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Weights</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "outdoor.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Outdoor</p></strong>
+    </div>
+    <div class="category-item">
+      <%= image_tag "water.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Water</p></strong>
+    </div>
+  </div>
+
   <% if @activities.any? %>
     <div id="activities-index">
     <%= render 'shared/activities' %>
