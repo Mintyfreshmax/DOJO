@@ -24,9 +24,16 @@
     <% end %>
   </div>
   <div class='nav-item'>
-    <%= link_to activities_path do %>
-      <%= image_tag 'user.png', alt: 'account', width: 30 %>
-      <span class='icon-text'>Account</span>
+    <% if user_signed_in? %>
+      <%= link_to activities_path do %>
+        <%= image_tag 'user.png', alt: 'account', width: 30 %>
+        <span class='icon-text'>Account</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag 'user.png', alt: 'login', width: 30 %>
+        <span class='icon-text'>Login</span>
+        <% end %>
     <% end %>
   </div>
 </div>
