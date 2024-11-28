@@ -6,6 +6,9 @@ class ActivitiesController < ApplicationController
     if params[:query].present?
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     end
+    if params[:category].present?
+      @activities = @activities.where("category ILIKE ?", "#{params[:category]}")
+    end
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
@@ -51,6 +54,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :teacher, :type, :address, :limit, :event_type, :duration)
+    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :limit, :event_type, :duration)
   end
 end
