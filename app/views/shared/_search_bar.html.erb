@@ -1,7 +1,11 @@
 
 <div class="search-container">
-  <%= form_with url: activities_path, method: :get, local: true do %>
-    <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "🔎   Your next activity..." %>
-    <%= submit_tag "Search", name: "", class: "search-button" %>
-  <% end %>
+  <%= form_with(url: activities_path, method: :get, class: 'd-flex') do %>
+  <div class="d-flex gap-3">
+    <%= text_field_tag :location, params[:location], class: 'form-control', placeholder: 'Enter your location' %>
+    <%= text_field_tag :activity, params[:activity], class: 'form-control', placeholder: 'Search for an activity' %>
+
+  </div>
+<% end %>
+
 </div>
