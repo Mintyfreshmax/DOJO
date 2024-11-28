@@ -1,0 +1,39 @@
+.form-control {
+  width: 90%;
+  padding: 10px;
+  border-radius: 15px !important;
+  border: 2px solid #006586;
+}
+
+
+#search-button {
+  display: none;
+  width: auto;
+  padding: 5px 15px;
+  font-size: 14px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+
+.home-page #search-button {
+  display: block;
+  background-color: lightblue;
+  color: #000000;
+  border: none;
+  width: 40%
+}
+
+
+.small-btn {
+  font-size: 14px;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+.search_picture{
+  width: 25px;
+  position: absolute;
+  left: 27px;
+  top: 353px;
+}

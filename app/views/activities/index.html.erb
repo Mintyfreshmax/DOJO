@@ -7,7 +7,7 @@
 
   <% if @activities.any? %>
     <div id="activities-index">
-    <%= render 'shared/activities' %>
+    <%= render 'shared/activities', activities: @activities%>
   </div>
   <% else %>
     <p>No activities found matching your search.</p>

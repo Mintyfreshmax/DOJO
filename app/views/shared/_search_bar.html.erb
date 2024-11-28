@@ -1,11 +1,7 @@
-
 <div class="search-container">
-  <%= form_with(url: activities_path, method: :get, class: 'd-flex') do %>
-  <div class="d-flex gap-3">
-    <%= text_field_tag :location, params[:location], class: 'form-control', placeholder: 'Enter your location' %>
-    <%= text_field_tag :activity, params[:activity], class: 'form-control', placeholder: 'Search for an activity' %>
-
-  </div>
-<% end %>
-
+  <%= form_with(url: activities_path, method: :get, class: 'd-flex flex-column align-items-center') do %>
+    <%= image_tag "search", class: "search_picture" %>
+    <%= text_field_tag :location, params[:location], class: 'form-control mb-2 rounded-3 margin 5px', placeholder: ' Enter your location' %>
+    <%= submit_tag "Search", name: "", id: "search-button", class: 'btn btn-primary small-btn' %>
+  <% end %>
 </div>

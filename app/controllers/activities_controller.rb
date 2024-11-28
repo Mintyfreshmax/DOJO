@@ -3,9 +3,13 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
-    if params[:query].present?
-      @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    if params[:activity].present?
+      @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:activity]}%", "%#{params[:activity]}%")
+    elsif params[:location].present?
+      @activities = @activities.near(params[:location], 100)
     end
+
+
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
