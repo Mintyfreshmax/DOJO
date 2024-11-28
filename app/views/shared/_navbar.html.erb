@@ -1,31 +1,58 @@
 <div class="navbar" style="display: flex; justify-content: space-between; position: fixed; bottom: 0; width: 100%; background-color: white; padding: 10px;">
+
+
   <div class='nav-item'>
     <%= link_to activities_path do %>
       <%= image_tag 'search.png', alt: 'search', width: 30 %>
       <span class='icon-text'>Search</span>
     <% end %>
   </div>
-  <div class='nav-item'>
-    <%= link_to activities_path do %>
-      <%= image_tag 'gym.png', alt: '', width: 30 %>
-      <span class='icon-text'>Activities</span>
-    <% end %>
-  </div>
-  <div class='nav-item'>
-    <%= link_to activities_path do %>
-      <%= image_tag 'community.png', alt: 'community', width: 30 %>
-      <span class='icon-text'>Community</span>
-    <% end %>
-  </div>
-  <div class='nav-item'>
-    <%= link_to activities_path do %>
-      <%= image_tag 'message.png', alt: 'messages', width: 30 %>
-      <span class='icon-text'>Messaging</span>
-    <% end %>
-  </div>
+
   <div class='nav-item'>
     <% if user_signed_in? %>
       <%= link_to activities_path do %>
+        <%= image_tag 'gym.png', alt: 'gym', width: 30 %>
+        <span class='icon-text'>Activities</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag 'gym.png', alt: 'gym', width: 30 %>
+        <span class='icon-text'>Activities</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='nav-item'>
+    <% if user_signed_in? %>
+      <%= link_to activities_path do %>
+        <%= image_tag 'community.png', alt: 'community', width: 30 %>
+        <span class='icon-text'>Community</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag 'community.png', alt: 'community', width: 30 %>
+        <span class='icon-text'>Community</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='nav-item'>
+    <% if user_signed_in? %>
+      <%= link_to activities_path do %>
+        <%= image_tag 'message.png', alt: 'messages', width: 30 %>
+        <span class='icon-text'>Messaging</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag 'message.png', alt: 'messages', width: 30 %>
+        <span class='icon-text'>Messaging</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='nav-item'>
+    <% if user_signed_in? %>
+      <%= link_to my_clubs_path do %>
         <%= image_tag 'user.png', alt: 'account', width: 30 %>
         <span class='icon-text'>Account</span>
       <% end %>
@@ -33,7 +60,7 @@
       <%= link_to new_user_session_path do %>
         <%= image_tag 'user.png', alt: 'login', width: 30 %>
         <span class='icon-text'>Login</span>
-        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

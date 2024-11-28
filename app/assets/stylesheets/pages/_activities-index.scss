@@ -87,3 +87,19 @@ a {
 a.mapboxgl-ctrl-logo.mapboxgl-compact {
   display: none;
 }
+
+#index-categories {
+  display: flex;
+  // margin: 20px auto;
+  padding: 5px;
+  max-width: 600px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.category-item {
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}

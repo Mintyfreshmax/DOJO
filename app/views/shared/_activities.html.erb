@@ -12,6 +12,7 @@
               <div class="activities-subtext">
                 <p><u><%= activity.address %></u></p>
                 <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= activity.duration %>h)</p>
+                <p>Category: <strong><%= activity.category %></strong></p>
               </div>
             </div>
           <% end %>

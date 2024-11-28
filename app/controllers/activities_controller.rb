@@ -7,8 +7,9 @@ class ActivitiesController < ApplicationController
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:activity]}%", "%#{params[:activity]}%")
     elsif params[:location].present?
       @activities = @activities.near(params[:location], 100)
+    elsif params[:category].present?
+      @activities = @activities.where("category ILIKE ?", "#{params[:category]}")
     end
-
 
     @markers = @activities.geocoded.map do |activity|
       {
@@ -17,6 +18,11 @@ class ActivitiesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {activity: activity}),
         marker_html: render_to_string(partial: "markers")
       }
+    end
+
+    respond_to do |format|
+      format.html # For full page loads
+      format.turbo_stream # For Turbo Stream updates
     end
   end
 
@@ -55,6 +61,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :teacher, :type, :address, :limit, :event_type, :duration)
+    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :limit, :event_type, :duration)
   end
 end

@@ -18,7 +18,6 @@ User.destroy_all
     email: Faker::Internet.email,
     password: "123456"
   )
-  p user
 
   club = Club.create(
     name: Faker::Company.name,
@@ -36,7 +35,7 @@ User.destroy_all
       title: Faker::Hobby.activity,
       description: Faker::Lorem.paragraph(sentence_count: 2),
       teacher: Faker::Name.name,
-      category: %w[Workshop Class Event Seminar].sample,
+      category: %w[Boxing Football Yoga Racket Cardio Weights Outdoor Water].sample,
       address: Faker::Address.full_address,
       limit: rand(10..50),
       event_time: Faker::Time.forward(days: 30, period: :evening),

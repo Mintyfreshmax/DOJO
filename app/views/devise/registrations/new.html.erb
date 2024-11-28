@@ -17,7 +17,6 @@
                              required: true,
                              input_html: { placeholder: "Your last name", class: "text" } %>
 
-
                 <%= f.input :username,
                              required: true,
                              input_html: { placeholder: "Choose a username", class: "text" } %>
@@ -31,7 +30,6 @@
                               required: true,
                               hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                               input_html: { autocomplete: "new-password", placeholder: "Create a password", class: "text" } %>
-
 
                  <%= f.input :password_confirmation,
                               required: true,
