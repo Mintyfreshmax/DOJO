@@ -3,12 +3,15 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+
     if params[:query].present?
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     end
+
     if params[:category].present?
       @activities = @activities.where("category ILIKE ?", "#{params[:category]}")
     end
+
     @markers = @activities.geocoded.map do |activity|
       {
         lat: activity.latitude,
@@ -16,6 +19,11 @@ class ActivitiesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {activity: activity}),
         marker_html: render_to_string(partial: "markers")
       }
+    end
+
+    respond_to do |format|
+      format.html # For full page loads
+      format.turbo_stream # For Turbo Stream updates
     end
   end
 
