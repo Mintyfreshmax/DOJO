@@ -40,8 +40,7 @@ a {
 }
 
 #activities-index-search {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
 }
 
 .activities-index-borders {
@@ -103,4 +102,14 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   text-align: center;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#index-search-and-categories {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: white;
+  margin: 0 auto;
+  display: block;
+  border-bottom: 1px solid #A7E6FF;
 }
