@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
+
   def index
     @activities = Activity.all
     if params[:activity].present?
@@ -17,13 +18,14 @@ class ActivitiesController < ApplicationController
         lat: activity.latitude,
         lng: activity.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {activity: activity}),
-        marker_html: render_to_string(partial: "markers")
+        marker_html: render_to_string(partial: "markers", locals: { activity: activity }),
+        path: activity_path(activity)
       }
     end
 
     respond_to do |format|
-      format.html # For full page loads
-      format.turbo_stream # For Turbo Stream updates
+      format.html
+      format.turbo_stream
     end
   end
 
@@ -62,6 +64,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :limit, :event_type, :duration)
+    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :limit, :event_type, :duration, :booking)
   end
 end

@@ -20,21 +20,21 @@ brussels_addresses = [
   "Atomium, Square de l'Atomium, 1020 Brussels, Belgium"
 ]
 
-# Relevant club and activity data
+# Club and activity data for each category
 club_data = [
-  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Evening Boxing Class"] },
-  { name: "Fit & Fun Yoga Studio", category: "Yoga", activities: ["Vinyasa Yoga Flow"] },
-  { name: "Brussels Football Academy", category: "Football", activities: ["Beginner Football Training"] },
-  { name: "Tennis Club Louise", category: "Racket", activities: ["Tennis for All Levels"] },
-  { name: "Cardio Boost Gym", category: "Cardio", activities: ["High-Intensity Cardio Blast"] },
-  { name: "Weights & Strength Center", category: "Weights", activities: ["Weightlifting Basics"] },
-  { name: "Brussels Outdoor Adventures", category: "Outdoor", activities: ["Weekend Hiking Group"] },
-  { name: "Aqua Sports Brussels", category: "Water", activities: ["Swimming for Beginners"] }
+  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Boxing Fundamentals", "Cardio Boxing Blast", "Advanced Sparring Techniques"] },
+  { name: "Fit & Fun Yoga Studio", category: "Yoga", activities: ["Morning Vinyasa Flow", "Hot Yoga Session", "Restorative Yoga"] },
+  { name: "Brussels Football Academy", category: "Football", activities: ["Youth Football Training", "Goalkeeper Training", "Adult 5-a-Side"] },
+  { name: "Tennis Club Louise", category: "Racket", activities: ["Beginner Tennis Lessons", "Intermediate Doubles", "Advanced Tennis Drills"] },
+  { name: "Cardio Boost Gym", category: "Cardio", activities: ["High-Intensity Interval Training", "Treadmill Endurance Challenge", "Spin Class Power Hour"] },
+  { name: "Weights & Strength Center", category: "Weights", activities: ["Strength Training Basics", "Powerlifting Workshop", "Functional Strength Training"] },
+  { name: "Brussels Outdoor Adventures", category: "Outdoor", activities: ["Weekend Hiking Group", "Nature Photography Walk", "Outdoor Bootcamp"] },
+  { name: "Aqua Sports Brussels", category: "Water", activities: ["Beginner Swimming Lessons", "Aqua Aerobics", "Water Polo Basics"] }
 ]
 
-# Create users
-
-5.times do
+# Ensure 1 user per club (8 users total)
+club_data.each do |club_info|
+  # Create a user
   user = User.create!(
     username: Faker::Internet.username,
     first_name: Faker::Name.first_name,
@@ -42,37 +42,33 @@ club_data = [
     email: Faker::Internet.email,
     password: "123456"
   )
-  p user
 
-  # Assign a club to each user
-  club_data.sample(1).each do |club_info|
-    club_address = brussels_addresses.sample
-    club = Club.create!(
-      name: club_info[:name],
-      details: Faker::Lorem.paragraph(sentence_count: 3),
-      address: club_address,
-      phone_number: Faker::PhoneNumber.phone_number,
-      instagram_link: Faker::Internet.url(host: 'instagram.com', path: "/#{club_info[:name].downcase.gsub(' ', '')}"),
-      IBAN: Faker::Bank.iban,
-      user: user
+  # Create the club
+  club_address = brussels_addresses.sample
+  club = Club.create!(
+    name: club_info[:name],
+    details: Faker::Lorem.paragraph(sentence_count: 3),
+    address: club_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    instagram_link: Faker::Internet.url(host: 'instagram.com', path: "/#{club_info[:name].downcase.gsub(' ', '')}"),
+    IBAN: Faker::Bank.iban,
+    user: user
+  )
 
+  # Create exactly 3 activities for each club
+  club_info[:activities].each do |activity_title|
+    Activity.create!(
+      title: activity_title,
+      description: Faker::Lorem.paragraph(sentence_count: 2),
+      teacher: Faker::Name.name,
+      category: club_info[:category],
+      address: brussels_addresses.sample,
+      limit: rand(10..30),
+      event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
+      duration: rand(1..3), # in hours
+      club: club
     )
-
-    # Create activities for the club
-    club_info[:activities].each do |activity_title|
-      Activity.create!(
-        title: activity_title,
-        description: Faker::Lorem.paragraph(sentence_count: 2),
-        teacher: Faker::Name.name,
-        category: club_info[:category],
-        address: brussels_addresses.sample,
-        limit: rand(10..30),
-        event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
-        duration: rand(1..3), # in hours
-        club: club
-      )
-    end
   end
 end
 
-puts "Seeded database with users, clubs, and correctly categorized activities based in Brussels!"
+puts "Seeded database with 8 clubs, 8 users, and 24 activities (3 per category) in Brussels!"

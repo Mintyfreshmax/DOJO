@@ -11,5 +11,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :clubs
+  has_many :bookings
   has_many :activities, through: :clubs
 end

@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+
   def show
     @club = Club.find(params[:id])
     @club.details = "This is a sample description for the club. It contains detailed information about the club's activities, events, and other relevant information that members might find useful. The description is long enough to test the 'Learn More' functionality, which will reveal the rest of the text when clicked."
@@ -34,6 +35,7 @@ class ClubsController < ApplicationController
   end
 
     def destroy
+      @club = Club.find(params[:id])
       @club.destroy
       redirect_to my_clubs_path, notice: 'Club was successfully deleted.'
     end
