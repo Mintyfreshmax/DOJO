@@ -3,5 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import MapButtonController from "./controllers/map_button.js"
-Stimulus.register("map-button", MapButtonController)

@@ -2,7 +2,7 @@
          data-map-button-target="activities">
       <% @activities.each do |activity| %>
         <div class="activities-item">
-          <%= link_to activity_path(activity) do %>
+          <%= link_to activity_path(activity), data: {turbo_frame: '_top'} do %>
             <div class="activities-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2020/05/uppercut-boxing-man.jpg?w=1180&quality=86&strip=all);">
               <h2 class="activities-name"><strong><%= activity.title %></strong></h2>
             </div>
