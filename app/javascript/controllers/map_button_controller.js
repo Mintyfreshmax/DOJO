@@ -1,7 +1,9 @@
-import { Controller } from '@hotwired/stimulus'
+import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="map-button"
 export default class extends Controller {
   static targets = ["activities", "map", "button"]
+
 
   hide(event) {
     this.activitiesTarget.classList.toggle("d-none")
