@@ -1,5 +1,5 @@
-<body>
 
+<body>
   <div id="index-search-and-categories"
       data-controller="map-button">
 
@@ -71,27 +71,7 @@
     <% else %>
       <p>No activities found matching your search.</p>
     <% end %>
-  <% end %>
 
-    <button class="map-button"
-            data-action="click->map-button#hide"
-            data-map-button-target="button">
-            Map
-    </button>
-
-  <%= turbo_frame_tag "activities_map" do %>
-    <div class="activities-map d-none"
-        data-controller="map"
-        data-map-button-target="map"
-        data-map-target="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-  <% end %>
-
-
-    <%= turbo_frame_tag "activities_map" do %>
       <div class="activities-map d-none"
           data-controller="map"
           data-map-button-target="map"
@@ -99,15 +79,16 @@
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <button class="map-button"
-              data-action="click->map-button#hide"
-              data-map-button-target="button">
-              Map
-      </button>
-    <% end %>
+
+    <button class="map-button"
+            data-action="click->map-button#hide"
+            data-map-button-target="button">
+            Map
+    </button>
+  <% end %>
 
   </div>
-
+  </div>
   <%= render "shared/navbar" %>
 
 </body>
