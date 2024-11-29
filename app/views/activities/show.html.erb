@@ -59,8 +59,13 @@
   </div>
 
   <!-- Right side: Attend button -->
-  <div class="navright">
-    <button class="attend-btn" style="background-color: #004271; border: none; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">Attend</button>
-  </div>
+    <div class="navright">
+      <% if user_signed_in? %>
+        <%= button_to "Attend", activity_bookings_path(@activity), method: :post, class: "attend-btn", style: "background-color: #004271; border: none; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "attend-btn", style: "background-color: #004271; border: none; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;" %>
+      <% end %>
+    </div>
 
+  </div>
 </div>
