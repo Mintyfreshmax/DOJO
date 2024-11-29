@@ -3,17 +3,19 @@ body {
 }
 
 .back-button {
-  position: sticky;
+  position: fixed;
   top: 16px;
   z-index: 10;
   margin-left: 8px;
 }
 
 .back-button-img {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   background-color: white;
   border-radius: 50%;
+  margin-top:-3px;
+  margin-left:1px;
 }
 
 
