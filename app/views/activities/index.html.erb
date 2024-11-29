@@ -1,92 +1,90 @@
 <body>
 
-<div class="container"
-     data-controller="map-button">
+  <div class="container"
+      data-controller="map-button">
 
-  <div id="activities-index-search">
-    <%= render 'shared/search_bar' %>
-  </div>
+    <div id="activities-index-search">
+      <%= render 'shared/search_bar' %>
+    </div>
 
-  <div id="index-categories">
-    <div class="category-item">
-      <%= link_to activities_path(category: "Boxing"), data: { turbo_frame: "activities_frame" } do %>
-      <%= image_tag "boxing.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Boxing</p></strong>
+    <div id="index-categories">
+      <div class="category-item">
+        <%= link_to activities_path(category: "Boxing"), data: { turbo_frame: "activities_frame" } do %>
+        <%= image_tag "boxing.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Boxing</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Football"), data: { turbo_frame: "activities_frame" } do %>
+        <%= image_tag "football.png", height: 50, width: 50, alt: "Boxing logo" %>
+      <strong><p>Football</p></strong>
       <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Yoga"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "yoga.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Yoga</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Racket"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "tennis.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Racket</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Cardio"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "cardio.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Cardio</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Weights"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "weight.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Weights</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Outdoor"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "outdoor.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Outdoor</p></strong>
+        <% end %>
+      </div>
+      <div class="category-item">
+        <%= link_to activities_path(category: "Water"), data: { turbo_frame: "activities_frame" }  do %>
+        <%= image_tag "water.png", height: 50, width: 50, alt: "Boxing logo" %>
+        <strong><p>Water</p></strong>
+        <% end %>
+      </div>
     </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Football"), data: { turbo_frame: "activities_frame" } do %>
-      <%= image_tag "football.png", height: 50, width: 50, alt: "Boxing logo" %>
-     <strong><p>Football</p></strong>
-     <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Yoga"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "yoga.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Yoga</p></strong>
-      <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Racket"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "tennis.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Racket</p></strong>
-      <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Cardio"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "cardio.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Cardio</p></strong>
-      <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Weights"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "weight.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Weights</p></strong>
-      <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Outdoor"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "outdoor.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Outdoor</p></strong>
-      <% end %>
-    </div>
-    <div class="category-item">
-      <%= link_to activities_path(category: "Water"), data: { turbo_frame: "activities_frame" }  do %>
-      <%= image_tag "water.png", height: 50, width: 50, alt: "Boxing logo" %>
-      <strong><p>Water</p></strong>
-      <% end %>
-    </div>
-  </div>
 
-  <%= turbo_frame_tag "activities_frame" do %>
-    <% if @activities.any? %>
-      <div id="activities-index">
-      <%= render 'shared/activities' %>
-    </div>
-    <% else %>
-      <p>No activities found matching your search.</p>
+    <%= turbo_frame_tag "activities_frame" do %>
+      <% if @activities.any? %>
+        <div id="activities-index">
+        <%= render 'shared/activities' %>
+      </div>
+      <% else %>
+        <p>No activities found matching your search.</p>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <%= turbo_frame_tag "activities_map" do %>
-    <div class="activities-map d-none"
-        data-controller="map"
-        data-map-button-target="map"
-        data-map-target="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <button class="map-button"
-            data-action="click->map-button#hide"
-            data-map-button-target="button">
-            Map
-    </button>
-  <% end %>
+    <%= turbo_frame_tag "activities_map" do %>
+      <div class="activities-map d-none"
+          data-controller="map"
+          data-map-button-target="map"
+          data-map-target="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <button class="map-button"
+              data-action="click->map-button#hide"
+              data-map-button-target="button">
+              Map
+      </button>
+    <% end %>
 
+  </div>
 
-
-</div>
-
-<%= render "shared/navbar" %>
+  <%= render "shared/navbar" %>
 
 </body>
