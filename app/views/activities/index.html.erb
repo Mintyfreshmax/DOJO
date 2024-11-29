@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <%= turbo_frame_tag "activities_frame" do %>
+  <%#= turbo_frame_tag "activities_frame" do %>
     <% if @activities.any? %>
       <div id="activities-index">
       <%= render 'shared/activities' %>
@@ -66,7 +66,7 @@
     <% else %>
       <p>No activities found matching your search.</p>
     <% end %>
-  <% end %>
+  <%# end %>
 
   <%= turbo_frame_tag "activities_map" do %>
     <div class="activities-map d-none"

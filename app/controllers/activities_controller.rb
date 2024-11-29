@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @activities = Activity.all
