@@ -1,11 +1,13 @@
 .club-bodybag {
   background-color: black;
+  padding-bottom: 25px;
 }
 
 .dash-title {
   text-align: center;
   padding-top: 20px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .dashclub-title {
@@ -13,10 +15,40 @@
   margin-top: 30px;
 }
 
+.club-image-container {
+  position: relative;
+}
+
 .club-image {
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
+    height:300px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+.clubs-name {
+  padding-left: 10px;
+  padding-top: 10px;
+  color: white;
+  position: relative;
+}
+
+.club-name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.club-name-link {
+  color: white;
+  text-decoration: none;
 }
 
 .user-info p {
@@ -30,6 +62,29 @@
 }
 
 .club-container {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
   margin-top: 30px;
+  margin-bottom: 95px;
+}
+
+.btn {
+  height:40px;
+  font-size:15px;
+  border-radius: 5px;
+}
+
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 14px;
 }

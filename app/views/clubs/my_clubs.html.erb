@@ -1,30 +1,33 @@
 
-
 <div class='club-bodybag'>
 <h1 class='dash-title'>Dashboard</h1>
-<div class="club-info d-flex">
-  <div class='user-info'>
-    <p>Username: <%= current_user.username %> </p>
-    <p>Email: <%= current_user.email %></p>
+  <div class="club-info d-flex">
+    <div class='user-info'>
+      <p>Username: <%= current_user.username %> </p>
+      <p>Email: <%= current_user.email %></p>
+    </div>
+    <div class='create-club-button'>
+      <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
+    </div>
   </div>
-  <div class='create-club-button'>
-    <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
-  </div>
-</div>
 </div>
 
 <h2 class='dashclub-title'>Your Clubs</h2>
 <div class="club-container">
-<% @clubs.each do |club| %>
-  <div class='club-card'>
+  <% @clubs.each do |club| %>
+    <div class='club-card'>
       <% if club.image.attached? %>
-        <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
+        <div class="club-image-container">
+          <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
+          <div class="club-name-overlay">
+            <h2 class="clubs-name"><%= link_to club.name, club_path(club), class: 'club-name-link' %></h2>
+          </div>
+          <%= link_to 'Delete', club_path(club), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'delete-button' %>
+        </div>
       <% end %>
-    <h6><%= link_to club.name, club_path(club) %></h6>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 </div>
-
 
 
 <%= render "shared/navbar" %>
