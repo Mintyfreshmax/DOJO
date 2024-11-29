@@ -17,13 +17,14 @@ class ActivitiesController < ApplicationController
         lat: activity.latitude,
         lng: activity.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {activity: activity}),
-        marker_html: render_to_string(partial: "markers")
+        marker_html: render_to_string(partial: "markers", locals: { activity: activity }),
+        path: activity_path(activity)
       }
     end
 
     respond_to do |format|
-      format.html # For full page loads
-      format.turbo_stream # For Turbo Stream updates
+      format.html
+      format.turbo_stream
     end
   end
 
