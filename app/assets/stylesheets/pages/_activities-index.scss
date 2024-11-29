@@ -2,6 +2,7 @@
   padding-left: 2vh;
   padding-right: 2vh;
   padding-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 
 .activities-image {
@@ -49,6 +50,7 @@ a {
 }
 
 .activities-map {
+  margin-top: 20px;
   height: 80vh;
   border-radius: 10px;
 }
@@ -68,10 +70,9 @@ a {
   padding-left: 4vh;
   border-radius: 30px;
   border: 1px solid white;
-  margin: 110px;
   position: sticky;
   bottom: 12vh;
-  z-index: 2;
+  z-index: 3;
   margin: 0 auto;
   display: block;
 }
