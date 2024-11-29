@@ -5,10 +5,13 @@
 # db/seeds.rb
 
 require 'faker'
+
+puts "Cleaning database...."
 Activity.destroy_all
 Club.destroy_all
 User.destroy_all
 
+puts " Creating users ....."
 # Create 5 users
 5.times do
   user = User.create(
@@ -18,6 +21,7 @@ User.destroy_all
     email: Faker::Internet.email,
     password: "123456"
   )
+  p user
 
   club = Club.create(
     name: Faker::Company.name,
@@ -28,6 +32,7 @@ User.destroy_all
     IBAN: Faker::Bank.iban,
     user: user
   )
+  p club
 
 # Each club has 5 activities
   5.times do

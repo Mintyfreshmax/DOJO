@@ -58,15 +58,22 @@
     </div>
   </div>
 
-  <%#= turbo_frame_tag "activities_frame" do %>
+  <%= turbo_frame_tag "activities_frame" do %>
+  <div data-controller="map-button">
     <% if @activities.any? %>
-      <div id="activities-index">
+      <div id="activities-index" data-map-button-target="activities">
       <%= render 'shared/activities' %>
     </div>
     <% else %>
       <p>No activities found matching your search.</p>
     <% end %>
-  <%# end %>
+  <% end %>
+    
+    <button class="map-button"
+            data-action="click->map-button#hide"
+            data-map-button-target="button">
+            Map
+    </button>
 
   <%= turbo_frame_tag "activities_map" do %>
     <div class="activities-map d-none"
@@ -76,11 +83,7 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <button class="map-button"
-            data-action="click->map-button#hide"
-            data-map-button-target="button">
-            Map
-    </button>
+  </div>
   <% end %>
 
 
