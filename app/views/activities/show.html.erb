@@ -9,18 +9,18 @@
 <div class= "body-activity">
 <!-- Activity Details Section -->
 <div class="activity-details">
-  <h1 class="activity-title">Boxing lesson at the Glow after Pot Luck</h1>
+  <h1 class="activity-title"><%= @activity.title %></h1>
   <div class="activity-subtitle">
     <%= link_to club_path(@activity.club) do %>
       <div class='dojo-title' style="display: flex; align-items: center; text-decoration: underline;">
-        <h2>Le Wagon Dojo</h2>
+        <h2><%= @activity.club.name %></h2>
         <i class="fa-solid fa-user-ninja" style='margin-left: 10px; margin-bottom: 15px;'></i>
        </div>
     <% end %>
 
   <!-- Address and Time -->
-  <p class="activity-address">Cantersteen 10, 1000 Bruxelles</p>
-  <p class="activity-time">Dec. 6, 2024 - 20:00 (duration: 1h30)</p>
+  <p class="activity-address"><%= @activity.address %></p>
+  <p class="activity-time"><%= @activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= @activity.duration %>h)</p>
 
   <!-- Rating Section -->
   <div class="rating-box">
