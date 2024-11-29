@@ -9,17 +9,13 @@
   </div>
 
   <div class='nav-item'>
-    <% if user_signed_in? %>
+    <%# if user_signed_in? %>
       <%= link_to activities_path do %>
         <%= image_tag 'gym.png', alt: 'gym', width: 30 %>
         <span class='icon-text'>Activities</span>
       <% end %>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-        <%= image_tag 'gym.png', alt: 'gym', width: 30 %>
-        <span class='icon-text'>Activities</span>
-      <% end %>
-    <% end %>
+    <%# else %>
+    <%# end %>
   </div>
 
   <div class='nav-item'>

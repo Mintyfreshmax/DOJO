@@ -1,6 +1,5 @@
 require 'faker'
 
-# Clear existing data
 Activity.destroy_all
 Club.destroy_all
 User.destroy_all
@@ -34,6 +33,7 @@ club_data = [
 ]
 
 # Create users
+
 5.times do
   user = User.create!(
     username: Faker::Internet.username,
@@ -42,6 +42,7 @@ club_data = [
     email: Faker::Internet.email,
     password: "123456"
   )
+  p user
 
   # Assign a club to each user
   club_data.sample(1).each do |club_info|
@@ -54,6 +55,7 @@ club_data = [
       instagram_link: Faker::Internet.url(host: 'instagram.com', path: "/#{club_info[:name].downcase.gsub(' ', '')}"),
       IBAN: Faker::Bank.iban,
       user: user
+
     )
 
     # Create activities for the club

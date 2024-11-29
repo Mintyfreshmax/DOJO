@@ -2,6 +2,9 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["moreText", "button"];
+  connect() {
+    console.log("coucou")
+  }
 
   toggle() {
     if (this.moreTextTarget.style.display === "none") {
