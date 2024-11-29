@@ -2,12 +2,12 @@
   <%=image_tag 'back-btn.png', alt: 'Back', class: 'back-button-img' %>
   <% end %>
 <div class="activity-image" style="position: relative;">
-  <%= image_tag 'lewagon.jpg', alt: 'le wagon school logo', class: 'club-img' %>
+  <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
 </div>
 
 <div class= "club-details">
   <div class="club-title">
-    <h1>le wagon's dojo</h1>
+    <h1><%= @club.name %> </h1>
   </div>
     <div class="club-desc" data-controller="toggle-text">
       <p id="club-description">
@@ -19,19 +19,19 @@
       </p>
    </div>
 
-    <div class="more-info d-flex">
+    <div class="more-info d-flex" style="justify-content: space-between;">
       <div class="social-links">
         <div class='location-tag'>
-          <i class="fa-solid fa-location-dot"></i>
-          <p class='club-icon-text'>Cantersteen 10, 1000 Bruxelles</p>
+          <i class="fa-solid fa-location-dot custom-icon"></i>
+          <p class='club-icon-text'><%= @club.address %></p>
         </div>
         <div class='instagram-tag'>
-          <i class="fa-brands fa-instagram"></i>
-          <span class='club-icon-text'>@lewagonbelgium</span>
+          <i class="fa-brands fa-instagram custom-icon"></i>
+          <p class='club-icon-text'><%= @club.instagram_link %></p>
         </div>
         <div class='phone-tag'>
-          <i class="fa-solid fa-phone"></i>
-          <span class='club-icon-text'>+32 4 78 566 980</span>
+          <i class="fa-solid fa-phone custom-icon"></i>
+          <p class='club-icon-text'><%= @club.phone_number %></p>
         </div>
       </div>
       <div class="map">

@@ -34,9 +34,19 @@ class ClubsController < ApplicationController
     end
   end
 
+    def destroy
+      @club = Club.find(params[:id])
+      @club.destroy
+      redirect_to my_clubs_path, notice: 'Club was successfully deleted.'
+    end
+
   private
 
+  def set_club
+    @club = Club.find(params[:id])
+  end
+
   def club_params
-    params.require(:club).permit(:name, :username, :image, :details, :address)
+    params.require(:club).permit(:name, :username, :image, :details, :address, :instagram_link, :phone_number, :IBAN)
   end
 end
