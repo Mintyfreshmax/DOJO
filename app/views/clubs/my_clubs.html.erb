@@ -8,27 +8,36 @@
       <p>Active Dojos: <%= @clubs.count %></p>
       <p>Revenue: $1082</p>
     </div>
-    <div class='create-club-button'>
-      <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
+    <div class='buttons-container'>
+      <div class='create-club-button'>
+        <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
+      </div>
+      <div class='logout-button'>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-secondary' %>
+      </div>
     </div>
   </div>
 </div>
 
-<h2 class='dashclub-title'>Your Dojos</h2>
+<h2 class='dashclub-title'><%= current_user.username %>'s Dojos</h2>
 <div class="club-container">
   <% @clubs.each do |club| %>
     <div class='club-card'>
-      <% if club.image.attached? %>
-        <div class="club-image-container">
-          <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
-          <div class="club-name-overlay">
-            <h2 class="clubs-name"><%= link_to club.name, club_path(club), class: 'club-name-link' %></h2>
-          </div>
           <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'delete-button' do %>
             <%= image_tag 'deletebtn.svg', alt: 'Delete', class: 'trashcan' %>
           <% end %>
-
+      <% if club.image.attached? %>
+        <div class="club-image-container">
+          <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
         </div>
+          <div class='club-info-container'>
+            <div class="club-name-overlay">
+              <h2 class="clubs-name"><%= link_to club.name, club_path(club), class: 'club-name-link' %></h2>
+            </div>
+            <div class='club-more-info'>
+              <p class="club-created-at">Created on: <%= club.created_at.strftime("%B %d, %Y") %></p>
+            </div>
+          </div>
       <% end %>
     </div>
   <% end %>
