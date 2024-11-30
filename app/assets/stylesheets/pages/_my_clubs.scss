@@ -1,8 +1,8 @@
 .club-bodybag {
   background-color: #A7E6FF;
   padding-bottom: 25px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: 183px;
 }
@@ -22,13 +22,15 @@
 .club-image-container {
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: solid #A7E6FF;
+  border-radius: 23px;
 
 }
 
 .club-image {
     height:300px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     object-fit: cover;
   }
 

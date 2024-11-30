@@ -6,6 +6,7 @@
       <p>Name: <%= current_user.first_name %> <%=current_user.last_name %></p>
       <p>Email: <%= current_user.email %></p>
       <p>Active Dojos: <%= @clubs.count %></p>
+      <p>Revenue: $1082</p>
     </div>
     <div class='create-club-button'>
       <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
