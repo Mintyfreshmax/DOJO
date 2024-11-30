@@ -1,10 +1,11 @@
 
 <div class='club-bodybag'>
-<h1 class='dash-title'>Dashboard</h1>
+<h1 class='dash-title'>Hi <%= current_user.username %> </h1>
   <div class="club-info d-flex">
     <div class='user-info'>
-      <p>Username: <%= current_user.username %> </p>
+      <p>Name: <%= current_user.first_name %> <%=current_user.last_name %></p>
       <p>Email: <%= current_user.email %></p>
+      <p>Active Dojos: <%= @clubs.count %></p>
     </div>
     <div class='create-club-button'>
       <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
@@ -12,7 +13,7 @@
   </div>
 </div>
 
-<h2 class='dashclub-title'>Your Clubs</h2>
+<h2 class='dashclub-title'>Your Dojos</h2>
 <div class="club-container">
   <% @clubs.each do |club| %>
     <div class='club-card'>
@@ -22,7 +23,10 @@
           <div class="club-name-overlay">
             <h2 class="clubs-name"><%= link_to club.name, club_path(club), class: 'club-name-link' %></h2>
           </div>
-          <%= link_to 'Delete', club_path(club), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'delete-button' %>
+          <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'delete-button' do %>
+            <%= image_tag 'deletebtn.svg', alt: 'Delete', class: 'trashcan' %>
+          <% end %>
+
         </div>
       <% end %>
     </div>
