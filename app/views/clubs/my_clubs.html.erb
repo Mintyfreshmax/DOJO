@@ -1,3 +1,7 @@
+<%= link_to request.referrer || root_path, class: 'back-button' do %>
+  <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
+  Go back
+  <% end %>
 
 <div class='club-bodybag'>
 <h1 class='dash-title'>Hi <%= current_user.username %> </h1>
@@ -13,7 +17,7 @@
         <%= link_to 'Create a Club', new_club_path, class: 'btn btn-primary' %>
       </div>
       <div class='logout-button'>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-secondary' %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
