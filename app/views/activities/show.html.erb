@@ -1,5 +1,6 @@
-<%= link_to activities_path, class: 'back-button' do %>
-  <%=image_tag 'back-btn.png', alt: 'Back', class: 'back-button-img' %>
+<%= link_to request.referrer || root_path, class: 'back-button' do %>
+  <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
+  Go back
   <% end %>
 
 <div class="activity-image">
