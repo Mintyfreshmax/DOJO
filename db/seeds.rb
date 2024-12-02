@@ -57,24 +57,6 @@ club_data.each do |club_info|
   )
 end
 
-  # Create exactly 3 activities for each club
-    # activity = Activity.new(
-    #   title: activity_title,
-    #   description: Faker::Lorem.paragraph(sentence_count: 2),
-    #   teacher: Faker::Name.name,
-    #   category: club_info[:category],
-    #   address: brussels_addresses.sample,
-    #   limit: rand(10..30),
-    #   event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
-    #   duration: rand(1..3), # in hours
-    #   club: club
-    # )
-
-
-    #  activity= Activity.new(title: ???, description: ???, teacher: ???, category: club_info[:category], address: brussels_addresses.sample, limit: rand(10..30), event_time: Faker::Time.forward(days: rand(1..30), period: :evening), duration: rand(1..3), club: club )
-    #  file = URI.parse(??????)
-    #  activity.image.attach(io: file, filename: "#{activity.title.parameterize}.jpg", content_type: "image/jpg")
-
 
     activity = Activity.new(
       title: "boxing",
@@ -85,7 +67,7 @@ end
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Boxing Club")
     )
     file = URI.parse("https://media.self.com/photos/587fb60739d082f57cdffb8a/4:3/w_1107,h_830,c_limit/first-boxing-class-boxer-situps.jpg").open
     activity.image.attach(io: file, filename: "evening-boxing-session.jpg", content_type: "image/jpg")
@@ -100,7 +82,7 @@ end
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Cardio Boost Gym")
     )
     file = URI.parse("https://thedanceacademylehi.com/wp-content/uploads/2022/12/dance-academy-lehi-utah-ballet-solo-1600-sm-b.jpg").open
     activity.image.attach(io: file, filename: "ballet-for-beginners.jpg", content_type: "image/jpg")
@@ -108,33 +90,33 @@ end
 
 
     activity = Activity.new(
-      title: "Vegan Cooking Class",
-      description: "Learn how to prepare healthy and delicious vegan dishes with ease.",
+      title: "Running Class",
+      description: "Join our incredible running team and be part of our active family.",
       teacher: "Paulina Reed",
-      category: "Cooking",
+      category: "Cardio",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Outdoor Adventures")
     )
-    file = URI.parse("https://thegoodnessproject.co.uk/content/blog/a10c9915-38e1-485a-bda0-0835466205ae.webp").open
-    activity.image.attach(io: file, filename: "vegan-cooking-class.jpg", content_type: "image/jpg")
+    file = URI.parse("https://www.visit.brussels/content/dam/visitbrussels/images/b2c/agenda/que-faire-bruxelles-selection-semaine/2022-09-27/Brussels%20Marathon.jpg").open
+    activity.image.attach(io: file, filename: "running-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Art Workshop",
-      description: "Unleash your creativity in this hands-on art workshop where you’ll learn new techniques.",
+      title: "Swimming classes",
+      description: "Come join our fun swimming classes where you’ll learn new techniques.",
       teacher: "Miguel Herrera",
-      category: "Art",
+      category: "Swimming",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Aqua Sports Brussels")
     )
-    file = URI.parse("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/53/50/b8/caption.jpg?w=500&h=400&s=1").open
-    activity.image.attach(io: file, filename: "art-workshop.jpg", content_type: "image/jpg")
+    file = URI.parse("https://www.clannlifefitnessashbourne.com/uploads/1/7/3/2/17322990/published/2.jpg?1634821999").open
+    activity.image.attach(io: file, filename: "swimming class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
@@ -146,55 +128,55 @@ end
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Weights & Strength Center")
     )
-    file = URI.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBehjUQwBmQTJXxSRX22eISfSKe96RkL7IVw&s").open
+    file = URI.parse("https://tunturi.org/Blogs/2021-08/bootcamp-full-body-workout.jpg").open
     activity.image.attach(io: file, filename: "fitness-bootcamp.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Jazz Music Jam",
-      description: "Come and jam with fellow jazz lovers in this laid-back music session.",
+      title: "Tennis Classes",
+      description: "Sign up for our handson Tennis Classes we provide for you.",
       teacher: "Liam Parker",
-      category: "Music",
+      category: "Tennis",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Tennis Club Louise")
     )
-    file = URI.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx1Dlx5NXOEoArZh3Mob7SZgLuJZUObHu7MQ&s").open
-    activity.image.attach(io: file, filename: "jazz-music-jam.jpg", content_type: "image/jpg")
+    file = URI.parse("https://images.squarespace-cdn.com/content/v1/5a97763275f9eeee0b6f77f0/31232322-d3b3-498f-89b5-481b08d2d4fc/Are+Private+Tennis+Lessons+Worth+It.jpg").open
+    activity.image.attach(io: file, filename: "tennis-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Theater Improv Night",
-      description: "Put your creativity to the test in an improv theater session.",
+      title: "Football Club",
+      description: "Put yourself to the test and join our Football Club.",
       teacher: "Tina Morgan",
-      category: "Theater",
+      category: "Football",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Football Academy")
     )
-    file = URI.parse("https://images.squarespace-cdn.com/content/v1/5f11c649b962926368405be6/1609067262349-31RV6W99M31KQ7I3MB3R/IMG_2569.jpg").open
-    activity.image.attach(io: file, filename: "theater-improv-night.jpg", content_type: "image/jpg")
+    file = URI.parse("https://cdn.prod.website-files.com/60c7be61132e3ad0b40a333d/64625e59c52a8cd1a52a3b05_TOCA%20Soccer%20Adult%20League%20Game.jpeg").open
+    activity.image.attach(io: file, filename: "Football-club.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Photography Basics",
-      description: "Learn the fundamentals of photography in this beginner-friendly course.",
+      title: "Aqua Gym",
+      description: "Learn the fundamentals of Aqua Gym in this beginner-friendly course.",
       teacher: "Rory Miller",
-      category: "Photography",
+      category: "Aqua Gym",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Aqua Sports Brussels")
     )
-    file = URI.parse("https://i.ytimg.com/vi/ujaCbzLwuB8/maxresdefault.jpg").open
-    activity.image.attach(io: file, filename: "photography-basics.jpg", content_type: "image/jpg")
+    file = URI.parse("https://www.brussels-gym.be/Images/animations/Aspria-Arts-Loi-Aquagym-new-1.jpg").open
+    activity.image.attach(io: file, filename: "aqua-gym.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
@@ -206,7 +188,7 @@ end
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :morning),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Fit & Fun Yoga Studio")
     )
     file = URI.parse("https://i.ytimg.com/vi/BZe4y0Lr-cY/maxresdefault.jpg").open
     activity.image.attach(io: file, filename: "morning-meditation.jpg", content_type: "image/jpg")
@@ -216,45 +198,45 @@ end
       title: "Salsa Dance Class",
       description: "Learn the basics of salsa dancing and enjoy the rhythm of Latin music.",
       teacher: "Carlos Diaz",
-      category: "Dance",
+      category: "Cardio",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Cardio Boost Gym")
     )
     file = URI.parse("https://www.bailasociety.com/wp-content/uploads/2017/09/ailey.jpg").open
     activity.image.attach(io: file, filename: "salsa-dance-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Bread Baking Class",
-      description: "Learn how to bake your own artisan bread from scratch.",
+      title: "Paddle Class",
+      description: "Join our Paddle Tennis Classes and imrpove your skills.",
       teacher: "David Cook",
-      category: "Cooking",
+      category: "Tennis",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club:Club.find_by(name: "Tennis Club Louise")
     )
-    file = URI.parse("https://static01.nyt.com/images/2014/04/23/dining/23BURNER1_SPAN/23BURNER1-superJumbo.jpg").open
-    activity.image.attach(io: file, filename: "bread-baking-class.jpg", content_type: "image/jpg")
+    file = URI.parse("https://parksports.co.uk/media/images/New-23-24-Update/_1200xAUTO_crop_center-center_none_ns/Park-Sports-Beginner-Padel-Courses.jpg").open
+    activity.image.attach(io: file, filename: "Paddle-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Watercolor Painting",
-      description: "Explore the world of watercolor painting and create your own masterpiece.",
+      title: "Hicking Group",
+      description: "Explore the world of hicking with us and join our community.",
       teacher: "Nina Williams",
-      category: "Art",
+      category: "Hicking",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Outdoor Adventures")
     )
-    file = URI.parse("https://i.ytimg.com/vi/VfVcG7FQWfI/sddefault.jpg").open
-    activity.image.attach(io: file, filename: "watercolor-painting.jpg", content_type: "image/jpg")
+    file = URI.parse("https://wildairsports.com/wp-content/uploads/2023/05/Best-hiking-clubs-in-South-Africa-5-1024x768.jpeg").open
+    activity.image.attach(io: file, filename: "hicking.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
@@ -266,55 +248,55 @@ end
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Cardio Boost Gym")
     )
     file = URI.parse("https://www.bodybuilding.com/images/2016/july/high-intensity-interval-training-the-ultimate-guide-tall-v2.jpg").open
-    activity.image.attach(io: file, filename: "hiit-training.jpg", content_type: "image/jpg")
+    activity.image.attach(io: file, filename: "hit-training.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Classical Guitar Lessons",
-      description: "Learn to play the guitar with this classical guitar course for beginners.",
+      title: "Kickboxing Classes",
+      description: "take your next adventure by joining our Kickboxing classes.",
       teacher: "Sophia Reynolds",
-      category: "Music",
+      category: "Kickboxing",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Boxing Club")
     )
-    file = URI.parse("https://allaboutguitar.co.uk/wp-content/uploads/2024/06/Graded-guitar-lessons-in-Bristol.jpg").open
-    activity.image.attach(io: file, filename: "classical-guitar-lessons.jpg", content_type: "image/jpg")
+    file = URI.parse("https://www.verywellfit.com/thmb/JRbC4rCTjzvrGv2zB48icKoGAmY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-970126044-57483916cfa3404baca5727476c4988d.jpg").open
+    activity.image.attach(io: file, filename: "kickboxing-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Shakespearean Play Reading",
-      description: "Join us for a night of dramatic readings from Shakespeare’s most famous plays.",
-      teacher: "Olivia White",
-      category: "Theater",
+      title: "Goalkeeper Training",
+      description: "Learn nex skills to improve as a Goalkeeper by joining our training.",
+      teacher: "Oliver White",
+      category: "Football",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Brussels Football Academy")
     )
-    file = URI.parse("https://wp.technologyreview.com/wp-content/uploads/2019/11/ap03071804998-8.jpg").open
-    activity.image.attach(io: file, filename: "shakespearean-play-reading.jpg", content_type: "image/jpg")
+    file = URI.parse("https://soccercampsinternational.com/wp-content/uploads/2024/09/Goalkeeper-SQ.jpg").open
+    activity.image.attach(io: file, filename: "gozlkeeper-training.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
-      title: "Landscape Photography",
-      description: "Capture stunning landscapes with tips and techniques in this photography workshop.",
+      title: "Hot Yoga Session",
+      description: "Join our Hot Yoga Session for an intense but gratifying workout.",
       teacher: "Emily Harris",
-      category: "Photography",
+      category: "Yoga",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
-      club: Club.all.sample
+      club: Club.find_by(name: "Fit & Fun Yoga Studio")
     )
-    file = URI.parse("https://lernvonben.de/cdn/shop/files/Landscape-Photography-for-Beginners-3_1x1_496e6b41-0ab2-4f77-80cc-453bec9b59a4.jpg?v=1724240442").open
-    activity.image.attach(io: file, filename: "landscape-photography.jpg", content_type: "image/jpg")
+    file = URI.parse("https://images.squarespace-cdn.com/content/v1/5da72e00195c19564c5d2900/ac901263-7928-4e2b-90dd-8579346ce970/IMG_2681.jpg").open
+    activity.image.attach(io: file, filename: "hot-yoga.jpg", content_type: "image/jpg")
 
     activity.save
 
