@@ -39,8 +39,9 @@
           <p class='club-icon-text'><%= @club.phone_number %></p>
         </div>
       </div>
-      <div class="map">
-        <%= image_tag "mapsss.png", class: 'maps' %>
+      <div class="map-container">
+        <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
 </div>

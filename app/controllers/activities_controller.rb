@@ -30,6 +30,12 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+    @markers = [{
+      lng: @activity.longitude,
+      lat: @activity.latitude,
+      marker_html: render_to_string(partial: "activities/markers")
+    }]
   end
 
   def new
