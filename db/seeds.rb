@@ -61,7 +61,7 @@ end
 
     activity = Activity.new(
       title: "boxing",
-      description: "An exciting boxing class just for you.",
+      description: "Join us for an energizing boxing class that will challenge your limits, improve your strength, and boost your confidence. Whether you're a beginner or experienced, our expert instructor will guide you through every punch, jab, and combo. Expect a dynamic mix of cardio, technique, and strength training, all while having fun and pushing yourself to new heights.",
       teacher: "Sarah Thompson",
       category: "Boxing",
       address: brussels_addresses.sample,
@@ -76,7 +76,7 @@ end
 
     activity = Activity.new(
       title: "Ballet for Beginners",
-      description: "Join us for a gentle introduction to ballet techniques and positions.",
+      description: "Step into the world of ballet with this welcoming and supportive class designed for beginners. Learn the foundational techniques, graceful positions, and basic movements in a calm, encouraging environment. Our experienced instructor, Julia King, will guide you through each step, helping you build strength, flexibility, and poise. Whether you're looking to improve posture, increase flexibility, or simply try something new, this class is the perfect introduction to the beauty of ballet.",
       teacher: "Julia King",
       category: "Cardio",
       address: brussels_addresses.sample,
@@ -92,7 +92,12 @@ end
 
     activity = Activity.new(
       title: "Running Class",
-      description: "Join our incredible running team and be part of our active family.",
+      description: "Lace up your shoes and join our dynamic running class, where fitness meets fun! Whether you're just starting out or looking to improve your endurance, this class is perfect for runners of all levels. Led by experienced coach Paulina Reed, you'll be part of a supportive and motivating team that will push you to reach new personal bests. Each session includes guided warm-ups, technique tips, and group runs, all set against the beautiful outdoors of Brussels. Get ready to challenge yourself, meet new friends, and experience the thrill of running in nature.",
+      teacher: "Paulina Reed",
+      category: "Outdoor",
+      address: brussels_addresses.sample,
+      limit: rand(10..30),
+      event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       teacher: "Paulina Reed",
       category: "Outdoor",
       address: brussels_addresses.sample,
@@ -107,7 +112,7 @@ end
 
     activity = Activity.new(
       title: "Swimming classes",
-      description: "Come join our fun swimming classes where you’ll learn new techniques.",
+      description: "Dive into a fun and invigorating experience with our swimming classes! Whether you're a beginner or looking to refine your technique, our expert instructor, Miguel Herrera, will guide you every stroke of the way. Improve your swimming skills, build confidence in the water, and learn essential techniques in a supportive and enjoyable environment. From mastering the basics to improving endurance and speed, each class is tailored to help you progress at your own pace. Join us and experience the joy of swimming while getting a full-body workout and building lifelong skills.",
       teacher: "Miguel Herrera",
       category: "Water",
       address: brussels_addresses.sample,
@@ -122,7 +127,7 @@ end
 
     activity = Activity.new(
       title: "Fitness Bootcamp",
-      description: "Get fit and stay motivated with this intense fitness bootcamp session.",
+      description: "Get ready to push your limits and transform your body with our high-energy Fitness Bootcamp! Led by the experienced Jordan Price, this session is designed to challenge you through a series of intense, full-body exercises that build strength, endurance, and agility. Whether you're aiming to lose weight, build muscle, or just get fitter, this bootcamp will keep you motivated and help you achieve your fitness goals. Expect a mix of cardio, strength training, and functional exercises in a supportive group environment. Don't just train—train with purpose and see results!",
       teacher: "Jordan Price",
       category: "Cardio",
       address: brussels_addresses.sample,
@@ -137,7 +142,7 @@ end
 
     activity = Activity.new(
       title: "Tennis Classes",
-      description: "Sign up for our handson Tennis Classes we provide for you.",
+      description: "Step onto the court and improve your game with our hands-on tennis classes! Whether you're picking up a racket for the first time or looking to refine your technique, our expert instructor, Liam Parker, will guide you through every serve, forehand, and backhand. In these classes, you'll focus on key skills such as footwork, ball control, and strategy, while building your fitness and confidence on the court. Join us at Tennis Club Louise for a fun, dynamic, and rewarding tennis experience where every level of player is welcome.",
       teacher: "Liam Parker",
       category: "Racket",
       address: brussels_addresses.sample,
@@ -152,7 +157,7 @@ end
 
     activity = Activity.new(
       title: "Football Club",
-      description: "Put yourself to the test and join our Football Club.",
+      description: "Get in the game and challenge yourself by joining our Football Club! Whether you're a seasoned player or just starting out, our coach Tina Morgan will help you sharpen your skills and take your game to the next level. In each session, you'll focus on key aspects of football, including dribbling, passing, shooting, and teamwork, while engaging in high-intensity drills and friendly matches. This is the perfect opportunity to improve your fitness, build your confidence on the field, and be part of a passionate football community. Come test your limits, make new friends, and enjoy the thrill of the beautiful game!",
       teacher: "Tina Morgan",
       category: "Football",
       address: brussels_addresses.sample,
@@ -167,7 +172,7 @@ end
 
     activity = Activity.new(
       title: "Aqua Gym",
-      description: "Learn the fundamentals of Aqua Gym in this beginner-friendly course.",
+      description: "Dive into fitness with our beginner-friendly Aqua Gym course! Led by instructor Rory Miller, this class combines the benefits of water resistance with fun, low-impact exercises to improve your strength, flexibility, and cardiovascular health. Aqua Gym is perfect for those looking to stay active without stressing their joints, making it an ideal choice for all fitness levels. Whether you're new to exercise or want to add variety to your routine, you'll enjoy a refreshing workout in a supportive environment. Join us at Aqua Sports Brussels for a unique, energizing experience that will leave you feeling revitalized!",
       teacher: "Rory Miller",
       category: "Water",
       address: brussels_addresses.sample,
@@ -182,7 +187,7 @@ end
 
     activity = Activity.new(
       title: "Morning Meditation",
-      description: "Start your day with mindfulness and inner peace in this meditation session.",
+      description: "Start your day with a sense of calm and clarity in our peaceful Morning Meditation session. Led by Emily Walker, this guided meditation will help you cultivate mindfulness, reduce stress, and center your mind before you begin your daily activities. Whether you're new to meditation or have practiced before, this class is designed to help you reconnect with your breath, embrace stillness, and find inner peace. Join us at Fit & Fun Yoga Studio for a rejuvenating morning experience that will set a positive tone for the rest of your day.",
       teacher: "Emily Walker",
       category: "Yoga",
       address: brussels_addresses.sample,
@@ -197,7 +202,7 @@ end
 
     activity = Activity.new(
       title: "Salsa Dance Class",
-      description: "Learn the basics of salsa dancing and enjoy the rhythm of Latin music.",
+      description: "Feel the rhythm, move to the beat, and learn the art of salsa dancing in this high-energy class! Led by Carlos Diaz, this session will introduce you to the fundamental steps and techniques of salsa, all set to the vibrant, infectious rhythms of Latin music. Whether you're a complete beginner or looking to refine your moves, this class is designed to get you dancing with confidence while having fun. Get ready to embrace the music, improve your fitness, and enjoy an exciting cardio workout in a lively and supportive environment. Join us at Cardio Boost Gym for a dance experience like no other!",
       teacher: "Carlos Diaz",
       category: "Cardio",
       address: brussels_addresses.sample,
@@ -212,7 +217,7 @@ end
 
     activity = Activity.new(
       title: "Paddle Class",
-      description: "Join our Paddle Tennis Classes and imrpove your skills.",
+      description: "Join our Paddle Tennis Classes and take your skills to the next level! Led by experienced coach David Cook, this class is perfect for beginners and intermediate players looking to refine their technique and strategy. Paddle tennis is a fun, fast-paced sport that combines elements of tennis and squash, and it's easier to pick up than you might think. Whether you're working on your serve, improving your footwork, or learning the rules of the game, you'll enjoy every moment on the court. Come to Tennis Club Louise for a social, energetic experience where you’ll build your skills, boost your fitness, and have a great time!",
       teacher: "David Cook",
       category: "Racket",
       address: brussels_addresses.sample,
@@ -227,7 +232,7 @@ end
 
     activity = Activity.new(
       title: "Hicking Group",
-      description: "Explore the world of hicking with us and join our community.",
+      description: "Explore the great outdoors and connect with nature by joining our Hiking Group! Led by Nina Williams, this group is perfect for nature lovers and adventure seekers of all experience levels. Whether you're an experienced hiker or a beginner, our hikes will take you through stunning trails and scenic landscapes, while providing a great way to meet new people and stay active. With each hike, you'll experience the beauty of nature, improve your fitness, and enjoy the sense of community that comes with exploring the outdoors together. Join us at Brussels Outdoor Adventures for an unforgettable journey through nature!",
       teacher: "Nina Williams",
       category: "Outdoor",
       address: brussels_addresses.sample,
@@ -242,7 +247,7 @@ end
 
     activity = Activity.new(
       title: "High-Intensity Interval Training",
-      description: "Get your heart pumping in this fast-paced interval training class.",
+      description: "Get ready to push your limits in our High-Intensity Interval Training (HIIT) class! Led by Max Hunter, this fast-paced workout combines short bursts of intense activity with brief recovery periods to help you burn fat, build strength, and improve endurance in record time. Whether you're aiming for weight loss, muscle tone, or just a heart-pumping workout, HIIT delivers results. No matter your fitness level, you'll be challenged and supported in this high-energy class, all while enjoying a fun and motivating atmosphere. Join us at Cardio Boost Gym for a workout that will leave you feeling stronger, fitter, and more energized!",
       teacher: "Max Hunter",
       category: "Weights",
       address: brussels_addresses.sample,
@@ -257,7 +262,7 @@ end
 
     activity = Activity.new(
       title: "Kickboxing Classes",
-      description: "take your next adventure by joining our Kickboxing classes.",
+      description: "Step into the ring and take your fitness to the next level with our dynamic Kickboxing classes! Led by Sophia Reynolds, this high-energy class combines the power of boxing with the speed and agility of martial arts. Whether you're looking to get in shape, learn self-defense, or relieve stress, kickboxing is the perfect way to challenge yourself both physically and mentally. With a focus on technique, strength, and endurance, you'll gain confidence while getting a full-body workout that burns calories, tones muscles, and improves coordination. Join us at Brussels Boxing Club for an intense and fun experience that will leave you feeling empowered and ready for anything!",
       teacher: "Sophia Reynolds",
       category: "Boxing",
       address: brussels_addresses.sample,
@@ -272,7 +277,7 @@ end
 
     activity = Activity.new(
       title: "Goalkeeper Training",
-      description: "Learn nex skills to improve as a Goalkeeper by joining our training.",
+      description: "Step up your game with our specialized Goalkeeper Training sessions! Led by Oliver White, this class focuses on developing the unique skills and techniques required to be a top-level goalkeeper. From positioning and shot-stopping to diving and ball distribution, you'll learn key strategies that will elevate your performance on the field. Whether you're new to goalkeeping or looking to refine your skills, our sessions are designed to push you to your limits, build your confidence, and enhance your agility. Join us at Brussels Football Academy and become the last line of defense with expert coaching and intense practice!",
       teacher: "Oliver White",
       category: "Football",
       address: brussels_addresses.sample,
@@ -287,7 +292,7 @@ end
 
     activity = Activity.new(
       title: "Hot Yoga Session",
-      description: "Join our Hot Yoga Session for an intense but gratifying workout.",
+      description: "Experience the perfect blend of intensity and relaxation in our Hot Yoga Session! Led by Emily Harris, this invigorating practice takes place in a heated room to help increase flexibility, improve circulation, and detoxify the body through sweat. Whether you're a seasoned yogi or new to hot yoga, this class will challenge your body, calm your mind, and leave you feeling rejuvenated. The warmth of the room deepens your stretches, enhances muscle recovery, and boosts cardiovascular health. Join us at Fit & Fun Yoga Studio for a rewarding, full-body workout that will leave you feeling both stronger and more relaxed.",
       teacher: "Emily Harris",
       category: "Yoga",
       address: brussels_addresses.sample,
