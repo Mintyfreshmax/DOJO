@@ -23,6 +23,18 @@
 }
 
 .my_activities-index-border{
-  margin-top: 2vh;
+  margin-top: 4vh;
+  margin-bottom: 2vh;
   border-top: 1px solid #A7E6FF;
+}
+
+.feedback-btn {
+  background-color: black;
+  margin-top: 1vh;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
 }
