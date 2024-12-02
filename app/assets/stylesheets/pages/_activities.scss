@@ -46,40 +46,88 @@
 
 .rating-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 20px;
   border-radius: 10px;
   align-items: center;
-  padding: 10px;
   background-color: #f7f7f7;
   border: 2px solid #b3d9ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 5px;
 }
 
 .rating-box:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(73, 13, 252, 0.1);
 }
+.rating-left {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+}
 
-.rating-left,
-.rating-middle,
+.rating-left .rating-number {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.rating-left .thumbs-up {
+  font-size: 1.5rem;
+  color: lightblue;
+  align-items: center;
+}
+
+.rating-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-right: 2px solid #b3d9ff;
+  border-left: 2px solid #b3d9ff;
+  padding: 0 35px;
+}
+
+.rating-middle .rating-number {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.rating-middle .thumbs-down {
+  font-size: 1.5rem;
+  color: lightblue;
+  text-align:center
+}
+
+
 .rating-right {
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 10px; /* Add horizontal padding for spacing */
-  flex: 1; /* Make each section equal width */
+  padding: 0 5px;
 }
 
-.stars {
-  color: #b3d9ff;
-  font-size: 2rem;
-  margin: -17px;
-  padding: 0;
-
+.rating-right .rating-number {
+  font-size: 18px;
 }
+
+.rating-right p {
+  font-size: 10px;
+  text-decoration: underline;
+  margin-top: -4px;
+  color: #737070;
+}
+
+
+.thumbs-up, .thumbs-down {
+  font-size: 1.5rem;
+  color: lightblue;
+  text-align: center;
+}
+
+
 
 .rating-texts {
   font-size: 12px;
@@ -103,7 +151,7 @@ p {
 
 .reviews {
   font-size: 12px;
-  font-weight: bold;
+  font-weight: lighter;
   color: #070707;
 }
 
@@ -113,10 +161,6 @@ p {
   color: #070707;
 }
 
-.rating-middle {
-  border-right: 2px solid #b3d9ff;
-  border-left: 2px solid #b3d9ff;
-}
 
 .rating-left:last-child,
 .rating-middle:last-child {
