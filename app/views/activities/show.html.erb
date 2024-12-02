@@ -20,32 +20,32 @@
     <% end %>
 
   <!-- Address and Time -->
-  <p class="activity-address"><%= @activity.address %></p>
-  <p class="activity-time"><%= @activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= @activity.duration %>h)</p>
+   <p class="activity-address"><%= @activity.address %></p>
+    <p class="activity-time"><%= @activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= @activity.duration %>h)</p>
 
-  <!-- Rating Section -->
-  <div class="rating-box">
+<div class="rating-box">
+  <!-- Left Section -->
   <div class="rating-left">
-    <div class="rating-texts">4.95 </div>
-    <div class="stars">
-      <%= "*" * 5 %> <!-- This could dynamically generate 4 stars -->
-    </div>
+    <span class="rating-number">18</span>
+    <%=image_tag "thumbs-up.svg", class: "thumbs_up"%>
   </div>
 
+  <!-- Middle Section -->
   <div class="rating-middle">
-    <p class="user-favorite">User Favorite</p>
+    <span class="rating-number">0</span>
+    <%=image_tag "thumbsdown.svg", class: "thumbs_down"%>
   </div>
 
+  <!-- Right Section -->
   <div class="rating-right">
-    <p class="reviews">291</p>
-    <p class="reviews-text">Reviews</p>
+    <span class="rating-number">18</span>
+    <p>Reviews</p>
   </div>
 </div>
-  <!-- Description Section -->
-  <p class="activity-description">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </p>
-
+    <!-- Description Section -->
+    <p class="activity-description">
+      <%= @activity.description %>
+    </p>
   <!-- Show More Link -->
   <%# <a href="#" class="show-more">Show More</a> %>
 </div>
