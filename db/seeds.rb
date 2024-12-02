@@ -58,9 +58,24 @@ club_data.each do |club_info|
   )
 end
 
+    activity = Activity.new(
+      title: "Test San",
+      description: "Join us for an energizing boxing class that will challenge your limits, improve your strength, and boost your confidence. Whether you're a beginner or experienced, our expert instructor will guide you through every punch, jab, and combo. Expect a dynamic mix of cardio, technique, and strength training, all while having fun and pushing yourself to new heights.",
+      teacher: "Sarah Thompson",
+      category: "Boxing",
+      address: brussels_addresses.sample,
+      limit: rand(10..30),
+      event_time: Time.new(2024, 12, 2, 17, 0, 0),
+      duration: rand(1..3),
+      club: Club.find_by(name: "Brussels Boxing Club")
+    )
+
+    file = URI.parse("https://media.self.com/photos/587fb60739d082f57cdffb8a/4:3/w_1107,h_830,c_limit/first-boxing-class-boxer-situps.jpg").open
+    activity.image.attach(io: file, filename: "evening-boxing-session.jpg", content_type: "image/jpg")
+    activity.save
 
     activity = Activity.new(
-      title: "boxing",
+      title: "Boxing",
       description: "Join us for an energizing boxing class that will challenge your limits, improve your strength, and boost your confidence. Whether you're a beginner or experienced, our expert instructor will guide you through every punch, jab, and combo. Expect a dynamic mix of cardio, technique, and strength training, all while having fun and pushing yourself to new heights.",
       teacher: "Sarah Thompson",
       category: "Boxing",
@@ -89,15 +104,9 @@ end
     activity.image.attach(io: file, filename: "ballet-for-beginners.jpg", content_type: "image/jpg")
     activity.save
 
-
     activity = Activity.new(
       title: "Running Class",
       description: "Lace up your shoes and join our dynamic running class, where fitness meets fun! Whether you're just starting out or looking to improve your endurance, this class is perfect for runners of all levels. Led by experienced coach Paulina Reed, you'll be part of a supportive and motivating team that will push you to reach new personal bests. Each session includes guided warm-ups, technique tips, and group runs, all set against the beautiful outdoors of Brussels. Get ready to challenge yourself, meet new friends, and experience the thrill of running in nature.",
-      teacher: "Paulina Reed",
-      category: "Outdoor",
-      address: brussels_addresses.sample,
-      limit: rand(10..30),
-      event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       teacher: "Paulina Reed",
       category: "Outdoor",
       address: brussels_addresses.sample,

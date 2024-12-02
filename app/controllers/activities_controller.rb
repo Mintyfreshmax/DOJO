@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @activities = Activity.where("event_time > ?", Time.current)
     if params[:activity].present?
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:activity]}%", "%#{params[:activity]}%")
     elsif params[:location].present?
