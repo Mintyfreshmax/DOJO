@@ -2,6 +2,17 @@ body {
   background-color: white;
 }
 
+.button-learn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+  // border: solid thin white;
+  border-radius: 25px;
+}
+
 .back-button {
   position: fixed;
   top: 20px;
@@ -53,13 +64,18 @@ body {
 
 
 .club-title h1 {
-  font-weight: bold;
   color: white;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .club-desc {
   font-size: small;
   color: white;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
 }
 
 
@@ -84,8 +100,11 @@ body {
  gap: 10px;
  color: white;
  font-size: small;
- font-weight:100px;
+
  justify-content: space-around;
+ font-family: "Roboto", serif;
+ font-weight: 100;
+ font-style: normal;
 }
 
 
@@ -111,6 +130,7 @@ body {
   color: white;
   margin-left: 5px;
   font-size: 15px;
+  margin-top:4px;
 }
 
 .fa-solid {
@@ -125,7 +145,7 @@ body {
 }
 
 .custom-icon {
-  font-size: 2em;
+  font-size: 20px;
 }
 
 

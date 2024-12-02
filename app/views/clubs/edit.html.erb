@@ -1,0 +1,25 @@
+<h2>Edit Club</h2>
+
+<%= simple_form_for @club do |f| %>
+  <div>
+    <%= f.input :name %>
+  </div>
+  <div>
+    <%= f.input :details %>
+  </div>
+  <div>
+    <%= f.input :address %>
+  </div>
+  <div>
+    <%= f.input :instagram_link %>
+  </div>
+  <div>
+    <%= f.input :phone_number %>
+  </div>
+  <div>
+    <%= f.input :image, as: :file %>
+  </div>
+  <div>
+    <%= f.button :submit, 'Update Club' %>
+  </div>
+<% end %>
