@@ -70,7 +70,7 @@ a {
   border-radius: 30px;
   border: 1px solid white;
   position: sticky;
-  bottom: 12vh;
+  bottom: 10vh;
   z-index: 3;
   margin: 0 auto;
   display: block;
@@ -84,13 +84,13 @@ a {
   display: none;
 }
 
-a.mapboxgl-ctrl-logo.mapboxgl-compact {
+a.mapboxgl-ctrl-logo {
   display: none;
 }
 
 #index-categories {
   display: flex;
-  // margin: 20px auto;
+  padding-bottom: 2vh;
   padding: 5px;
   max-width: 600px;
   overflow-x: auto;
@@ -111,7 +111,7 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   background-color: white;
   margin: 0 auto;
   display: block;
-  border-bottom: 1px solid #A7E6FF;
+  padding-bottom: 1vh;
 }
 
 #map-container {
@@ -120,4 +120,8 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   margin: 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 14px black;
+}
+
+#index-background {
+  background-color: white;
 }
