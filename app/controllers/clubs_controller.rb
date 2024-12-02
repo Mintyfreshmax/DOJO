@@ -14,6 +14,19 @@ class ClubsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+
+  def update
+    if @club.update(club_params)
+      redirect_to @club, notice: 'Club was successfullu updated.'
+    else
+      render :edit
+    end
+  end
+
   def new
     @club = Club.new
   end

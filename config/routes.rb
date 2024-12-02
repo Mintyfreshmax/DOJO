@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "/my_clubs", to: "clubs#my_clubs", as: :my_clubs
 
-  resources :clubs, only: [:show, :create, :new, :destroy] do
+  resources :clubs, only: [:show, :create, :new, :edit, :update, :destroy] do
     resources :activities, only: %i[new create] do
       resources :bookings, only: :create
     end

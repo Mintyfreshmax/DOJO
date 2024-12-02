@@ -1,5 +1,4 @@
-  <div class="activities-list"
-         data-map-button-target="activities">
+  <div class="activities-list">
       <% @activities.each do |activity| %>
         <div class="activities-item">
           <%= link_to activity_path(activity), data: {turbo_frame: '_top'} do %>

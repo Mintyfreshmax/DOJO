@@ -2,24 +2,39 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl' // Don't forget this!
 
 export default class extends Controller {
+  static targets = ["activities", "map", "button"];
   static values = {
     apiKey: String,
     markers: Array
+  };
+
+  hide(event) {
+    event.preventDefault();
+    this.activitiesTarget.classList.toggle("d-none");
+    this.mapTarget.classList.toggle("d-none");
+
+    if (this.activitiesTarget.classList.contains("d-none")) {
+      this.buttonTarget.textContent = "Activities";
+      this.loadMap();
+    } else {
+      this.buttonTarget.textContent = "Map";
+    }
   }
 
-  connect() {
-    console.log(this.markersValue)
-    mapboxgl.accessToken = this.apiKeyValue
+  loadMap() {
+    if (this.map) return;
 
+    mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
-    })
+      container: this.mapTarget,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [0, 0],
+      zoom: 2
+    });
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    this.#addMarkersToMap();
+    this.#fitMapToMarkers();
   }
-
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
