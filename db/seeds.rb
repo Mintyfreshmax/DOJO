@@ -22,7 +22,7 @@ brussels_addresses = [
 
 # Club and activity data for each category
 club_data = [
-  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Boxing Fundamentals", "Cardio Boxing Blast", "Advanced Sparring Techniques"] },
+  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Boxing Fundamentals", "Cardio Boxing Blast", "Advanced Sparring"] },
   { name: "Fit & Fun Yoga Studio", category: "Yoga", activities: ["Morning Vinyasa Flow", "Hot Yoga Session", "Restorative Yoga"] },
   { name: "Brussels Football Academy", category: "Football", activities: ["Youth Football Training", "Goalkeeper Training", "Adult 5-a-Side"] },
   { name: "Tennis Club Louise", category: "Racket", activities: ["Beginner Tennis Lessons", "Intermediate Doubles", "Advanced Tennis Drills"] },
