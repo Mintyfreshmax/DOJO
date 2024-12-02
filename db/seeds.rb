@@ -1,6 +1,7 @@
 require 'faker'
 require 'open-uri'
 
+Booking.destroy_all
 Activity.destroy_all
 Club.destroy_all
 User.destroy_all
