@@ -1,0 +1,33 @@
+<div class="container">
+  <h3 class="my_activities-titles"><strong>Upcoming Activities</strong></h3>
+  <div class="my_activities-index">
+    <% @upcoming_activities.each do |activity| %>
+      <div class="my_activities-cards">
+        <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+        <div class="my_activities-cards-text">
+          <h6><strong><%= activity.title %></strong></h6>
+          <p><strong>Dojo:</strong> <%= activity.club.name %></p>
+          <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="my_activities-index-border"></div>
+
+  <h3 class="my_activities-titles"><strong>What you’ve attended</strong></h3>
+  <div class="my_activities-index">
+    <% @attended_activities.each do |activity| %>
+      <div class="my_activities-cards">
+        <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+        <div class="my_activities-cards-text">
+          <h6><strong><%= activity.title %></strong></h6>
+          <p><strong>Dojo:</strong> <%= activity.club.name %></p>
+          <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/navbar" %>

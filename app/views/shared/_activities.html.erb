@@ -1,4 +1,4 @@
-  <div class="activities-list">
+  <div class="container">
       <% @activities.each do |activity| %>
         <div class="activities-item">
           <%= link_to activity_path(activity), data: {turbo_frame: '_top'} do %>
@@ -13,7 +13,6 @@
               <div class="activities-subtext">
                 <p><u><%= activity.address %></u></p>
                 <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %> (duration: <%= activity.duration %>h)</p>
-                <p>Category: <strong><%= activity.category %></strong></p>
               </div>
             </div>
           <% end %>
