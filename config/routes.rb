@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   resources :activities, except: %i[new create] do
     resources :bookings, only: :create
+    resources :feedbacks, only: :create
   end
 end

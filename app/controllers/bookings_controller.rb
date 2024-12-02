@@ -9,11 +9,9 @@ class BookingsController < ApplicationController
     if @booking.save
       flash[:success] = "Congrats 🎉 You successfully booked the activity #{@activity.title} at the dojo #{@activity.club.name}.
       Meeting will happen at the address #{@activity.address} on #{@activity.event_time.strftime("%a %b %e at %l:%M %p")}"
-      puts flash[:success] # Debugging output
       redirect_to activity_path(@activity)
     else
       flash[:alert] = "Your booking was unsuccessful, please try again"
-      puts flash[:alert] # Debugging output
       render "activities/show", status: :unprocessable_entity
     end
   end
