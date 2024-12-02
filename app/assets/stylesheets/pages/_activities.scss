@@ -210,6 +210,16 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.attend-btn:hover {
-  background-color: #004271;
+
+
+.showmap {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container-show {
+  width: 100%;
+  height: 400px;
+  margin:0;
+  padding:0;
 }
