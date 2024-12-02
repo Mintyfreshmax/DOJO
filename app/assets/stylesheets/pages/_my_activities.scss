@@ -1,0 +1,28 @@
+.my_activities-images {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.my_activities-cards {
+  display: flex;
+  font-size: 14px;
+  margin-top: 2vh;
+}
+
+.my_activities-cards-text {
+  padding-left: 1.5vh;
+}
+
+.my_activities-titles {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.my_activities-index-border{
+  margin-top: 2vh;
+  border-top: 1px solid #A7E6FF;
+}
