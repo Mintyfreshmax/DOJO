@@ -1,4 +1,4 @@
-<%= link_to request.referrer || root_path, class: 'back-button' do %>
+<%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
@@ -28,14 +28,14 @@
       </div>
         <h4>Your Dojos</h4>
       <div class='create-dojo-button'>
-       <%= link_to personal_info_path do %>
+       <%= link_to new_club_path do %>
         <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>
         Create a Dojo
         <% end %>
       </div>
       <div class="settings-borders" style='padding: 4px;'></div>
         <div class='manage-dojos-button'>
-        <%= link_to personal_info_path do %>
+        <%= link_to manage_dojos_path do %>
         <%= image_tag 'edit-3-svgrepo-com.svg', class: 'button-icon' %>
         Manage Dojo's
         <% end %>
@@ -63,7 +63,7 @@
         <% end %>
         </div>
       <div class="logout-button">
-       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+       <%= link_to 'Logout', destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "You are about to end the session"} %>
       </div>
     </div>
 

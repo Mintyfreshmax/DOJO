@@ -117,11 +117,16 @@ a.mapboxgl-ctrl-logo {
 #map-container {
   height: 75vh;
   z-index: 0;
-  margin: 10px;
   border-radius: 10px;
-  box-shadow: 2px 2px 14px black;
+  width: 200vw;
+  margin: 0;
+  margin: 0;
 }
 
 #index-background {
   background-color: white;
+}
+
+.mapboxgl-canvas {
+  height: 631px;
 }
