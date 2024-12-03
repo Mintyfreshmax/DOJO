@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def my_activities
+    @feedback = Feedback.new
     @upcoming_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.future? }
     @attended_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.past? }
   end
@@ -35,6 +36,8 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @positive_feedback_count = @activity.feedbacks.where(appreciation: true).count
+    @negative_feedback_count = @activity.feedbacks.where(appreciation: false).count
     @markers = [{
       lng: @activity.longitude,
       lat: @activity.latitude,
