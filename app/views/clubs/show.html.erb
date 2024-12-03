@@ -22,38 +22,42 @@
         <%= truncate(@club.details, length: 100) %>
         <% if @club.details.length > 100 %>
           <span data-toggle-text-target="moreText" style="display: none;"><%= @club.details[100..-1] %></span>
-          <button data-toggle-text-target="button" data-action="click->toggle-text#toggle" class='button-learn'>Learn More</button>
+          <button data-toggle-text-target="button" data-action="click->toggle-text#toggle" class='button-learn'><u>Learn More</u></button>
         <% end %>
       </p>
    </div>
 
+  <div class="club-address-ig-phone">
+     <div class="social-links">
+        <div class="club-ig-phone">
+          <div class='instagram-tag'>
+            <%= image_tag 'insta.svg', class: 'custom-icon', alt: 'Location icon' %>
+            <p class="club-icon-text">@<%= @club.instagram_link %></p>
+          </div>
 
-    <div class="more-info d-flex" style="justify-content: space-between;">
-      <div class="social-links">
-        <div class='location-tag'>
-          <i class="fa-solid fa-location-dot custom-icon"></i>
-          <p class='club-icon-text'><%= @club.address %></p>
+
+          <div class='phone-tag'>
+            <%= image_tag 'phone.svg', class: 'custom-icon', alt: 'Location icon' %>
+            <p class="club-icon-text"><%= @club.phone_number %></p>
+          </div>
         </div>
-        <div class='instagram-tag'>
-          <i class="fa-brands fa-instagram custom-icon"></i>
-          <p class='club-icon-text'><%= @club.instagram_link %></p>
+
+          <div class='location-tag'>
+            <%= image_tag 'location.svg', class: 'custom-icon', alt: 'Location icon' %>
+            <p class="club-icon-text"><%= @club.address %></p>
+          </div>
         </div>
-        <div class='phone-tag'>
-          <i class="fa-solid fa-phone custom-icon"></i>
-          <p class='club-icon-text'><%= @club.phone_number %></p>
+
+        <div class="map-container">
+          <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
-      <div class="map-container">
-        <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-    </div>
-</div>
-
+  </div>
 
 <div class ="container">
   <% if current_user == @club.user %>
-  
+
    <div class='manage-club-buttons'>
       <div class='edit-delete-button'>
         <div class='edit-dojo'>
@@ -70,37 +74,42 @@
       <div class='add-activity'>
         <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
       </div>
-    </div>
   <% end %>
-
-<h2 class='activities-title-index'>Activities</h2>
-  <div id="activities-index">
-    <% @activities.each do |activity| %>
-      <div class="my_activities-cards">
-      <% if activity.image.attached? %>
-                <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
-              <% end %>
-                <div class="my_activities-cards-text">
-                  <h6><strong><%= activity.title %></strong></h6>
-                  <p><strong>Dojo:</strong> <%= activity.teacher %></p>
-                  <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
-                </div>
-
-              <% if current_user == @club.user %>
-
-                <div class='manage-buttons'>
-                  <%= link_to edit_club_activity_path(@club, activity) do %>
-                  <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-                  <% end %>
-                  <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-                    <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-                  <% end %>
-                </div>
-            </div>
-      <% end %>
   </div>
- <% end %>
+
+<div id="club-activities-feed-buttons">
+  <h2 class="activities-title-index active">Activities</h2>
+  <h2 class="activities-title-index">Feed</h2>
 </div>
 
+<div class ="container">
+    <div id="club-activities-index">
+      <% @activities.each do |activity| %>
+        <div class="my_activities-cards">
+        <% if activity.image.attached? %>
+                  <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+                <% end %>
+                  <div class="my_activities-cards-text">
+                    <h6><strong><%= activity.title %></strong></h6>
+                    <p><strong>Teacher:</strong> <%= activity.teacher %></p>
+                    <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+                  </div>
+
+                <% if current_user == @club.user %>
+
+                  <div class='manage-buttons'>
+                    <%= link_to edit_club_activity_path(@club, activity) do %>
+                    <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+                    <% end %>
+                    <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+                      <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+                    <% end %>
+                  </div>
+              </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
 
 <%= render "shared/navbar" %>
