@@ -2,9 +2,14 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
+  def my_activities
+    @feedback = Feedback.new
+    @upcoming_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.future? }
+    @attended_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.past? }
+  end
 
   def index
-    @activities = Activity.all
+    @activities = Activity.where("event_time > ?", Time.current)
     if params[:activity].present?
       @activities = @activities.where("title ILIKE ? OR description ILIKE ?", "%#{params[:activity]}%", "%#{params[:activity]}%")
     elsif params[:location].present?
@@ -30,6 +35,14 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+    @positive_feedback_count = @activity.feedbacks.where(appreciation: true).count
+    @negative_feedback_count = @activity.feedbacks.where(appreciation: false).count
+    @markers = [{
+      lng: @activity.longitude,
+      lat: @activity.latitude,
+      marker_html: render_to_string(partial: "activities/markers")
+    }]
   end
 
   def new

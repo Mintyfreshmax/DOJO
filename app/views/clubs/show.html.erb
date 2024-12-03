@@ -1,4 +1,4 @@
- <%= link_to request.referrer || root_path, class: 'back-button' do %>
+ <%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
@@ -7,6 +7,7 @@
 
 </div>
 
+<div>
 <div class= "club-details">
   <div class="club-title">
     <h1><%= @club.name %> </h1>
@@ -24,6 +25,7 @@
       </p>
    </div>
 
+
     <div class="more-info d-flex" style="justify-content: space-between;">
       <div class="social-links">
         <div class='location-tag'>
@@ -39,11 +41,23 @@
           <p class='club-icon-text'><%= @club.phone_number %></p>
         </div>
       </div>
-      <div class="map">
-        <%= image_tag "mapsss.png", class: 'maps' %>
+      <div class="map-container">
+        <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
 </div>
+   <div class='manage-club-buttons'>
+      <div class='edit-dojo'>
+        <%= link_to 'Edit Dojo', edit_club_path(@clubs), class: 'edit-dojo-button' %>
+      </div>
+      <div class='delete-dojo'>
+       <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
+      </div>
+      <div class='add-activity'>
+        <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
+      </div>
+    </div>
 
 <h2 class='activities-title-index'>Activities</h2>
 

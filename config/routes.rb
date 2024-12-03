@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "/my_clubs", to: "clubs#my_clubs", as: :my_clubs
 
-  resources :users, only: [:show]
+  get "/my_activities", to: "activities#my_activities", as: :my_activities
 
   resources :clubs, only: [:show, :create, :new, :edit, :update, :destroy] do
     resources :activities, only: %i[new create] do
@@ -19,4 +19,11 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
     resources :feedbacks, only: :create
   end
+
+  get "/profile", to: "users#profile", as: :profile
+  get "/personal_info", to: "users#personal_information", as: :personal_info
+  get "/manage_dojos", to: "clubs#manage_dojos", as: :manage_dojos
+  get "/contact", to: "pages#contact", as: :contact
+  get "/terms_of_service", to: "pages#terms_of_service", as: :terms_of_service
+  get "/privacy_policy", to: "pages#privacy_policy", as: :privacy_policy
 end

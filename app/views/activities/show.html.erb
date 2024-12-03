@@ -1,4 +1,4 @@
-<%= link_to request.referrer || root_path, class: 'back-button' do %>
+<%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
@@ -26,20 +26,20 @@
 <div class="rating-box">
   <!-- Left Section -->
   <div class="rating-left">
-    <span class="rating-number">18</span>
+    <span class="rating-number"><%= @positive_feedback_count %></span>
     <%=image_tag "thumbs-up.svg", class: "thumbs_up"%>
   </div>
 
   <!-- Middle Section -->
   <div class="rating-middle">
-    <span class="rating-number">0</span>
-    <%=image_tag "thumbs-down.svg", class: "thumbs_down"%>
+    <span class="rating-number"><%= @negative_feedback_count %></span>
+    <%=image_tag "thumbsdown.svg", class: "thumbs_down"%>
   </div>
 
   <!-- Right Section -->
   <div class="rating-right">
-    <span class="rating-number">18</span>
-    <p>Reviews</p>
+    <span class="rating-number"><%= @positive_feedback_count + @negative_feedback_count %></span>
+    <p>Feedbacks</p>
   </div>
 </div>
     <!-- Description Section -->
@@ -51,9 +51,13 @@
 </div>
 </div>
 
+<div class="activity-show-border"></div>
+
+<h3 class="activity-show-titles"><strong>Where it takes place</strong></h3>
+
 <div class="map-container-show">
-
-
+  <div id="showmap-container" class="showmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
 

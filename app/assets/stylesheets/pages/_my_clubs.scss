@@ -1,48 +1,73 @@
 .club-bodybag {
-  background-color: black;
+  background-color: white;
   padding-bottom: 25px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: 183px;
 }
 
-body{
-  background-color: #b7b7b7;
+body {
+  background-color: #ffffff;
 }
 
 .dash-title {
   text-align: center;
   padding-top: 20px;
-  color: white;
+  color: black;
   margin-bottom: 20px;
   font-family: "Roboto", serif;
   font-weight: 500;
   font-style: normal;
+
 }
 
 .dashclub-title {
+  text-align: center;
   margin-top: 8px;
   margin-left: 10px;
   font-family: "Roboto", serif;
   font-weight: 500;
   font-style: normal;
+  padding-bottom: 25px;
 }
 
 .user-info p {
-  font-size: small;
+  font-size: medium;
   margin-left: 7px;
-  color:white;
+  color: black;
   font-family: "Roboto", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+.user-info-container {
+  display: flex;
+  align-items: center;
+  margin-left: 28px;
+}
+.profile-picture {
+  margin-right:: 15px;
+}
+
+.profile-picture-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-button {
+  font-family: "Roboto", serif;
+  font-weight: 200;
+  font-style: normal;
+  margin-left: 7px;
+}
+
 .buttons-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-left: 18px;
+  align-items: flex-start;
+  padding-left: 13px;
+
 }
 
 .create-club-button {
@@ -50,8 +75,11 @@ body{
 }
 
 .logout-button {
-  margin-top: 10px;
+  margin-top: 23px;
+  text-decoration: underline;
+  margin-left: 12px;
 }
+
 
 .btn {
   height:40px;
@@ -59,13 +87,72 @@ body{
   font-size:15px;
   border-radius: 28px;
 }
-// .club-image-container {
-  //   position: relative;
-//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-//   border: solid #A7E6FF;
-//   border-radius: 23px;
 
-// }
+h4 {
+  padding: 27px;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: -16px;
+}
+
+.button-icon {
+  width: 22px;
+  margin-right: 10px;
+}
+
+.personal-info-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.create-dojo-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+  // padding-top: 25px;
+  // padding-left: 10px;
+}
+
+.manage-dojos-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+.contact-page-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.terms-of-service-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.privacy-policy-button {
+  margin-left: 11px;
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.club-image-container {
+    position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  border-radius: 23px;
+
+}
 
 .club-image-container {
   flex: 0 0 100px; /* Fixed width for the image container */
@@ -110,19 +197,19 @@ body{
 //   border-bottom-right-radius: 10px;
 // }
 
-.club-name-overlay {
-  margin-bottom: 10px;
-}
+// .club-name-overlay {
+//   margin-bottom: 10px;
+// }
 
 .club-info-container {
   flex: 1;
   padding-left: 20px;
 }
 
-.club-name-link {
-  color: #333;
-  text-decoration: none;
-}
+// .club-name-link {
+//   color: #333;
+//   text-decoration: none;
+// }
 
 .club-name {
   max-width: 200px;
@@ -144,7 +231,7 @@ body{
 .club-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 6px;
   margin-top: 10px;
 }
 
@@ -153,7 +240,6 @@ body{
   align-items: center;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
   position: relative;
   margin-right: 10px;
@@ -177,18 +263,76 @@ body{
   font-style: normal;
 }
 
+.manage-buttons {
+  display: flex;
+  gap: 10px; /* Add some space between the buttons */
+  margin-right: 10px;
+}
+
+.create-button {
+  padding-top: 25px;
+  padding-left: 21px;
+}
+
+.edit-button {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px;
+}
+.delete-button-img {
+  width: 27px; /* Adjust the width as needed */
+  height: 27px; /* Adjust the height as needed */
+  color: red;
+}
+
+// .delete-button {
+//   position: absolute ;
+//   border:solid thin;
+//   background-color: #ffffff;
+//   border-radius: 10px;
+//   padding: 5px 10px;
+//   text-decoration: none;
+//   font-size: 14px;
+//   margin-left: 276px;
+//   font-family: "Roboto", serif;
+//   font-weight: 100;
+//   font-style: normal;
+// }
 
 
-.delete-button {
-  position: absolute ;
-  border:solid thin;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 5px 10px;
+.manage-club-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap:10px;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+
+.edit-dojo-button {
+  padding: 9px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  text-align: center;
   text-decoration: none;
-  font-size: 14px;
-  margin-left: 276px;
-  font-family: "Roboto", serif;
-  font-weight: 100;
-  font-style: normal;
+  display: inline-block;
+}
+
+.delete-dojo-button {
+  padding: 9px;
+  border-radius: 5px;
+  background-color: rgb(208, 123, 137);
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.add-dojo-button {
+  padding: 9px;
+  border-radius: 5px;
+  background-color: rgb(128, 224, 245);
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }

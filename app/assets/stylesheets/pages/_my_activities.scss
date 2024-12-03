@@ -1,0 +1,60 @@
+.my_activities-images {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.my_activities-cards {
+  display: flex;
+  font-size: 14px;
+  margin-top: 2vh;
+}
+
+.my_activities-cards-text {
+  padding-left: 1.5vh;
+}
+
+.my_activities-titles {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.my_activities-index-border{
+  margin-top: 4vh;
+  margin-bottom: 2vh;
+  border-top: 1px solid #A7E6FF;
+}
+.my_activities-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+  padding: 10px 0;
+}
+
+.my_activities-feedback-thumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.thumb-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.thumb-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.thumb-button:active {
+  transform: scale(0.95);
+}

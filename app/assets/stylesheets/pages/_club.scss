@@ -149,23 +149,46 @@ body {
 }
 
 
-.map {
-  flex: 0 0 180px;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.maps  {
-  margin-right: -15px;
-  height:180px;
-  width:180px;
-  border-radius: 10px;
+map {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
+
+
+
+.map-container {
+  width: 300px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  margin-left: 20px; /* Add some space between the social links and the map */
+}
+
+
+// .map {
+//   flex: 0 0 180px;
+//   height: 180px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .maps  {
+//   margin-right: -15px;
+//   height:180px;
+//   width:180px;
+//   border-radius: 10px;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+#clubmap-container {
+  height: 22vh;
+  z-index: 0;
+  margin: 10px;
+  border-radius: 10px;
+}
+
 
 
 .activities-title {
@@ -180,4 +203,5 @@ body {
 .activities-title-index {
   margin-top: 33px;
   margin-left: 17px;
+  font-weight: bold;
 }
