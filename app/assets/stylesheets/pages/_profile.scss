@@ -1,12 +1,13 @@
 
 .container-profile-info {
-  height: 100%;         /* Make sure the body takes the full height of the screen */
-  margin: 0;            /* Remove default margins */
-  display: flex;        /* Use Flexbox for layout */
-  justify-content: flex-start; /* Center horizontally */
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
   flex-direction: column;
-  align-items: center;  /* Center vertically */
-  background-color: #f9f9f9; /* Optional: Set a light background color */
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  padding-left: 17px;
 }
 
   .profile-title {
@@ -30,6 +31,7 @@
     z-index: 1;
     overflow: visible;
     margin-top: 30px;
+    height: 229px;
   }
 
   .profile-left {
@@ -68,9 +70,10 @@
 
   .review-h4-text h4,
   .days-on-dojo h4 {
-    font-size: 26px;
+    font-size: 21px;
     color: #333;
     font-weight: bold;
+    padding: 10px;
   }
   .profile-views {
     text-align: left;
@@ -127,6 +130,7 @@
     margin-bottom: 24px;
     text-align: center;
     margin-top: 24px;
+    padding-left: 101px;
   }
 
 
