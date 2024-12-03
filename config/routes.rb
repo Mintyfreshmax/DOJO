@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :activities, only: %i[new create edit update destroy] do
       resources :bookings, only: :create
     end
+    resources :messages, only: :create
   end
 
   resources :activities, except: %i[new create] do

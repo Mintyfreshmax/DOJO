@@ -1,4 +1,4 @@
- <%= link_to root_path, class: 'back-button' do %>
+<%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
@@ -10,7 +10,6 @@
   <% end %>
 </div>
 
-<div>
 <div class= "club-details">
   <div class="club-title">
     <h1><%= @club.name %> </h1>
@@ -50,14 +49,22 @@
       </div>
     </div>
 </div>
+
+
+<div class ="container">
   <% if current_user == @club.user %>
+  
    <div class='manage-club-buttons'>
-    <div class='edit-delete-button'>
-      <div class='edit-dojo'>
-        <%= link_to 'Edit Dojo', edit_club_path(@club), class: 'edit-dojo-button' %>
+      <div class='edit-delete-button'>
+        <div class='edit-dojo'>
+          <%= link_to 'Edit Dojo', edit_club_path(@club), class: 'edit-dojo-button' %>
+          </div>
+          <div class='delete-dojo'>
+          <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
+          </div>
         </div>
-        <div class='delete-dojo'>
-        <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
+        <div class='add-activity'>
+          <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
         </div>
       </div>
       <div class='add-activity'>
@@ -78,7 +85,9 @@
                   <p><strong>Dojo:</strong> <%= activity.teacher %></p>
                   <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
                 </div>
+
               <% if current_user == @club.user %>
+
                 <div class='manage-buttons'>
                   <%= link_to edit_club_activity_path(@club, activity) do %>
                   <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
@@ -87,9 +96,11 @@
                     <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
                   <% end %>
                 </div>
-              <% end %>
             </div>
       <% end %>
   </div>
+ <% end %>
+</div>
+
 
 <%= render "shared/navbar" %>
