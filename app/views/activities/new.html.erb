@@ -1,1 +1,38 @@
-<h1>Activities new 🥷</h1>
+<h2>Create an Activity</h2>
+
+
+<%= simple_form_for @club do |f| %>
+  <div>
+    <%= f.input :title %>
+  </div>
+  <div>
+    <%= f.input :description %>
+  </div>
+  <div>
+  <%= f.input :teacher %>
+  </div>
+  <div>
+  <%= f.input :address %>
+  </div>
+  <div>
+  <%= f.input :limit %>
+  </div>
+  <div>
+  <%= f.input :event_time %>
+  </div>
+  <div>
+  <%= f.input :duration %>
+  </div>
+  <div>
+  <%= f.input :category%>
+  </div>
+  <div>
+    <%= f.input :image, as: :file %>
+  </div>
+  <div>
+    <%= f.button :submit, 'Create Activity' %>
+  </div>
+<% end %>
+
+
+<%= render "shared/navbar" %>

@@ -20,8 +20,9 @@ class ClubsController < ApplicationController
 
 
   def update
+    @club = Club.find(params[:id])
     if @club.update(club_params)
-      redirect_to @club, notice: 'Club was successfullu updated.'
+      redirect_to @club, notice: 'Club was successfully updated.'
     else
       render :edit
     end
@@ -36,10 +37,14 @@ class ClubsController < ApplicationController
     @club = Club.new
   end
 
+  def manage_dojos
+    @clubs = current_user.clubs
+  end
+
   def create
     @club = current_user.clubs.build(club_params)
     if @club.save
-      redirect_to my_clubs_path, notice: 'Club was successfully created.'
+      redirect_to manage_dojos_path, notice: 'Club was successfully created.'
     else
       @user = current_user
       @clubs = @user.clubs
@@ -50,7 +55,7 @@ class ClubsController < ApplicationController
     def destroy
       @club = Club.find(params[:id])
       @club.destroy
-      redirect_to my_clubs_path, notice: 'Club was successfully deleted.'
+      redirect_to manage_dojos_path, status: :see_other
     end
 
   private
