@@ -1,5 +1,5 @@
 
-body, html {
+.container-profile-info {
   height: 100%;         /* Make sure the body takes the full height of the screen */
   margin: 0;            /* Remove default margins */
   display: flex;        /* Use Flexbox for layout */
@@ -153,9 +153,6 @@ body, html {
     margin-left: 18px;
   }
 
-  .activity-feedback, .dojo-feedback {
-    margin-bottom: 15px;
-  }
 
   .activity-feedback p, .dojo-feedback p {
     font-size: 1rem;
@@ -173,6 +170,7 @@ body, html {
   .activity-Feedback, .dojo-Feedback{
     padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 15px;
   }
 
   .view-dojo-button {
