@@ -3,7 +3,11 @@
   Back
   <% end %>
 <div class="activity-image" style="position: relative;">
-  <%= image_tag "man_boxing.png", alt: 'uploaded-club-image', class: 'club-img' %>
+  <% if @club.image.attached? %>
+   <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
+  <% else %>
+    <%= image_tag "man_boxing.png", alt: 'default-club-image', class: 'club-img' %>
+  <% end %>
 </div>
 
 <div class= "club-details">
@@ -46,7 +50,10 @@
     </div>
 </div>
 
+
 <div class ="container">
+  <% if current_user == @club.user %>
+  
    <div class='manage-club-buttons'>
       <div class='edit-delete-button'>
         <div class='edit-dojo'>
@@ -60,9 +67,13 @@
           <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
         </div>
       </div>
+      <div class='add-activity'>
+        <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
+      </div>
+    </div>
+  <% end %>
 
-  <h2 class='activities-title-index'>Activities</h2>
-
+<h2 class='activities-title-index'>Activities</h2>
   <div id="activities-index">
     <% @activities.each do |activity| %>
       <div class="my_activities-cards">
@@ -74,6 +85,9 @@
                   <p><strong>Dojo:</strong> <%= activity.teacher %></p>
                   <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
                 </div>
+
+              <% if current_user == @club.user %>
+
                 <div class='manage-buttons'>
                   <%= link_to edit_club_activity_path(@club, activity) do %>
                   <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
@@ -85,6 +99,8 @@
             </div>
       <% end %>
   </div>
+ <% end %>
 </div>
+
 
 <%= render "shared/navbar" %>
