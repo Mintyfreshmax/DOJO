@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  before_action :set_club, only: [:show, :edit, :update, :destroy]
 
   def show
     @club = Club.find(params[:id])
@@ -14,28 +15,10 @@ class ClubsController < ApplicationController
       }]
   end
 
-  def edit
-
-  end
-
-
-  def update
-    @club = Club.find(params[:id])
-    if @club.update(club_params)
-      redirect_to @club, notice: 'Club was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def new
     @club = Club.new
   end
 
-  def my_clubs
-    @clubs = current_user.clubs
-    @club = Club.new
-  end
 
   def manage_dojos
     @clubs = current_user.clubs
@@ -44,11 +27,24 @@ class ClubsController < ApplicationController
   def create
     @club = current_user.clubs.build(club_params)
     if @club.save
-      redirect_to manage_dojos_path, notice: 'Club was successfully created.'
+      redirect_to club_path(@club), notice: 'Club was successfully created.'
     else
       @user = current_user
       @clubs = @user.clubs
       render :show
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    @club = Club.find(params[:id])
+    if @club.update(club_params)
+      redirect_to @club, notice: 'Club was successfully updated.'
+    else
+      render :edit
     end
   end
 

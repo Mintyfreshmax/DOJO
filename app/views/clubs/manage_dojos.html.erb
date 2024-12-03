@@ -1,37 +1,34 @@
- <%= link_to my_clubs_path, class: 'back-button' do %>
+ <%= link_to account_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
 
 
 <h2 class='dashclub-title'><%= current_user.username %>'s Dojos</h2>
-<div class="club-container">
+
+<div id="activities-index">
   <% @clubs.each do |club| %>
-    <div class='club-card'>
-      <% if club.image.attached? %>
-        <div class="club-image-container">
-          <%= cl_image_tag club.image.key, alt: club.name, class: 'club-image' %>
-        </div>
-      <% end %>
-      <div class='club-info-container'>
-        <div class="club-name-overlay">
-          <h2 class="clubs-name"><%= link_to club.name, club_path(club), class: 'club-name-link' %></h2>
-        </div>
-        <div class='club-more-info'>
-          <p class="club-created-at">Created on: <%= club.created_at.strftime("%B %d, %Y") %></p>
-        </div>
-      </div>
-      <div class='manage-buttons'>
-        <%= link_to club_path(club) do %>
-         <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-        <% end %>
-        <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-          <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+    <div class="my_activities-cards">
+    <% if club.image.attached? %>
+              <img class="my_activities-images" src="<%= cl_image_path club.image.key, height: 300, crop: :fill %>">
+            <% end %>
+              <div class="my_activities-cards-text">
+                <h6><strong><%= club.name %></strong></h6>
+                <p><strong>Dojo:</strong> <%= club.created_at.strftime("%B %d, %Y") %></p>
+              </div>
+              <div class='manage-buttons'>
+                  <%= link_to club_path(club) do %>
+                    <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+                  <% end %>
+                  <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+                    <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+                  <% end %>
+                </div>
+          </div>
+    <% end %>
 </div>
+
+
 <div class='create-button'>
        <%= link_to new_club_path do %>
         <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>

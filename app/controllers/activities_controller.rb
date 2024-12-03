@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
+  before_action :set_club, only: [:new, :create]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def my_activities
@@ -47,14 +48,16 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @club = Club.find(params[:club_id])
   end
 
   def create
-    @activity = Activity.new(activity_params)
-    @club = Club.find(params[:club_id])
-    @activity.club = @club
-    @activity.save
-    redirect_to activity_path(@activity)
+   @activity = @club.activities.build(activity_params)
+    if @activity.save
+      redirect_to @club, notice: "Activity was successfully created."
+    else
+      render :new
+    end
   end
 
   def edit
@@ -72,11 +75,15 @@ class ActivitiesController < ApplicationController
 
   private
 
+  def set_club
+    @club = Club.find(params[:club_id])
+  end
+
   def set_activity
     @activity = Activity.find(params[:id])
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :limit, :event_type, :duration, :booking)
+    params.require(:activity).permit(:title, :description, :teacher, :category, :address, :event_time, :image, :limit, :event_type, :duration, :booking)
   end
 end
