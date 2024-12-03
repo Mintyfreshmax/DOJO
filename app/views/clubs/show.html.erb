@@ -3,8 +3,11 @@
   Back
   <% end %>
 <div class="activity-image" style="position: relative;">
-  <%= image_tag "man_boxing.png", alt: 'uploaded-club-image', class: 'club-img' %>
-
+  <% if @club.image.attached? %>
+   <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
+  <% else %>
+    <%= image_tag "man_boxing.png", alt: 'default-club-image', class: 'club-img' %>
+  <% end %>
 </div>
 
 <div>
@@ -47,6 +50,7 @@
       </div>
     </div>
 </div>
+  <% if current_user == @club.user %>
    <div class='manage-club-buttons'>
     <div class='edit-delete-button'>
       <div class='edit-dojo'>
@@ -60,30 +64,32 @@
         <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
       </div>
     </div>
+  <% end %>
 
 <h2 class='activities-title-index'>Activities</h2>
-
-<div id="activities-index">
-  <% @activities.each do |activity| %>
-    <div class="my_activities-cards">
-    <% if activity.image.attached? %>
-              <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
-            <% end %>
-              <div class="my_activities-cards-text">
-                <h6><strong><%= activity.title %></strong></h6>
-                <p><strong>Dojo:</strong> <%= activity.teacher %></p>
-                <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
-              </div>
-              <div class='manage-buttons'>
-                <%= link_to edit_club_activity_path(@club, activity) do %>
-                 <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-                <% end %>
-                <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-                  <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-                <% end %>
-              </div>
-          </div>
-    <% end %>
-</div>
+  <div id="activities-index">
+    <% @activities.each do |activity| %>
+      <div class="my_activities-cards">
+      <% if activity.image.attached? %>
+                <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+              <% end %>
+                <div class="my_activities-cards-text">
+                  <h6><strong><%= activity.title %></strong></h6>
+                  <p><strong>Dojo:</strong> <%= activity.teacher %></p>
+                  <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+                </div>
+              <% if current_user == @club.user %>
+                <div class='manage-buttons'>
+                  <%= link_to edit_club_activity_path(@club, activity) do %>
+                  <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+                  <% end %>
+                  <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+                    <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+      <% end %>
+  </div>
 
 <%= render "shared/navbar" %>
