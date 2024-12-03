@@ -26,20 +26,20 @@
 <div class="rating-box">
   <!-- Left Section -->
   <div class="rating-left">
-    <span class="rating-number">18</span>
+    <span class="rating-number"><%= @positive_feedback_count %></span>
     <%=image_tag "thumbs-up.svg", class: "thumbs_up"%>
   </div>
 
   <!-- Middle Section -->
   <div class="rating-middle">
-    <span class="rating-number">0</span>
+    <span class="rating-number"><%= @negative_feedback_count %></span>
     <%=image_tag "thumbsdown.svg", class: "thumbs_down"%>
   </div>
 
   <!-- Right Section -->
   <div class="rating-right">
-    <span class="rating-number">18</span>
-    <p>Reviews</p>
+    <span class="rating-number"><%= @positive_feedback_count + @negative_feedback_count %></span>
+    <p>Feedbacks</p>
   </div>
 </div>
     <!-- Description Section -->

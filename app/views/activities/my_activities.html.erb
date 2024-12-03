@@ -27,10 +27,32 @@
             <h6><strong><%= activity.title %></strong></h6>
             <p><strong>Dojo:</strong> <%= activity.club.name %></p>
             <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %></p>
-            <%= button_to "Feedback", activity_feedbacks_path(activity), method: :post, class: "feedback-btn" %>
+            <% end %>
+
+            <div class="my_activities-feedback">
+            <p>How was it?</p>
+            <div class="my_activities-feedback-thumbs">
+
+              <%= simple_form_for([activity, @feedback], url: activity_feedbacks_path(activity), method: :post, html: { class: "feedback-form" }) do |f| %>
+                <%= f.hidden_field :appreciation, value: true %>
+                <button type="submit" class="thumb-button">
+                  <img src="/assets/thumb-up.svg" alt="Thumb Up">
+                </button>
+              <% end %>
+
+                <span>|</span>
+
+              <%= simple_form_for([activity, Feedback.new], url: activity_feedbacks_path(activity), method: :post, html: { class: "feedback-form" }) do |f| %>
+                <%= f.hidden_field :appreciation, value: false %>
+                <button type="submit" class="thumb-button">
+                  <img src="/assets/thumb-down.svg" alt="Thumb Down">
+                </button>
+              <% end %>
+
+              </div>
+            </div>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>
