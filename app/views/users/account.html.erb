@@ -19,14 +19,14 @@
   </div>
 </div>
     <div class='buttons-container'>
-        <h4>Settings</h4>
+        <h4 class="account-titles">Settings</h4>
       <div class='personal-info-button'>
       <%= link_to personal_info_path do %>
         <%= image_tag 'user.png', class: 'button-icon' %>
         Personal Information
         <% end %>
       </div>
-        <h4>Your Dojos</h4>
+        <h4 class="account-titles">Your Dojos</h4>
       <div class='create-dojo-button'>
        <%= link_to new_club_path do %>
         <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>
@@ -40,7 +40,7 @@
         Manage Dojo's
         <% end %>
         </div>
-        <h4>Support</h4>
+        <h4 class="account-titles">Support</h4>
       <div class='contact-page-button'>
       <%= link_to personal_info_path do %>
         <%= image_tag 'mail-alt-svgrepo-com.svg', class: 'button-icon' %>
@@ -48,7 +48,7 @@
         <% end %>
         <%= link_to 'Contact Page', contact_path %>
       </div>
-        <h4>Legal</h4>
+        <h4 class="account-titles">Legal</h4>
       <div class='terms-of-service-button'>
       <%= link_to personal_info_path do %>
         <%= image_tag 'license-svgrepo-com.svg', class: 'button-icon' %>
