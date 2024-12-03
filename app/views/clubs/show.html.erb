@@ -48,11 +48,13 @@
     </div>
 </div>
    <div class='manage-club-buttons'>
+    <div class='edit-delete-button'>
       <div class='edit-dojo'>
-        <%= link_to 'Edit Dojo', edit_club_path(@clubs), class: 'edit-dojo-button' %>
-      </div>
-      <div class='delete-dojo'>
-       <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
+        <%= link_to 'Edit Dojo', edit_club_path(@club), class: 'edit-dojo-button' %>
+        </div>
+        <div class='delete-dojo'>
+        <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
+        </div>
       </div>
       <div class='add-activity'>
         <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
@@ -62,7 +64,26 @@
 <h2 class='activities-title-index'>Activities</h2>
 
 <div id="activities-index">
-    <%= render 'shared/activities' %>
-  </div>
+  <% @activities.each do |activity| %>
+    <div class="my_activities-cards">
+    <% if activity.image.attached? %>
+              <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+            <% end %>
+              <div class="my_activities-cards-text">
+                <h6><strong><%= activity.title %></strong></h6>
+                <p><strong>Dojo:</strong> <%= activity.teacher %></p>
+                <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+              </div>
+              <div class='manage-buttons'>
+                <%= link_to edit_club_activity_path(@club, activity) do %>
+                 <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+                <% end %>
+                <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+                  <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+                <% end %>
+              </div>
+          </div>
+    <% end %>
+</div>
 
 <%= render "shared/navbar" %>

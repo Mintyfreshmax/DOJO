@@ -45,7 +45,7 @@
 
   <div class='nav-item'>
     <% if user_signed_in? %>
-      <%= link_to my_clubs_path do %>
+      <%= link_to account_path do %>
         <%= image_tag 'user.png', alt: 'account', width: 18 %>
         <span class='icon-text'> ACCOUNT</span>
       <% end %>
