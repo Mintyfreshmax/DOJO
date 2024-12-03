@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: "pages#home"
 
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/my_clubs", to: "clubs#my_clubs", as: :my_clubs
+
+  resources :users, only: [:show]
 
   resources :clubs, only: [:show, :create, :new, :edit, :update, :destroy] do
     resources :activities, only: %i[new create] do
