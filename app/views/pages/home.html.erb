@@ -19,13 +19,12 @@
     </div>
     </div>
     <div class="home-body">
-    <h1 class="rocknroll-one-regular">“Your Passport to Local Activities and Fitness On-the-Go.”</h1>
+      <div class='typed-container'>
+        <span data-controller='typed' data-typed-strings-value="<%=['“Your Passport to Local Activities and Fitness On-the-Go."','“Global travel, local workouts.”', '"Fitness without borders."','“Find your gym, meet your tribe.”', '"Stay fit, stay connected, stay Dojo."'] %>"></span>
+      </div>
+      <div class='search-bar'>
+        <%= render 'shared/search_bar' %>
+      </div>
     </div>
-    <div class='search-bar'>
-      <%= render 'shared/search_bar' %>
-    </div>
-    <div class='badge'>
-    <%= image_tag 'editors-choice-badge.png', width: 120 %>
-    </div>
-     <%# <%= render "shared/navbar" %>
+
   </body>

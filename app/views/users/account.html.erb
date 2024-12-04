@@ -8,7 +8,9 @@
   <div class="club-info d-flex">
    <div class='user-info-container d-flex'>
       <div class='prof-picture'>
+
           <%= image_tag 'babycroc.JPG', alt: 'Default Profile Picture', class: 'prof-picture-img' %>
+
       </div>
       <div class='user-info'>
         <p><%= current_user.username %></p>
@@ -18,50 +20,87 @@
       </div>
   </div>
 </div>
+  <div class="settings-profile-borders"></div>
+
     <div class='buttons-container'>
-        <h4 class="account-titles">Settings</h4>
-      <div class='personal-info-button'>
-      <%= link_to personal_info_path do %>
-        <%= image_tag 'user.png', class: 'button-icon' %>
-        Personal Information
-        <% end %>
+     <h4 class="account-titles">Settings</h4>
+      <div class='buttons-card'>
+        <div class='personal-info-button'>
+        <%= link_to personal_info_path do %>
+          <%= image_tag 'user.png', class: 'button-icon' %>
+          Personal Information
+          <% end %>
+        </div>
+        <div class='arrow-button'>
+        <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+        </div>
       </div>
-        <h4 class="account-titles">Your Dojos</h4>
-      <div class='create-dojo-button'>
-       <%= link_to new_club_path do %>
-        <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>
-        Create a Dojo
-        <% end %>
+      <h4 class="account-titles">Your Dojos</h4>
+      <div class='buttons-card'>
+        <div class='create-dojo-button'>
+        <%= link_to new_club_path do %>
+          <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>
+          Create a Dojo
+          <% end %>
+        </div>
+        <div class='arrow-button'>
+        <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+        </div>
       </div>
-      <div class="settings-borders" style='padding: 4px;'></div>
-        <div class='manage-dojos-button'>
-        <%= link_to manage_dojos_path do %>
-        <%= image_tag 'edit-3-svgrepo-com.svg', class: 'button-icon' %>
-        Manage Dojo's
-        <% end %>
+
+      <div class="settings-borders"></div>
+
+        <div class='buttons-card'>
+          <div class='manage-dojos-button'>
+            <%= link_to manage_dojos_path do %>
+            <%= image_tag 'edit-3-svgrepo-com.svg', class: 'button-icon' %>
+            Manage Dojo's
+            <% end %>
+          </div>
+          <div class='arrow-button'>
+          <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+          </div>
         </div>
         <h4 class="account-titles">Support</h4>
-      <div class='contact-page-button'>
-      <%= link_to personal_info_path do %>
-        <%= image_tag 'mail-alt-svgrepo-com.svg', class: 'button-icon' %>
-        Contact Page
-        <% end %>
-        <%= link_to 'Contact Page', contact_path %>
-      </div>
+
+        <div class='buttons-card'>
+          <div class='contact-page-button'>
+          <%= link_to personal_info_path do %>
+            <%= image_tag 'mail-alt-svgrepo-com.svg', class: 'button-icon' %>
+            Contact Page
+            <% end %>
+          </div>
+          <div class= 'arrow-button' >
+          <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+          </div>
+        </div>
+
         <h4 class="account-titles">Legal</h4>
-      <div class='terms-of-service-button'>
-      <%= link_to personal_info_path do %>
-        <%= image_tag 'license-svgrepo-com.svg', class: 'button-icon' %>
-        Terms of Service
-        <% end %>
+        <div class='buttons-card'>
+          <div class='terms-of-service-button'>
+          <%= link_to personal_info_path do %>
+          <%= image_tag 'license-svgrepo-com.svg', class: 'button-icon' %>
+          Terms of Service
+          <% end %>
+        </div>
+        <div class='arrow-button'>
+        <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+        </div>
       </div>
-      <div class="settings-borders" style='padding: 4px;'></div>
+
+      <div class="settings-borders"></div>
+
+      <div class='buttons-card'>
         <div class='privacy-policy-button'>
         <%= link_to personal_info_path do %>
         <%= image_tag 'privacy-dashboard-svgrepo-com.svg', class: 'button-icon' %>
         Privacy Policy
         <% end %>
         </div>
+        <div class='arrow-button'>
+        <%= image_tag 'nextarrow.svg', class: 'nextarrow'%>
+        </div>
+      </div>
       <div class="logout-button">
        <%= link_to 'Logout', destroy_user_session_path,  data: {turbo_method: :delete, turbo_confirm: "You are about to end the session"} %>
       </div>

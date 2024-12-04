@@ -37,7 +37,7 @@ body {
   margin-left: 7px;
   color: black;
   font-family: "Roboto", serif;
-  font-weight: 400;
+  font-weight: 650;
   font-style: normal;
 }
 
@@ -51,14 +51,14 @@ body {
 }
 
 .prof-picture-img {
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
 }
 
 .prof-button {
   font-family: "Roboto", serif;
-  font-weight: 200;
+  font-weight: 400;
   font-style: normal;
   margin-left: 7px;
 }
@@ -68,7 +68,40 @@ body {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 13px;
+  padding-bottom: 10vh;
 
+}
+
+.buttons-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92vw;
+}
+
+.nextarrow {
+  width:20px;
+}
+
+// .arrow-button {
+//   margin-left: auto;
+// }
+
+.settings-borders {
+  padding-left: 87vw;
+  margin-left: 3vw;
+  border-top: 1px solid #A7E6FF;
+  padding-top: 1vh;
+  margin-top: 2vh;
+
+}
+
+.settings-profile-borders {
+  margin-right: 6vw;
+  margin-left: 6vw;
+  border-top: 1px solid #A7E6FF;
+  padding-top: 1vh;
+  margin-top: 2vh;
 }
 
 .create-club-button {
@@ -104,14 +137,14 @@ body {
 .personal-info-button {
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
 .create-dojo-button {
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
   // padding-top: 25px;
   // padding-left: 10px;
@@ -120,29 +153,30 @@ body {
 .manage-dojos-button {
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
 
 .contact-page-button {
+  flex-grow: 1;
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
 .terms-of-service-button {
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
 .privacy-policy-button {
   margin-left: 11px;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -180,7 +214,7 @@ body {
 .clubs-name {
   margin: 0;
   font-family: "Roboto", serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -259,7 +293,7 @@ body {
   flex-direction: column;
   justify-content: center;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
