@@ -1,6 +1,7 @@
 require 'faker'
 require 'open-uri'
 
+Feedback.destroy_all
 Booking.destroy_all
 Activity.destroy_all
 Club.destroy_all
@@ -52,7 +53,7 @@ club_data.each do |club_info|
     details: Faker::Lorem.paragraph(sentence_count: 3),
     address: club_address,
     phone_number: Faker::PhoneNumber.phone_number,
-    instagram_link: Faker::Internet.url(host: 'instagram.com', path: "/#{club_info[:name].downcase.gsub(' ', '')}"),
+    instagram_link: Faker::Internet.username(specifier: 3..15, separators: ['.']),
     image_url: club_info[:image_url],
     IBAN: Faker::Bank.iban,
     user: user

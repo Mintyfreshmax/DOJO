@@ -111,9 +111,10 @@ body {
 
 .location-tag {
   color: white;
-  max-width: 200px;
-  word-break: break-word;
+  font-size: 14px;
   display: flex;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .instagram-tag {
@@ -123,15 +124,9 @@ body {
 }
 
 .phone-tag {
+  padding-left: 5vh;
   max-width: 200px;
   display: flex;
-}
-
-.club-icon-text {
-  color: white;
-  margin-left: 5px;
-  font-size: 15px;
-  margin-top:4px;
 }
 
 .fa-solid {
@@ -158,11 +153,10 @@ map {
 
 
 
-.map-container {
-  width: 300px; /* Adjust the width as needed */
-  height: 300px; /* Adjust the height as needed */
-  margin-left: 20px; /* Add some space between the social links and the map */
-}
+// .map-container {
+//   width: 25vh;
+//   height: 25vh;
+// }
 
 
 // .map {
@@ -184,7 +178,7 @@ map {
 // }
 
 #clubmap-container {
-  height: 22vh;
+  height: 18vh;
   z-index: 0;
   margin: 10px;
   border-radius: 10px;
@@ -197,12 +191,53 @@ map {
   margin-top: 10px;
 }
 
-#activities-index {
-  margin-top: 33px;
+#club-activities-index {
+  margin-top: 3vh;
+  margin-bottom: 10vh;
 }
 
 .activities-title-index {
-  margin-top: 33px;
-  margin-left: 17px;
+  margin-top: 4vh;
   font-weight: bold;
+}
+
+#club-activities-feed-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+}
+
+.activities-title-index {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  color: black;
+  background-color: white;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.activities-title-index.active {
+  background-color: #A7E6FF;
+}
+
+#club-description {
+  font-size: 14px;
+}
+
+.club-address-ig-phone {
+  margin-top: 2vh;
+}
+
+.club-ig-phone {
+  display: flex;
+  justify-content: start;
+}
+
+.club-icon-text {
+  padding-left: 2vh;
 }
