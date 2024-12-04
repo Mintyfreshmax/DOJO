@@ -56,6 +56,7 @@ gem "faker"
 gem "geocoder"
 gem "cloudinary"
 gem 'carrierwave'
+gem 'flatpickr'
 
 group :development, :test do
   gem "dotenv-rails"

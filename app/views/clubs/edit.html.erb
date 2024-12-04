@@ -1,25 +1,43 @@
-<h2>Edit Club</h2>
 
-<%= simple_form_for @club do |f| %>
-  <div>
-    <%= f.input :name %>
-  </div>
-  <div>
-    <%= f.input :details %>
-  </div>
-  <div>
-    <%= f.input :address %>
-  </div>
-  <div>
-    <%= f.input :instagram_link %>
-  </div>
-  <div>
-    <%= f.input :phone_number %>
-  </div>
-  <div>
-    <%= f.input :image, as: :file %>
-  </div>
-  <div>
-    <%= f.button :submit, 'Update Club' %>
-  </div>
+<%= link_to root_path, class: 'back-button' do %>
+  <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
+  Back
 <% end %>
+<div class='form-container' data-controller='focus'>
+  <h2 class="edit-activity" data-focus-target='heading'>Edit Club</h2>
+
+
+
+  <%= simple_form_for @club, html: { class: 'form-horizontal' } do |f| %>
+  <div class='form-container'>
+    <div class="form-group">
+    <%= f.input :name, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :details, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :address, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :instagram_link, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :phone_number, as: :string, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :image, as: :file, input_html: { class: 'form-control-file', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.button :submit, 'Edit Club', class: 'btn btn-primary' %>
+    </div>
+  </div>
+  </div>
+  <% end %>
+
+ <img src="<%= asset_path('yingyang.gif') %>" alt="Ying Yang" data-focus-target="indicator" style="position: absolute; top: 0; left: 0; padding-top: 5px; width: 30px; transition: top 0.3s, left 0.3s;">
+</div>
+
+
+  <%= render "shared/navbar" %>

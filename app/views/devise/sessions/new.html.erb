@@ -1,29 +1,23 @@
-<h2 class="text-center"><strong>Login</strong></h2>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-8 col-sm-10">
-        <div class="card shadow-lg border-0">
-          <div class="card-header bg-white text-black text-center">
-
-            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="form-inputs">
-                <%= f.input :email,
-                            required: false,
-                            autofocus: true,
-                            input_html: { autocomplete: "email" } %>
-                <%= f.input :password,
-                            required: false,
-                            input_html: { autocomplete: "current-password" } %>
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-              </div>
-
-              <div class="form-actions">
-                <%= f.button :submit, "Log in" %>
-              </div>
-            <% end %>
-
-            <%= render "devise/shared/links" %>
+<div class='form-container' data-controller='focus'>
+  <h2 class="edit-activity" data-focus-target='heading'>Sign Up</h2>
+   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class='form-container'>
+          <div class="form-group">
+            <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :remember_me, as: :boolean, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } if devise_mapping.rememberable? %>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.button :submit, 'Sign Up', class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+  <% end %>
+<img src="<%= asset_path('yingyang.gif') %>" alt="Ying Yang" data-focus-target="indicator" style="position: absolute; top: 0; left: 0; padding-top: 5px; width: 30px; transition: top 0.3s, left 0.3s;">
+<%= render "devise/shared/links" %>
+</div>
