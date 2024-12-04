@@ -17,7 +17,7 @@
 
 
 .home-page #search-button {
-  display: block;
+  display: none;
   background-color: lightblue;
   color: #000000;
   border: none;
@@ -33,7 +33,25 @@
 
 .search_picture{
   width: 25px;
-  position: relative;
-  left: -138px;
-  top: 37px;
+}
+
+.search-container{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.search-bar-box{
+  background-color: white;
+  width: 300px;
+  display:flex;
+  margin:auto;
+  padding: 15px;
+  border-radius:35px;
+  border: 1px solid black;
+}
+
+.inputBox{
+border: none;
+outline: none;
+padding-left: 15px;
 }
