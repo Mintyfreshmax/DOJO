@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.club = @club
+    # TODO Sandor: define club.messages in the clubs controller - show
   end
 
   private
