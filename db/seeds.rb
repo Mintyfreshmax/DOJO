@@ -25,14 +25,14 @@ brussels_addresses = [
 
 # Club and activity data for each category
 club_data = [
-  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Boxing Fundamentals", "Cardio Boxing Blast", "Advanced Sparring Techniques"] },
-  { name: "Fit & Fun Yoga Studio", category: "Yoga", activities: ["Morning Vinyasa Flow", "Hot Yoga Session", "Restorative Yoga"] },
-  { name: "Brussels Football Academy", category: "Football", activities: ["Youth Football Training", "Goalkeeper Training", "Adult 5-a-Side"] },
-  { name: "Tennis Club Louise", category: "Racket", activities: ["Beginner Tennis Lessons", "Intermediate Doubles", "Advanced Tennis Drills"] },
-  { name: "Cardio Boost Gym", category: "Cardio", activities: ["High-Intensity Interval Training", "Treadmill Endurance Challenge", "Spin Class Power Hour"] },
-  { name: "Weights & Strength Center", category: "Weights", activities: ["Strength Training Basics", "Powerlifting Workshop", "Functional Strength Training"] },
-  { name: "Brussels Outdoor Adventures", category: "Outdoor", activities: ["Weekend Hiking Group", "Nature Photography Walk", "Outdoor Bootcamp"] },
-  { name: "Aqua Sports Brussels", category: "Water", activities: ["Beginner Swimming Lessons", "Aqua Aerobics", "Water Polo Basics"] }
+  { name: "Brussels Boxing Club", category: "Boxing", activities: ["Boxing Fundamentals", "Cardio Boxing Blast", "Advanced Sparring Techniques"], image_url: "https://bad.brussels/user/pages/01.places/96.Bruxelles%20Bagarre%20Club/nemesis.png" },
+  { name: "Fit & Fun Yoga Studio", category: "Yoga", activities: ["Morning Vinyasa Flow", "Hot Yoga Session", "Restorative Yoga"], image_url:"https://c8.alamy.com/comp/2J6J704/yoga-aerobics-class-funny-meditate-exercise-with-fitness-coach-physical-retreat-women-active-pilates-group-sport-gym-scuola-zen-buddhist-vector-illustration-of-fitness-exercise-by-female-2J6J704.jpg"},
+  { name: "Brussels Football Academy", category: "Football", activities: ["Youth Football Training", "Goalkeeper Training", "Adult 5-a-Side"], image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmbNmwb7UTLm_wrtJW83nwRpfucUCQNNmbKQ&s" },
+  { name: "Tennis Club Louise", category: "Racket", activities: ["Beginner Tennis Lessons", "Intermediate Doubles", "Advanced Tennis Drills"], image_url: "https://rockfieldtennisclub.ie/wp-content/uploads/2023/05/RockfieldLogo.png" },
+  { name: "Cardio Boost Gym", category: "Cardio", activities: ["High-Intensity Interval Training", "Treadmill Endurance Challenge", "Spin Class Power Hour"], image_url: "https://as1.ftcdn.net/v2/jpg/02/97/33/22/1000_F_297332294_ppGVE6QmDdjMoXw8hdgeJOhclbwTvJsa.jpg" },
+  { name: "Weights & Strength Center", category: "Weights", activities: ["Strength Training Basics", "Powerlifting Workshop", "Functional Strength Training"], image_url: "https://img.freepik.com/premium-photo/photo-fitness-center-with-dumbbells-strength-training-equipments_763111-333744.jpg" },
+  { name: "Brussels Outdoor Adventures", category: "Outdoor", activities: ["Weekend Hiking Group", "Nature Photography Walk", "Outdoor Bootcamp"], image_url: "https://outdooradventureclub.com/wp-content/uploads/2021/08/OAC-logo-no-url-or-tagline-clear-Aug-15.png" },
+  { name: "Aqua Sports Brussels", category: "Water", activities: ["Beginner Swimming Lessons", "Aqua Aerobics", "Water Polo Basics"], image_url: "https://www.worldclassfitness.be/wp-content/uploads/2016/10/iconuri-02.png" }
 ]
 
 # Ensure 1 user per club (8 users total)
@@ -54,25 +54,26 @@ club_data.each do |club_info|
     address: club_address,
     phone_number: Faker::PhoneNumber.phone_number,
     instagram_link: Faker::Internet.username(specifier: 3..15, separators: ['.']),
+    image_url: club_info[:image_url],
     IBAN: Faker::Bank.iban,
     user: user
   )
 end
 
     activity = Activity.new(
-      title: "Test San",
-      description: "Join us for an energizing boxing class that will challenge your limits, improve your strength, and boost your confidence. Whether you're a beginner or experienced, our expert instructor will guide you through every punch, jab, and combo. Expect a dynamic mix of cardio, technique, and strength training, all while having fun and pushing yourself to new heights.",
+      title: "MMA classes",
+      description: "Join us for an energizing MMA class that will challenge your limits, improve your strength, and boost your confidence. Whether you're a beginner or experienced, our expert instructor will guide you through every punch, jab, and combo. Expect a dynamic mix of cardio, technique, and strength training, all while having fun and pushing yourself to new heights.",
       teacher: "Sarah Thompson",
       category: "Boxing",
       address: brussels_addresses.sample,
       limit: rand(10..30),
-      event_time: Time.new(2024, 12, 2, 17, 0, 0),
+      event_time: Faker::Time.forward(days: rand(1..30), period: :evening),
       duration: rand(1..3),
       club: Club.find_by(name: "Brussels Boxing Club")
     )
 
-    file = URI.parse("https://media.self.com/photos/587fb60739d082f57cdffb8a/4:3/w_1107,h_830,c_limit/first-boxing-class-boxer-situps.jpg").open
-    activity.image.attach(io: file, filename: "evening-boxing-session.jpg", content_type: "image/jpg")
+    file = URI.parse("https://titleboxingclub.com/wp-content/uploads/2022/08/MMA_VideoThumbnail.jpg").open
+    activity.image.attach(io: file, filename: "MMA-session.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
@@ -91,8 +92,8 @@ end
     activity.save
 
     activity = Activity.new(
-      title: "Ballet for Beginners",
-      description: "Step into the world of ballet with this welcoming and supportive class designed for beginners. Learn the foundational techniques, graceful positions, and basic movements in a calm, encouraging environment. Our experienced instructor, Julia King, will guide you through each step, helping you build strength, flexibility, and poise. Whether you're looking to improve posture, increase flexibility, or simply try something new, this class is the perfect introduction to the beauty of ballet.",
+      title: "Cycling class",
+      description: "Pedal into the world of cycling with this welcoming and supportive class designed for beginners. Learn the fundamental techniques, cycling positions, and basic movements in a fun and motivating environment. Our experienced instructor, Julia King, will guide you through each step, helping you build endurance, strength, and confidence on the bike. Whether you're looking to improve your fitness, increase stamina, or simply try something new, this class is the perfect introduction to the exciting world of cycling.",
       teacher: "Julia King",
       category: "Cardio",
       address: brussels_addresses.sample,
@@ -101,8 +102,8 @@ end
       duration: rand(1..3),
       club: Club.find_by(name: "Cardio Boost Gym")
     )
-    file = URI.parse("https://thedanceacademylehi.com/wp-content/uploads/2022/12/dance-academy-lehi-utah-ballet-solo-1600-sm-b.jpg").open
-    activity.image.attach(io: file, filename: "ballet-for-beginners.jpg", content_type: "image/jpg")
+    file = URI.parse("https://images.squarespace-cdn.com/content/v1/5c8cfa05fd679378b9b8d9df/1696262545311-I1OU9RZ0DENS2R5WAFST/_DSF7061.jpg?format=2500w").open
+    activity.image.attach(io: file, filename: "cycling-class.jpg", content_type: "image/jpg")
     activity.save
 
     activity = Activity.new(
@@ -139,7 +140,7 @@ end
       title: "Fitness Bootcamp",
       description: "Get ready to push your limits and transform your body with our high-energy Fitness Bootcamp! Led by the experienced Jordan Price, this session is designed to challenge you through a series of intense, full-body exercises that build strength, endurance, and agility. Whether you're aiming to lose weight, build muscle, or just get fitter, this bootcamp will keep you motivated and help you achieve your fitness goals. Expect a mix of cardio, strength training, and functional exercises in a supportive group environment. Don't just train—train with purpose and see results!",
       teacher: "Jordan Price",
-      category: "Cardio",
+      category: "Weights",
       address: brussels_addresses.sample,
       limit: rand(10..30),
       event_time: Faker::Time.forward(days: rand(1..30), period: :evening),

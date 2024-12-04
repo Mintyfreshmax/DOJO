@@ -1,6 +1,7 @@
 
 .container-profile-info {
   height: 100%;
+  width: 45vh;
   margin: 0;
   display: flex;
   justify-content: flex-start;
@@ -20,7 +21,6 @@
   }
 
   .profile-box {
-    width: 362px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -199,6 +199,6 @@
     border: none;
     height: 2px;
     background-color: #007bff;
-    width: 100%; /* Full width of the container */
+    width: 40vh;
     margin-top: 20px;
   }

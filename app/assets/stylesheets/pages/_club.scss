@@ -55,6 +55,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  object-fit: contain;
 }
 
 .club-details {
@@ -195,17 +196,13 @@ map {
   margin-bottom: 10vh;
 }
 
-.activities-title-index {
-  margin-top: 4vh;
-  font-weight: bold;
-}
-
 #club-activities-feed-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 1px;
 }
+
 
 .activities-title-index {
   margin: 0;
@@ -222,6 +219,7 @@ map {
 
 .activities-title-index.active {
   background-color: #A7E6FF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
 }
 
 #club-description {
