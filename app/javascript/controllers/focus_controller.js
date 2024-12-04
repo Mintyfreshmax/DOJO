@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["input", "indicator", "heading"];
   connect() {
     this.positionIndicatorNextToHeading();
-
   }
 
   positionIndicatorNextToHeading() {
@@ -22,9 +21,9 @@ export default class extends Controller {
       this.indicatorTarget.style.left = `${rect.right + 10}px`;
 
     }
-}
-focus(event) {
-  this.updateIndicatorPosition();
+  }
+  focus() {
+    this.updateIndicatorPosition();
 
-}
+  }
 }
