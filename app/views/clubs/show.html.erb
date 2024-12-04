@@ -140,7 +140,6 @@
     <div id="club-feed" class="club-feed-form">
       <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <% other_user = current_user == @club.user ? @club.user : @club.restaurant.user %>
         <input type="text" name="message[content]" placeholder="Send a message to <%= @club.name %>..." class="form-input" />
         <button type="submit" class="send-button">
           <span class="arrow-icon">➤</span>
