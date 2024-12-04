@@ -1,0 +1,87 @@
+.feed {
+  margin-bottom: 8vh;
+}
+
+.feed-username-time {
+  display: flex;
+}
+
+.feed-time {
+  padding-left: 2vh;
+}
+
+.feed-user-message {
+  padding-bottom: 2vh;
+}
+
+.club-feed-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  background-color: #f9f9f9;
+  border: 1px solid #dddddd;
+  border-radius: 15px;
+  max-width: 100vh;
+  margin: 0 auto;
+}
+
+.club-feed-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.club-feed-form .form-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 25px;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.club-feed-form .form-input::placeholder {
+  color: #aaa;
+}
+
+.club-feed-form .send-button {
+  background-color: #050C9C;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  outline: none;
+}
+
+.club-feed-form .arrow-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+#message-list {
+  margin: 20px 0;
+}
+
+.message-day {
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 2vh;
+  border-top: 1px solid #eeeeee;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.day-header {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666666;
+}

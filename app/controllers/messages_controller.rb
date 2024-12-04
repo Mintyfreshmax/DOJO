@@ -6,7 +6,13 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.club = @club
-    # TODO Sandor: define club.messages in the clubs controller - show
+    if @message.save
+      redirect_to club_path(@club)
+    else
+      @activities = @club.activities
+      @messages = @club.messages
+      render "clubs/show", status: :unprocessable_entity
+    end
   end
 
   private
@@ -15,7 +21,11 @@ class MessagesController < ApplicationController
     @club = Club.find(params[:club_id])
   end
 
-  def feedback_params
-    params.require(:feedback).permit(:content)
+  def message_params
+    params.require(:message).permit(:content)
   end
 end
+
+# use stimulus controller to hid/show feed (d-none by default) and activities
+# use overflow (css) to make the list of messages scrollable
+# ajaxify the button to show messages dynamically (without reloading page)
