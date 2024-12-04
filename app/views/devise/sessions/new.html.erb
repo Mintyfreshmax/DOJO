@@ -1,5 +1,5 @@
 <div class='form-container' data-controller='focus'>
-  <h2 class="edit-activity" data-focus-target='heading'>Sign Up</h2>
+  <h2 class="edit-activity" data-focus-target='heading'>Login</h2>
    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class='form-container'>
           <div class="form-group">
@@ -13,7 +13,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <%= f.button :submit, 'Sign Up', class: 'btn btn-primary' %>
+              <%= f.button :submit, 'login', class: 'btn btn-primary' %>
             </div>
           </div>
         </div>
