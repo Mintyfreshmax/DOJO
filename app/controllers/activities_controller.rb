@@ -18,6 +18,9 @@ class ActivitiesController < ApplicationController
     elsif params[:category].present?
       @activities = @activities.where("category ILIKE ?", "#{params[:category]}")
     end
+    if params[:date].present?
+      @activities = @activities.where("event_time >= ?", DateTime.parse(params[:date]))
+    end
 
     @markers = @activities.geocoded.map do |activity|
       {

@@ -6,6 +6,7 @@
 
 <h2 class='dashclub-title'><%= current_user.username %>'s Dojos</h2>
 
+
 <div class="container">
   <div id="activities-index">
     <% @clubs.each do |club| %>
@@ -29,13 +30,13 @@
       <% end %>
   </div>
 
-
   <div class='create-button'>
         <%= link_to new_club_path do %>
           <%= image_tag 'add-circle-svgrepo-com.svg', class: 'button-icon' %>
           Create a Dojo
           <% end %>
   </div>
+</div>
 </div>
 
 <%= render "shared/navbar" %>
