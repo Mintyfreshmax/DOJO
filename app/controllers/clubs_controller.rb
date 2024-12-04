@@ -64,6 +64,6 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :username, :image, :details, :address, :instagram_link, :phone_number, :IBAN)
+    params.require(:club).permit(:name, :username, :image, :image_url, :details, :address, :instagram_link, :phone_number, :IBAN)
   end
 end
