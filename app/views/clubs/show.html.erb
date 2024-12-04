@@ -3,8 +3,9 @@
   Back
   <% end %>
 <div class="activity-image" style="position: relative;">
+
   <% if @club.image.attached? %>
-   <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
+    <%= image_tag @club.image_url, alt: 'uploaded-club-image', class: 'club-img' %>
   <% else %>
     <%= image_tag "man_boxing.png", alt: 'default-club-image', class: 'club-img' %>
   <% end %>
