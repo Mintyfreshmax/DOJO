@@ -7,6 +7,9 @@ class ClubsController < ApplicationController
     @club.details = "This is a sample description for the club. It contains detailed information about the club's activities, events, and other relevant information that members might find useful. The description is long enough to test the 'Learn More' functionality, which will reveal the rest of the text when clicked."
     @activities = @club.activities
     @clubs = Club.all
+    @messages = @club.messages
+    @message = Message.new
+    @messages_by_day = @club.messages.order(created_at: :desc).group_by { |message| message.created_at.to_date }
     @markers =
       [{
         lat: @club.latitude,

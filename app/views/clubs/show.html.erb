@@ -76,40 +76,82 @@
   <% end %>
   </div>
 
-<div id="club-activities-feed-buttons">
+<%# <div id="club-activities-feed-buttons">
   <h2 class="activities-title-index active">Activities</h2>
   <h2 class="activities-title-index">Feed</h2>
-</div>
+</div> %>
 
-<div class ="container">
-    <div id="club-activities-index">
-      <% @activities.each do |activity| %>
-        <div class="my_activities-cards">
+<div class="container" data-controller="activities-feed-toggle">
+
+  <div id="club-activities-feed-buttons">
+    <button type="button" data-action="activities-feed-toggle#showActivities" class="activities-title-index active">
+      Activities
+    </button>
+    <button type="button" data-action="activities-feed-toggle#showFeed" class="activities-title-index">
+      Feed
+    </button>
+  </div>
+
+  <div id="club-activities-index" data-activities-feed-toggle-target="activities">
+    <% @activities.each do |activity| %>
+      <div class="my_activities-cards">
         <% if activity.image.attached? %>
-                  <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
-                <% end %>
-                  <div class="my_activities-cards-text">
-                    <h6><strong><%= activity.title %></strong></h6>
-                    <p><strong>Teacher:</strong> <%= activity.teacher %></p>
-                    <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
-                  </div>
-
-                <% if current_user == @club.user %>
-
-                  <div class='manage-buttons'>
-                    <%= link_to edit_club_activity_path(@club, activity) do %>
-                    <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-                    <% end %>
-                    <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-                      <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-                    <% end %>
-                  </div>
-              </div>
+          <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
         <% end %>
-    </div>
-  <% end %>
-</div>
-</div>
+        <div class="my_activities-cards-text">
+          <h6><strong><%= activity.title %></strong></h6>
+          <p><strong>Teacher:</strong> <%= activity.teacher %></p>
+          <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+        </div>
 
+        <% if current_user == @club.user %>
+          <div class='manage-buttons'>
+            <%= link_to edit_club_activity_path(@club, activity) do %>
+              <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+            <% end %>
+            <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+              <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="feed d-none" data-activities-feed-toggle-target="feed">
+    <% @messages_by_day.each do |date, messages| %>
+      <div class="message-day">
+        <% if date == Date.today %>
+          <span class="day-header">Today</span>
+        <% elsif date == Date.yesterday %>
+          <span class="day-header">Yesterday</span>
+        <% else %>
+          <span class="day-header"><%= date.strftime("%B %d, %Y") %></span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% @messages.each do |message| %>
+      <div class="feed-user-message">
+        <div class="feed-username-time">
+          <p><strong><%= message.user.username %></strong></p>
+          <p class="feed-time"><%= message.created_at.strftime("%l:%M %p") %></p>
+        </div>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+
+    <div id="club-feed" class="club-feed-form">
+      <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <% other_user = current_user == @club.user ? @club.user : @club.restaurant.user %>
+        <input type="text" name="message[content]" placeholder="Send a message to <%= @club.name %>..." class="form-input" />
+        <button type="submit" class="send-button">
+          <span class="arrow-icon">➤</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <%= render "shared/navbar" %>
