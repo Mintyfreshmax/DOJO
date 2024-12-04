@@ -7,7 +7,7 @@ body {
   border: none;
   color: white;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 300;
   font-style: normal;
   // border: solid thin white;
   border-radius: 25px;
@@ -75,7 +75,7 @@ body {
   font-size: small;
   color: white;
   font-family: "Roboto", serif;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -104,7 +104,7 @@ body {
 
  justify-content: space-around;
  font-family: "Roboto", serif;
- font-weight: 100;
+ font-weight: 400;
  font-style: normal;
 }
 
@@ -118,8 +118,7 @@ body {
 }
 
 .instagram-tag {
-  max-width: 200px;
-  word-break: break-word;
+  max-width: 300px;
   display: flex;
 }
 
@@ -237,4 +236,7 @@ map {
 
 .club-icon-text {
   padding-left: 2vh;
+  font-family: "Roboto", serif;
+ font-weight: 400;
+ font-style: normal;
 }
