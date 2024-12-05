@@ -2,6 +2,7 @@
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
+
   <div class="activity-image" style="position: relative;">
     <% if @club.image.attached? %>
       <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
@@ -13,6 +14,7 @@
       <p><%= @positive_feedbacks_sum %></p>
     </div>
   </div>
+
 
 <div class= "club-details">
   <div class="club-title">
@@ -131,9 +133,8 @@
           <span class="day-header"><%= date.strftime("%B %d, %Y") %></span>
         <% end %>
       </div>
-    <% end %>
 
-    <% @messages.each do |message| %>
+    <% messages.sort_by(&:created_at).each do |message| %>
       <div class="feed-user-message">
         <div class="feed-username-time">
           <p><strong><%= message.user.username %></strong></p>
@@ -142,6 +143,7 @@
         <p><%= message.content %></p>
       </div>
     <% end %>
+  <% end %>
 
     <div id="club-feed" class="club-feed-form">
       <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
