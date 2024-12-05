@@ -25,7 +25,3 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 end
-
-# use stimulus controller to hid/show feed (d-none by default) and activities
-# use overflow (css) to make the list of messages scrollable
-# ajaxify the button to show messages dynamically (without reloading page)

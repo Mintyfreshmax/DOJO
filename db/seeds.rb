@@ -76,7 +76,7 @@ club = Club.new(
   phone_number: "0475123456",
   IBAN: Faker::Bank.iban(country_code: "BE")
 )
-file = URI.parse("https://c8.alamy.com/comp/2J6J704/yoga-aerobics-class-funny-meditate-exercise-with-fitness-coach-physical-retreat-women-active-pilates-group-sport-gym-scuola-zen-buddhist-vector-illustration-of-fitness-exercise-by-female-2J6J704.jpg").open
+file = URI.parse("https://images.squarespace-cdn.com/content/v1/619b80c86cb83b26d3257984/0be91c21-82bd-4510-9e66-c01b186db4a9/202406_BYL_014_WEB.jpg").open
 club.image.attach(io: file, filename: "Fit_fun.jpg", content_type: "image/jpg")
 club.save
 
