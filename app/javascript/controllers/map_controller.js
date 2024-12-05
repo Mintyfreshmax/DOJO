@@ -27,9 +27,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: 'mapbox://styles/sandorlaz-art/cm4b3fzgo00bo01qt4ga85w2g',
-      center: [0, 0],
-      zoom: 2
+      style: 'mapbox://styles/sandorlaz-art/cm4b3fzgo00bo01qt4ga85w2g'
     });
 
     this.#addMarkersToMap();
@@ -52,6 +50,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 18, duration: 10000 })
   }
 }
