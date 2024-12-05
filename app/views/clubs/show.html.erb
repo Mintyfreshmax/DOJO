@@ -123,18 +123,10 @@
           </div>
         </div>
       <% end %>
-      <% if current_user == @club.user %>
-        <div class='manage-buttons'>
-          <%= link_to edit_club_activity_path(@club, activity) do %>
-            <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-          <% end %>
-          <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-            <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
+
   </div>
+    <% end %>
+
 
 
 <div class="feed d-none" data-activities-feed-toggle-target="feed">

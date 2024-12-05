@@ -11,23 +11,23 @@
   <div id="activities-index">
     <% @clubs.each do |club| %>
       <div class="my_activities-cards">
-      <% if club.image.attached? %>
-                <img class="my_activities-images" src="<%= cl_image_path club.image.key, height: 300, crop: :fill %>">
-              <% end %>
-                <div class="my_activities-cards-text">
-                  <h6><strong><%= club.name %></strong></h6>
-                  <p><strong>Dojo:</strong> <%= club.created_at.strftime("%B %d, %Y") %></p>
-                </div>
-                <div class='manage-buttons'>
-                    <%= link_to club_path(club) do %>
-                      <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-                    <% end %>
-                    <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-                      <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-                    <% end %>
-                  </div>
-            </div>
-      <% end %>
+        <% if club.image.attached? %>
+          <img class="my_activities-images" src="<%= cl_image_path club.image.key, height: 300, crop: :fill %>">
+        <% end %>
+        <div class="my_activities-cards-text">
+          <h6><strong><%= club.name %></strong></h6>
+          <p><strong>Dojo:</strong> <%= club.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+        <div class="manage-buttons">
+          <%= link_to club_path(club) do %>
+            <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+          <% end %>
+          <%= link_to club_path(club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+            <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class='create-button'>
