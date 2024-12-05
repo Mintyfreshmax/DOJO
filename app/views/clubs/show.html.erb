@@ -115,16 +115,16 @@
   </div>
 
   <div class="feed d-none" data-activities-feed-toggle-target="feed">
-    <% @messages_by_day.each do |date, messages| %>
-      <div class="message-day">
-        <% if date == Date.today %>
-          <span class="day-header">Today</span>
-        <% elsif date == Date.yesterday %>
-          <span class="day-header">Yesterday</span>
-        <% else %>
-          <span class="day-header"><%= date.strftime("%B %d, %Y") %></span>
-        <% end %>
-      </div>
+  <% @messages_by_day.each do |date, messages| %>
+    <div class="message-day">
+      <% if date == Date.today %>
+        <span class="day-header">Today</span>
+      <% elsif date == Date.yesterday %>
+        <span class="day-header">Yesterday</span>
+      <% else %>
+        <span class="day-header"><%= date.strftime("%B %d, %Y") %></span>
+      <% end %>
+    </div>
 
     <% messages.sort_by(&:created_at).each do |message| %>
       <div class="feed-user-message">
