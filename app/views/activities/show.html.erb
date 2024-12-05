@@ -14,7 +14,7 @@
   <div class="activity-subtitle">
     <%= link_to club_path(@activity.club) do %>
       <div class='dojo-title' style="display: flex; align-items: center; text-decoration: underline;">
-        <h2><%= @activity.club.name %></h2>
+        <h2 class='activity-club-name'><%= @activity.club.name %></h2>
         <i class="fa-solid fa-user-ninja" style='margin-left: 10px; margin-bottom: 15px;'></i>
        </div>
     <% end %>
