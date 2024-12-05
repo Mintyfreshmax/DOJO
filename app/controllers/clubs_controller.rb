@@ -10,6 +10,8 @@ class ClubsController < ApplicationController
     @messages = @club.messages
     @message = Message.new
     @messages_by_day = @club.messages.order(:created_at).group_by { |message| message.created_at.to_date }
+    @upcoming_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.future? }
+    @attended_activities = current_user.bookings.map(&:activity).select { |activity| activity.event_time.past? }
     @markers =
       [{
         lat: @club.latitude,

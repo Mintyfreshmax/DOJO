@@ -554,6 +554,8 @@ puts "24 activities created 🔥"
 # Specific users bookings
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Kickboxing Classes")
   Booking.create(
     user: user,
@@ -562,6 +564,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "MMA classes")
   Booking.create(
     user: user,
@@ -586,6 +590,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Spin class")
   Booking.create(
     user: user,
@@ -594,6 +600,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Hicking Group")
   Booking.create(
     user: user,
@@ -602,6 +610,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Running Class")
   Booking.create(
     user: user,
@@ -610,6 +620,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Trail Running Adventure")
   Booking.create(
     user: user,
@@ -618,6 +630,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Aqua Gym")
   Booking.create(
     user: user,
@@ -626,6 +640,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Advanced Swimming Techniques")
   Booking.create(
     user: user,
@@ -634,6 +650,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Swimming classes")
   Booking.create(
     user: user,
@@ -642,6 +660,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "High-Intensity Interval Training")
   Booking.create(
     user: user,
@@ -650,6 +670,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Fitness Bootcamp")
   Booking.create(
     user: user,
@@ -658,6 +680,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Go Raw Fitness")
   Booking.create(
     user: user,
@@ -666,6 +690,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Paddle Class")
   Booking.create(
     user: user,
@@ -682,6 +708,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Doubles Tennis Strategy")
   Booking.create(
     user: user,
@@ -690,6 +718,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Goalkeeper Training")
   Booking.create(
     user: user,
@@ -698,6 +728,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Football Club")
   Booking.create(
     user: user,
@@ -706,6 +738,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Football Skills Masterclass")
   Booking.create(
     user: user,
@@ -722,6 +756,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Hot Yoga Session")
   Booking.create(
     user: user,
@@ -730,6 +766,8 @@ specific_users.each do |user|
 end
 
 specific_users.each do |user|
+  next if user.email == "maddie@dojo.com"
+
   activity = Activity.find_by(title: "Vinyasa Flow Yoga")
   Booking.create(
     user: user,

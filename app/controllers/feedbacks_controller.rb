@@ -3,11 +3,11 @@ class FeedbacksController < ApplicationController
   before_action :set_activity, only: :create
 
   def create
-    if Feedback.exists?(user: current_user, activity: @activity)
-      flash[:error] = "You have already provided feedback for this activity."
-      redirect_to activity_feedbacks_path and return
-      raise
-    end
+    # if Feedback.exists?(user: current_user, activity: @activity)
+    #   flash[:error] = "You have already provided feedback for this activity."
+    #   redirect_to activity_feedbacks_path and return
+    #   raise
+    # end
 
     @feedback = Feedback.new(feedback_params)
     @feedback.user = current_user
