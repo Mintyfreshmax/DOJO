@@ -13,6 +13,5 @@ class User < ApplicationRecord
   has_many :clubs
   has_many :bookings
   has_many :feedbacks
-  has_many :activities, through: :clubs
-  has_one_attached :profile_picture
+  has_many :activities, through: :club
 end
