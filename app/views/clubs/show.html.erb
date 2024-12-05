@@ -2,11 +2,17 @@
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
   <% end %>
-<div class="activity-image" style="position: relative;">
-
-    <%= image_tag @club.image_url, alt: 'uploaded-club-image', class: 'club-img' %>
-
-</div>
+  <div class="activity-image" style="position: relative;">
+    <% if @club.image.attached? %>
+      <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
+    <% else %>
+      <%= image_tag "man_boxing.png", alt: 'Default Club Image', class: 'club-img' %>
+    <% end %>
+    <div class="positive-feedbacks-container">
+      <%= image_tag 'thumbs-up.svg', alt: 'Thumbs Up', class: 'thumbs-up-icon' %>
+      <p><%= @positive_feedbacks_sum %></p>
+    </div>
+  </div>
 
 <div class= "club-details">
   <div class="club-title">
