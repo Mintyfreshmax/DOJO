@@ -1,20 +1,19 @@
 <%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
+<% end %>
+
+<div class="activity-image" style="position: relative;">
+  <% if @club.image.attached? %>
+    <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
+  <% else %>
+    <%= image_tag "man_boxing.png", alt: 'Default Club Image', class: 'club-img' %>
   <% end %>
-
-  <div class="activity-image" style="position: relative;">
-    <% if @club.image.attached? %>
-      <%= image_tag @club.image, alt: 'uploaded-club-image', class: 'club-img' %>
-    <% else %>
-      <%= image_tag "man_boxing.png", alt: 'Default Club Image', class: 'club-img' %>
-    <% end %>
-    <div class="positive-feedbacks-container">
-      <%= image_tag 'thumbs-up.svg', alt: 'Thumbs Up', class: 'thumbs-up-icon' %>
-      <p><%= @positive_feedbacks_sum %></p>
-    </div>
+  <div class="positive-feedbacks-container">
+    <%= image_tag 'thumbs-up.svg', alt: 'Thumbs Up', class: 'thumbs-up-icon' %>
+    <p><%= @positive_feedbacks_sum %></p>
   </div>
-
+</div>
 
 <div class= "club-details">
   <div class="club-title">
@@ -23,67 +22,61 @@
       <%= link_to 'Edit', edit_club_path(@club), class: 'button-edit' %>
     <% end %>
   </div>
-    <div class="club-desc" data-controller="toggle-text">
-      <p id="club-description">
-        <%= truncate(@club.details, length: 100) %>
-        <% if @club.details.length > 100 %>
-          <span data-toggle-text-target="moreText" style="display: none;"><%= @club.details[100..-1] %></span>
-          <button data-toggle-text-target="button" data-action="click->toggle-text#toggle" class='button-learn'><u>Learn More</u></button>
-        <% end %>
-      </p>
-   </div>
-
-  <div class="club-address-ig-phone">
-     <div class="social-links">
-        <div class="club-ig-phone">
-          <div class='instagram-tag'>
-            <%= image_tag 'insta.svg', class: 'custom-icon', alt: 'Location icon' %>
-            <p class="club-icon-text">@<%= @club.instagram_link %></p>
-          </div>
-
-
-          <div class='phone-tag'>
-            <%= image_tag 'phone.svg', class: 'custom-icon', alt: 'Location icon' %>
-            <p class="club-icon-text"><%= @club.phone_number %></p>
-          </div>
-        </div>
-
-          <div class='location-tag'>
-            <%= image_tag 'location.svg', class: 'custom-icon', alt: 'Location icon' %>
-            <p class="club-icon-text"><%= @club.address %></p>
-          </div>
-        </div>
-
-        <div class="map-container">
-          <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
-      </div>
+  <div class="club-desc" data-controller="toggle-text">
+    <p id="club-description">
+      <%= truncate(@club.details, length: 100) %>
+      <% if @club.details.length > 100 %>
+        <span data-toggle-text-target="moreText" style="display: none;"><%= @club.details[100..-1] %></span>
+        <button data-toggle-text-target="button" data-action="click->toggle-text#toggle" class='button-learn'><u>Learn More</u></button>
+      <% end %>
+    </p>
   </div>
 
-<div class ="container">
+  <div class="club-address-ig-phone">
+    <div class="social-links">
+      <div class="club-ig-phone">
+        <div class='instagram-tag'>
+          <%= image_tag 'insta.svg', class: 'custom-icon', alt: 'Location icon' %>
+          <p class="club-icon-text">@<%= @club.instagram_link %></p>
+        </div>
+
+
+        <div class='phone-tag'>
+          <%= image_tag 'phone.svg', class: 'custom-icon', alt: 'Location icon' %>
+          <p class="club-icon-text"><%= @club.phone_number %></p>
+        </div>
+      </div>
+
+      <div class='location-tag'>
+        <%= image_tag 'location.svg', class: 'custom-icon', alt: 'Location icon' %>
+        <p class="club-icon-text"><%= @club.address %></p>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <div id="clubmap-container" class="clubmap"data-controller="clubmap" data-clubmap-markers-value="<%= @markers.to_json %>" data-clubmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <% if current_user == @club.user %>
 
-   <div class='manage-club-buttons'>
+    <div class='manage-club-buttons'>
       <div class='edit-delete-button'>
         <div class='edit-dojo'>
           <%= link_to 'Edit Dojo', edit_club_path(@club), class: 'edit-dojo-button' %>
-          </div>
-          <div class='delete-dojo'>
-          <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
-          </div>
         </div>
-        <div class='add-activity'>
-          <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
+        <div class='delete-dojo'>
+          <%= link_to 'Delete Dojo', club_path(@club), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-dojo-button' %>
         </div>
       </div>
+      <div class='add-activity'>
+        <%= link_to 'Add Activity', new_club_activity_path(@club), class: 'add-dojo-button' %>
+      </div>
+    </div>
   <% end %>
-  </div>
-
-<%# <div id="club-activities-feed-buttons">
-  <h2 class="activities-title-index active">Activities</h2>
-  <h2 class="activities-title-index">Feed</h2>
-</div> %>
+</div>
 
 <div class="container" data-controller="activities-feed-toggle">
 
@@ -97,7 +90,9 @@
   </div>
 
   <div id="club-activities-index" data-activities-feed-toggle-target="activities">
-    <% @activities.each do |activity| %>
+
+    <h4 class="my_activities-titles"><strong>Upcoming </strong></h4>
+    <% @upcoming_activities.each do |activity| %>
       <div class="my_activities-cards">
         <% if activity.image.attached? %>
           <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
@@ -107,22 +102,39 @@
           <p><strong>Teacher:</strong> <%= activity.teacher %></p>
           <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
         </div>
+      </div>
+    <% end %>
 
-        <% if current_user == @club.user %>
-          <div class='manage-buttons'>
-            <%= link_to edit_club_activity_path(@club, activity) do %>
-              <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
-            <% end %>
-            <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
-              <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
-            <% end %>
-          </div>
+    <div class="my_activities-index-border"></div>
+
+    <h4 class="my_activities-titles"><strong>What you've attended</strong></h4>
+    <% @attended_activities.each do |activity| %>
+      <div class="my_activities-cards">
+        <% if activity.image.attached? %>
+          <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+        <% end %>
+        <div class="my_activities-cards-text">
+          <h6><strong><%= activity.title %></strong></h6>
+          <p><strong>Teacher:</strong> <%= activity.teacher %></p>
+          <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if current_user == @club.user %>
+      <div class='manage-buttons'>
+        <%= link_to edit_club_activity_path(@club, activity) do %>
+          <%= image_tag 'edit-3-svgrepo-com.svg', class: 'edit-button' %>
+        <% end %>
+        <%= link_to club_activity_path(@club, activity), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-button' do %>
+          <%= image_tag 'delete-trash.svg', class: 'delete-button-img' %>
         <% end %>
       </div>
     <% end %>
   </div>
+</div>
 
-  <div class="feed d-none" data-activities-feed-toggle-target="feed">
+<div class="feed d-none" data-activities-feed-toggle-target="feed">
   <% @messages_by_day.each do |date, messages| %>
     <div class="message-day">
       <% if date == Date.today %>
@@ -135,26 +147,31 @@
     </div>
 
     <% messages.sort_by(&:created_at).each do |message| %>
-      <div class="feed-user-message">
-        <div class="feed-username-time">
-          <p><strong><%= message.user.username %></strong></p>
-          <p class="feed-time"><%= message.created_at.strftime("%l:%M %p") %></p>
+      <div class="feed-user-message-with-image">
+            <% if message.user.image.attached? %>
+              <img class="feed-user-image" src="<%= cl_image_path message.user.image.key, height: 50, crop: :fill %>">
+            <% end %>
+        <div class="feed-user-message">
+          <div class="feed-username-time">
+            <p><strong><%= message.user.username %></strong></p>
+            <p class="feed-time"><%= message.created_at.strftime("%l:%M %p") %></p>
+          </div>
+          <p><%= message.content %></p>
         </div>
-        <p><%= message.content %></p>
       </div>
     <% end %>
   <% end %>
 
-    <div id="club-feed" class="club-feed-form">
-      <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div id="club-feed" class="club-feed-form">
+    <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <input type="text" name="message[content]" placeholder="Send a message to <%= @club.name %>..." class="form-input" />
         <button type="submit" class="send-button">
           <span class="arrow-icon">➤</span>
         </button>
-      </form>
-    </div>
+    </form>
   </div>
+</div>
 </div>
 
 <%= render "shared/navbar" %>

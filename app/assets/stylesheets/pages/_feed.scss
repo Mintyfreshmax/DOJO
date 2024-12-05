@@ -87,3 +87,14 @@
   font-size: 14px;
   color: #666666;
 }
+
+.feed-user-message-with-image {
+  display: flex;
+  justify-content: start;
+}
+
+.feed-user-image {
+  border-radius: 5px;
+  height: 60px;
+  margin: 1vh;
+}
