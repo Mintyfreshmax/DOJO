@@ -25,4 +25,11 @@ export default class extends Controller {
     buttons.forEach((button) => button.classList.remove("active"));
     target.classList.add("active");
   }
+
+  scrollToBottom() {
+    const feed = this.feedTarget;
+    if (feed) {
+      feed.scrollTop = feed.scrollHeight;
+    }
+  }
 }

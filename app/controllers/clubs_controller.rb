@@ -9,7 +9,7 @@ class ClubsController < ApplicationController
     @clubs = Club.all
     @messages = @club.messages
     @message = Message.new
-    @messages_by_day = @club.messages.order(created_at: :desc).group_by { |message| message.created_at.to_date }
+    @messages_by_day = @club.messages.order(:created_at).group_by { |message| message.created_at.to_date }
     @markers =
       [{
         lat: @club.latitude,
