@@ -202,3 +202,26 @@
     width: 40vh;
     margin-top: 20px;
   }
+
+  .back-button {
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 13px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.853);
+    padding: 6px;
+    padding-right: 14px;
+  }
+
+  .back-button-img {
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    margin-top:-3px;
+    margin-left:1px;
+  }
