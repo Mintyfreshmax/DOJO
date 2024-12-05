@@ -1,7 +1,9 @@
-<%= link_to account_path, class: 'back-button' do %>
+
+<%= link_to root_path, class: 'back-button' do %>
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
-  <% end %>
+<% end %>
+
 
 <div class="container-profile-info">
   <div class="profile-page">
@@ -38,22 +40,29 @@
 
   <h1 class="feedback-title">My Feedbacks</h1>
 
+<% if current_user.feedbacks.any? %>
   <% @feedbacks.each do |feedback| %>
     <div class="feedback-header">
-    <%=image_tag "thumbs-up.svg"%>
-    <p class="date-feedback">-<%= feedback.created_at.strftime("%a %b %e at %l:%M %p") %> </p>
+      <%= image_tag "thumbs-up.svg" %>
+      <p class="date-feedback">- <%= feedback.created_at.strftime("%a %b %e at %l:%M %p") %></p>
     </div>
-    <div class= "activity-feedback">
-      <p><strong>Activity:</strong> <%= feedback.activity.title %> </p>
+
+    <div class="activity-feedback">
+      <p><strong>Activity:</strong> <%= feedback.activity.title %></p>
     </div>
-    <div class= "dojo-feedback">
-      <p><strong>Dojo:</strong><%= feedback.activity.club.name %></p>
+
+    <div class="dojo-feedback">
+      <p><strong>Dojo:</strong> <%= feedback.activity.club.name %></p>
     </div>
-    <%# do a link to instead of a a tag plz  %>
+
     <a href="#" class="d-none view-dojo-button">View Dojo</a>
+
     <hr class="blue-line">
   <% end %>
 
+<% else %>
+  <p>No feedbacks available.</p>
+<% end %>
 
 
 
