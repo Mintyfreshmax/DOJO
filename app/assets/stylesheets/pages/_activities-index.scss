@@ -12,7 +12,30 @@
   border-radius: 10px;
   display: flex;
   justify-content: start;
-  align-items: flex-start
+  align-items: flex-start;
+}
+
+.activity-title {
+    font-family: "Comfortaa", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+
+.activity-club-name {
+    font-family: "Comfortaa", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+
+.dojo-title {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .activities-name {
@@ -32,6 +55,9 @@
 
 .activities-subtext {
   color: #404040;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 a {
@@ -75,7 +101,7 @@ a {
   border: 1px solid white;
   position: sticky;
   bottom: 10vh;
-  z-index: 3;
+
   margin: 0 auto;
   display: block;
 }
@@ -117,6 +143,9 @@ a.mapboxgl-ctrl-logo {
   font-size: 12px;
   margin: 0;
   padding: 0;
+  font-family: "Comfortaa", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #index-search-and-categories {

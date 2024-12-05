@@ -48,7 +48,7 @@
   padding: 15px;
   border-radius:35px;
   border: 1px solid black;
-  box-shadow:  3px 12px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.08);
+  box-shadow:  1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.08);
 }
 
 .inputBox{
@@ -60,6 +60,7 @@ padding-left: 15px;
 .search-container {
   position: relative;
   z-index: 20;
+  top: 4px;
 }
 
 .search-bar-box {

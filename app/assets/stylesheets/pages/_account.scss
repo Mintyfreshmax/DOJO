@@ -16,20 +16,29 @@ body {
   padding-top: 20px;
   color: black;
   margin-bottom: 20px;
-  font-family: "Roboto", serif;
+  font-family: "Comfortaa", serif;
   font-weight: 500;
   font-style: normal;
 
 }
 
 .dashclub-title {
+  text-transform: capitalize;
   text-align: center;
-  margin-top: 8px;
-  margin-left: 10px;
-  font-family: "Roboto", serif;
+  margin-top: 23px;
+  margin-left: 64px;
+  font-family: "Comfortaa", serif;
   font-weight: 500;
   font-style: normal;
   padding-bottom: 25px;
+  max-width: 250px;
+}
+
+.username {
+  text-transform: capitalize;
+  font-family: "Comfortaa", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .user-info p {
@@ -123,7 +132,7 @@ body {
 
 .account-titles {
   padding: 27px;
-  font-family: "Roboto", serif;
+  font-family: "Comfortaa", serif;
   font-weight: 500;
   font-style: normal;
   margin-left: -16px;
