@@ -1,8 +1,9 @@
-.feed {
-  max-height: 70vh;
+.messages-list {
+  max-height: 80vh;
   overflow-y: auto;
-  margin-bottom: 8vh;
+  position: relative;
 }
+
 
 .feed-username-time {
   display: flex;
@@ -97,4 +98,12 @@
   border-radius: 5px;
   height: 60px;
   margin: 1vh;
+}
+
+#club-feed-container {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding: 10px 0;
+  margin-bottom: 60px;
 }

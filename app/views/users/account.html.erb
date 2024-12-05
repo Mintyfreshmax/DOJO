@@ -9,7 +9,7 @@
    <div class='user-info-container d-flex'>
       <div class='prof-picture'>
 
-          <%= image_tag 'babycroc.JPG', alt: 'Default Profile Picture', class: 'prof-picture-img' %>
+          <img class="prof-picture-img" src="<%= cl_image_path current_user.image.key, crop: :fill %>">
 
       </div>
       <div class='user-info'>

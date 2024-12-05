@@ -93,32 +93,36 @@
 
     <h4 class="my_activities-titles"><strong>Upcoming </strong></h4>
     <% @upcoming_activities.each do |activity| %>
-      <div class="my_activities-cards">
-        <% if activity.image.attached? %>
-          <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
-        <% end %>
-        <div class="my_activities-cards-text">
-          <h6><strong><%= activity.title %></strong></h6>
-          <p><strong>Teacher:</strong> <%= activity.teacher %></p>
-          <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+      <%= link_to activity_path(activity), class: "my_activities-cards-link" do %>
+        <div class="my_activities-cards">
+          <% if activity.image.attached? %>
+            <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+          <% end %>
+          <div class="my_activities-cards-text">
+            <h6><strong><%= activity.title %></strong></h6>
+            <p><strong>Teacher:</strong> <%= activity.teacher %></p>
+            <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
 
     <div class="my_activities-index-border"></div>
 
-    <h4 class="my_activities-titles"><strong>What you've attended</strong></h4>
+    <h4 class="my_activities-titles"><strong>Past activities</strong></h4>
     <% @attended_activities.each do |activity| %>
-      <div class="my_activities-cards">
-        <% if activity.image.attached? %>
-          <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
-        <% end %>
-        <div class="my_activities-cards-text">
-          <h6><strong><%= activity.title %></strong></h6>
-          <p><strong>Teacher:</strong> <%= activity.teacher %></p>
-          <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+      <%= link_to activity_path(activity), class: "my_activities-cards-link" do %>
+        <div class="my_activities-cards">
+          <% if activity.image.attached? %>
+            <img class="my_activities-images" src="<%= cl_image_path activity.image.key, height: 300, crop: :fill %>">
+          <% end %>
+          <div class="my_activities-cards-text">
+            <h6><strong><%= activity.title %></strong></h6>
+            <p><strong>Teacher:</strong> <%= activity.teacher %></p>
+            <p><%= activity.event_time.present? ? activity.event_time.strftime("%a %b %e at %l:%M %p") : "No event time specified" %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
 
     <% if current_user == @club.user %>
@@ -132,9 +136,10 @@
       </div>
     <% end %>
   </div>
-</div>
 
 <div class="feed d-none" data-activities-feed-toggle-target="feed">
+  <div class="messages-list">
+
   <% @messages_by_day.each do |date, messages| %>
     <div class="message-day">
       <% if date == Date.today %>
@@ -161,15 +166,18 @@
       </div>
     <% end %>
   <% end %>
+  </div>
 
-  <div id="club-feed" class="club-feed-form">
-    <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input type="text" name="message[content]" placeholder="Send a message to <%= @club.name %>..." class="form-input" />
-        <button type="submit" class="send-button">
-          <span class="arrow-icon">➤</span>
-        </button>
-    </form>
+  <div id="club-feed-container">
+    <div id="club-feed" class="club-feed-form">
+      <form action="<%= club_messages_path(@club) %>" method="post" class="club-feed-inner">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <input type="text" name="message[content]" placeholder="Send a message to <%= @club.name %>..." class="form-input" />
+          <button type="submit" class="send-button">
+            <span class="arrow-icon">➤</span>
+          </button>
+      </form>
+    </div>
   </div>
 </div>
 </div>
