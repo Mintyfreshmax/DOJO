@@ -41,6 +41,10 @@ a {
 
 #activities-index-search {
   margin-bottom: 1vh;
+  box-shadow: 0 4px 5px -4px rgba(0, 0, 0, 0.1); /* Add box shadow to the search bar */
+  padding-bottom: 14px; /* Optional: Add padding */
+  border-radius: 8px; /* Optional: Add border radius */
+  background-color: #fff; /* Optional: Add background color */
 }
 
 .activities-index-borders {
@@ -91,17 +95,28 @@ a.mapboxgl-ctrl-logo {
 #index-categories {
   display: flex;
   padding-bottom: 2vh;
-  padding: 5px;
-  max-width: 44vh;
+  padding: 3vw;
+  max-width: 46vh;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.1); /* Bottom box shadow only */
+
 }
+
+
+
 
 .category-item {
   text-align: center;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.category-item strong p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 #index-search-and-categories {
@@ -113,6 +128,7 @@ a.mapboxgl-ctrl-logo {
   display: block;
   padding-bottom: 1vh;
   margin-top: -30px;
+
 }
 
 #map-container {

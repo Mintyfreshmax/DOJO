@@ -55,3 +55,34 @@ border: none;
 outline: none;
 padding-left: 15px;
 }
+
+.search-container {
+  position: relative;
+  z-index: 20;
+}
+
+.search-bar-box {
+  transition: all 0.3s ease;
+  z-index: 20;
+  position: relatitve;
+}
+
+.search-bar-box.expanded {
+  transform: scale(1.2);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.329);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.overlay.hidden {
+  display: none;
+}
