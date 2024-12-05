@@ -16,7 +16,8 @@ class ClubsController < ApplicationController
         lng: @club.longitude,
         marker_html: render_to_string(partial: "activities/markers")
       }]
-  end
+      @positive_feedbacks_sum = @activities.joins(:feedbacks).where(feedbacks: { appreciation: true }).count
+    end
 
   def new
     @club = Club.new

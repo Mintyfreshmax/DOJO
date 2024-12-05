@@ -29,6 +29,7 @@
             <p><%= activity.event_time.strftime("%a %b %e at %l:%M %p") %></p>
             <% end %>
 
+          <% if activity.event_time < Time.current %>
             <div class="my_activities-feedback">
             <p>How was it?</p>
             <div class="my_activities-feedback-thumbs">
@@ -45,9 +46,10 @@
               <%= simple_form_for([activity, Feedback.new], url: activity_feedbacks_path(activity), method: :post, html: { class: "feedback-form" }) do |f| %>
                 <%= f.hidden_field :appreciation, value: false %>
                 <button type="submit" class="thumb-button">
-                  <img src="/assets/thumb-down.svg" alt="Thumb Down">
+                  <%= image_tag 'thumb-down.svg'  alt="Thumb Down" %>
                 </button>
               <% end %>
+          <% end %>
 
               </div>
             </div>
