@@ -1,25 +1,25 @@
-<div class='form-container' data-controller='focus'>
-  <h2 class="edit-activity" data-focus-target='heading'>Sign Up</h2>
+<div class='form-container'>
+  <h2 class="edit-activity">Sign Up</h2>
      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
      <%= f.error_notification %>
       <div class='form-container'>
         <div class="form-group">
-        <%= f.input :first_name, required: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :first_name, required: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
-        <%= f.input :last_name, required: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :last_name, required: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
-        <%= f.input :username, required: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :username, required: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
-        <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
-        <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control-file', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+        <%= f.input :password_confirmation, required: true, input_html: { class: 'form-control-file' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
@@ -28,6 +28,3 @@
       </div>
     </div>
   <% end %>
-
-  <img src="<%= asset_path('arrows.gif') %>" alt="Ying Yang" data-focus-target="indicator" style="position: absolute; top: 0; left: 0; padding-top: 5px; width: 30px; transition: top 0.3s, left 0.3s;">
-</div>

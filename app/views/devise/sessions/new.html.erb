@@ -1,15 +1,15 @@
-<div class='form-container' data-controller='focus'>
-  <h2 class="edit-activity" data-focus-target='heading'>Login</h2>
+<div class='form-container'>
+  <h2 class="edit-activity">Login</h2>
    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class='form-container'>
           <div class="form-group">
-            <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+            <%= f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
           </div>
           <div class="form-group">
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
           </div>
           <div class="form-group">
-            <%= f.input :remember_me, as: :boolean, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } if devise_mapping.rememberable? %>
+            <%= f.input :remember_me, as: :boolean, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } if devise_mapping.rememberable? %>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -18,6 +18,3 @@
           </div>
         </div>
   <% end %>
-<img src="<%= asset_path('yingyang.gif') %>" alt="Ying Yang" data-focus-target="indicator" style="position: absolute; top: 0; left: 0; padding-top: 5px; width: 30px; transition: top 0.3s, left 0.3s;">
-<%= render "devise/shared/links" %>
-</div>

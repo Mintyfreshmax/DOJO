@@ -2,36 +2,36 @@
   <%=image_tag 'backbutton.svg', alt: 'Back', class: 'back-button-img' %>
   Back
 <% end %>
-<div class='form-container' data-controller='focus'>
-  <h2 class="edit-activity" data-focus-target='heading'>Edit Activity</h2>
+<div class='form-container'>
+  <h2 class="edit-activity">Edit Activity</h2>
 
 
 
   <%= simple_form_for [@club, @activity], html: { class: 'form-horizontal' } do |f| %>
   <div class='form-container'>
     <div class="form-group">
-    <%= f.input :title, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :title, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :description, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :description, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :teacher, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :teacher, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :address, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :address, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :event_time, as: :string, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus", controller: "flatpickr" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :event_time, as: :string, input_html: { class: 'form-control', data: { controller: "flatpickr" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :duration, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :duration, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :category, input_html: { class: 'form-control', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :category, input_html: { class: 'form-control' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
-    <%= f.input :image, as: :file, input_html: { class: 'form-control-file', data: { focus_target: "input", action: "focus->focus#focus" } }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
+    <%= f.input :image, as: :file, input_html: { class: 'form-control-file' }, wrapper_html: { class: 'col-sm-10' }, label_html: { class: 'col-sm-2 control-label' } %>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -40,10 +40,9 @@
   </div>
   </div>
   <% end %>
-
- <img src="<%= asset_path('yingyang.gif') %>" alt="Ying Yang" data-focus-target="indicator" style="position: absolute; top: 0; left: 0; padding-top: 5px; width: 30px; transition: top 0.3s, left 0.3s;">
 </div>
+
+
 
 
   <%= render "shared/navbar" %>
-</div>
